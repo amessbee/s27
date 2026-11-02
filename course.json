@@ -3,11 +3,11 @@
   "title": "Graph Machine Learning",
   "tagline": "Read the paper. Build the model. Ask the next question.",
   "description": "A research and practice course on learning from connected data. Begin with graph theory, random walks, and PageRank; move through DeepWalk, node2vec, graph convolution, attention, adversarial learning, and graph transformers. Read critically, reproduce results, and develop an original, carefully evaluated research project.",
-  "status": "Proposed research and practice course plan. Semester, timetable, credits, and assessment weights require confirmation.",
+  "status": "Research and practice course plan. Semester, timetable, credits, and assessment weights require confirmation.",
   "semester": "To be announced",
   "instructor": "Dr. Mudassir Shabbir",
-  "credits": "3 credit hours proposed",
-  "duration": "16 weeks proposed, including examinations",
+  "credits": "3 credit hours",
+  "duration": "16 weeks, including examinations",
   "meetings": "Two 75-minute lectures per week, with integrated research discussions and practical studios. Optional TA clinic; timing to be announced.",
   "workload": "Plan for approximately 8–10 hours outside class each week; implementation and project deadlines may require more. The instructor will calibrate scope to available compute.",
   "prerequisites": [
@@ -64,7 +64,7 @@
     "Choose at least one random-walk or spectral paper, one message-passing or attention paper, one advanced paper, one evaluation or reliability paper, and one paper aligned with the project. For a theoretical or benchmark paper, implement its central diagnostic, counterexample, or evaluation protocol.",
     "Each study includes a concise critical brief, runnable code with a documented environment, a reproduced central result, one controlled ablation or stress test, an experiment log, and a presentation with questions. Small-scale reproductions are acceptable when the scope and departures are declared.",
     "Both partners must understand every selected paper and contribute to implementation and presentation. Use contribution statements and brief individual oral checks. Cite reused code and distinguish the group's implementation from upstream code.",
-    "Proposed portfolio checkpoints are weeks 4, 6, 9, 11, and 13. Each checkpoint includes a short live presentation in class or a parallel studio. Recorded full explanations and rotating live discussions keep the workload feasible as enrollment grows."
+    "Portfolio checkpoints are weeks 4, 6, 9, 11, and 13. Each checkpoint includes a short live presentation in class or a parallel studio. Recorded full explanations and rotating live discussions keep the workload feasible as enrollment grows."
   ],
   "phases": [
     {
