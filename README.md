@@ -11,9 +11,9 @@ A research and practice course moving from graph theory and PageRank through gra
 - [PyG introduction by example](https://pytorch-geometric.readthedocs.io/en/latest/get_started/introduction.html)
 - [Open Graph Benchmark getting started](https://ogb.stanford.edu/docs/home/)
 
-The course proposes a 16-week schedule. Groups, normally pairs, understand, implement, evaluate, and present at least five papers. Assessment includes surprise quizzes, a midterm, a final examination, and a phased research project. Every student individually writes and submits a research paper on the project. Publication acceptance is not required.
+Offered in **Spring 2027**, the course follows a 16-week schedule. Groups, normally pairs, understand, implement, evaluate, and present at least five papers. Assessment includes surprise quizzes, a midterm, a final examination, and a phased research project. Every student individually writes and submits a research paper on the project. Publication acceptance is not required.
 
-The instructor is Dr. Mudassir Shabbir, office 47A-9G, with office hours Tuesday and Thursday, 1–2 pm; email Mudassir.shabbir@lums.edu.pk. The course has two 75-minute lectures per week and is open to junior/senior undergraduates and graduate students. Students without prerequisite preparation require instructor permission. The semester, timetable, credits, and assessment weights will be confirmed. The completed form preserves the supplied university support and policy text; current official university guidance remains authoritative.
+The instructor is Dr. Mudassir Shabbir, office 47A-9G, with office hours Tuesday and Thursday, 1–2 pm; email Mudassir.shabbir@lums.edu.pk. The course has two 75-minute lectures per week and is open to junior/senior undergraduates and graduate students. Students without prerequisite preparation require instructor permission. The timetable, credits, and assessment weights will be confirmed. The completed form preserves the supplied university support and policy text; current official university guidance remains authoritative.
 
 ## Source files
 
