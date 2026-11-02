@@ -1,0 +1,537 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,xcolor,enumitem,hyperref,fancyhdr,needspace}
+\definecolor{ink}{HTML}{183CB5}
+\hypersetup{colorlinks=true,urlcolor=ink,linkcolor=ink,pdftitle={CS4308 Graph Machine Learning Reading List},pdfauthor={CS4308 Course Materials}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small CS4308 / Graph Machine Learning}\fancyhead[R]{\small Reading companion}\fancyfoot[R]{\thepage}
+\setlength{\headheight}{14pt}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlist[itemize]{leftmargin=*,nosep}\urlstyle{same}
+\begin{document}
+{\Large\bfseries CS4308 Graph Machine Learning}\par
+{\huge\bfseries Fifty papers to read and build}\par
+\vspace{5pt}
+A curated path from graph structure and random walks to neural message passing, transformers, generation, and reliable evaluation. This is a foundational research syllabus, not an exhaustive survey of the newest literature. Bibliographic sources were checked in November 2026. The year shown is the cited publication year; an arXiv preprint may be earlier. Workshop papers are identified explicitly.
+\section*{How to use this list}
+The class collectively discusses all 50 papers. Each group, normally a pair, must understand, implement, evaluate, and present at least five distinct papers. Register a balanced selection: one random-walk or spectral method, one message-passing or attention method, one advanced method, one evaluation or reliability paper, and one project-aligned paper. For theory and benchmark papers, implement a central diagnostic or evaluation protocol.
+
+Submit a critical brief, reproducible code, a central result, one ablation or stress test, and a presentation for each study. Small-scale reproductions are acceptable when explicitly scoped. Both partners must contribute and defend the work. Suggested checkpoints are weeks 4, 6, 9, 11, and 13. This reading companion uses the same P01--P50 identifiers as the course outline and website.
+
+GAN means generative adversarial network; GAT means graph attention network. P43 supplies the general GAN prerequisite, while P44 and P45 apply adversarial objectives to graph representation or generation.
+\section*{Weekly reading map}
+
+\textbf{Week 2: Spectral structure and random walks.} P01, P02\par
+\textbf{Week 3: Learning with walks.} P03, P04, P05, P06\par
+\textbf{Week 4: From graph signals to GCNs.} P07, P08, P09\par
+\textbf{Week 5: Message passing and attention.} P10, P11, P12, P15\par
+\textbf{Week 6: Expressivity and graph prediction.} P13, P14, P16, P17, P21\par
+\textbf{Week 7: When graph learning fails.} P18, P19, P20, P22, P23, P24\par
+\textbf{Week 9: Scaling and self-supervision.} P25, P26, P27, P29, P30, P31, P32\par
+\textbf{Week 10: Relations and time.} P33, P34, P35, P36, P37\par
+\textbf{Week 11: Graph transformers.} P38, P39, P40, P41, P42\par
+\textbf{Week 12: Adversarial and generative graph learning.} P43, P44, P45, P46, P47\par
+\textbf{Week 13: Trustworthy graph research.} P28, P48, P49, P50\par
+\clearpage\section*{Foundations and embeddings}
+\begin{minipage}{\linewidth}
+{\large\bfseries P01 The PageRank Citation Ranking: Bringing Order to the Web}\par
+Lawrence Page et al. Stanford InfoLab Technical Report 1999-66, 1999.\par
+\textbf{Why read it.} Connects graph centrality, Markov chains, and ranking before learned representations.\par
+\textbf{Build or investigate.} Implement power iteration with teleportation; test dangling nodes and sensitivity to the damping factor.\par
+\textbf{Level.} Foundation\quad\href{http://ilpubs.stanford.edu:8090/422/}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P02 Laplacian Eigenmaps and Spectral Techniques for Embedding and Clustering}\par
+Mikhail Belkin and Partha Niyogi. NeurIPS (then NIPS), 2001.\par
+\textbf{Why read it.} Introduces the graph Laplacian as a bridge between geometry, embeddings, and spectral learning.\par
+\textbf{Build or investigate.} Compute two-dimensional spectral embeddings of a small graph; compare neighborhoods with a random layout.\par
+\textbf{Level.} Foundation\quad\href{https://papers.nips.cc/paper_files/paper/2001/hash/f106b7f99d2cb30c3db1c3cc0fde9ccb-Abstract.html}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P03 DeepWalk: Online Learning of Social Representations}\par
+Bryan Perozzi et al. KDD, 2014.\par
+\textbf{Why read it.} Turns short random walks into a practical unsupervised representation-learning pipeline.\par
+\textbf{Build or investigate.} Implement walk generation and skip-gram training; evaluate node classification with a fixed split.\par
+\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1403.6652}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P04 LINE: Large-scale Information Network Embedding}\par
+Jian Tang et al. WWW, 2015.\par
+\textbf{Why read it.} Separates first-order and second-order proximity and introduces efficient edge sampling.\par
+\textbf{Build or investigate.} Implement the two proximity objectives and compare their concatenation on link prediction.\par
+\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1503.03578}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P05 node2vec: Scalable Feature Learning for Networks}\par
+Aditya Grover and Jure Leskovec. KDD, 2016.\par
+\textbf{Why read it.} Shows how biased walks trade off local neighborhoods and structural roles.\par
+\textbf{Build or investigate.} Sweep return and exploration parameters against DeepWalk using identical downstream evaluation.\par
+\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1607.00653}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P06 Network Embedding as Matrix Factorization: Unifying DeepWalk, LINE, PTE, and node2vec}\par
+Jiezhong Qiu et al. WSDM, 2018.\par
+\textbf{Why read it.} Explains random-walk embeddings through matrix factorization and spectral graph structure.\par
+\textbf{Build or investigate.} Construct NetMF on a small graph and compare it with sampled DeepWalk embeddings.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1710.02971}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\clearpage\section*{Graph neural networks}
+\begin{minipage}{\linewidth}
+{\large\bfseries P07 Spectral Networks and Locally Connected Networks on Graphs}\par
+Joan Bruna et al. ICLR, 2014.\par
+\textbf{Why read it.} Provides a historical starting point for learned convolution in a graph Fourier basis.\par
+\textbf{Build or investigate.} Implement one spectral filtering layer and measure how its parameters depend on the graph basis.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1312.6203}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P08 Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering}\par
+Michaël Defferrard et al. NeurIPS (then NIPS), 2016.\par
+\textbf{Why read it.} Replaces expensive eigendecomposition with localized polynomial filters.\par
+\textbf{Build or investigate.} Implement Chebyshev recurrence; compare polynomial order, receptive field, runtime, and accuracy.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1606.09375}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P09 Semi-Supervised Classification with Graph Convolutional Networks}\par
+Thomas N. Kipf and Max Welling. ICLR, 2017.\par
+\textbf{Why read it.} Establishes a compact, reproducible baseline for learning from node features and edges.\par
+\textbf{Build or investigate.} Implement a two-layer GCN; ablate self-loops, normalization, and feature-only baselines.\par
+\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1609.02907}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P10 Inductive Representation Learning on Large Graphs}\par
+William L. Hamilton et al. NeurIPS (then NIPS), 2017.\par
+\textbf{Why read it.} Introduces neighborhood sampling and aggregation for generalization to unseen nodes.\par
+\textbf{Build or investigate.} Implement mean aggregation with sampling and evaluate a genuine inductive node split.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1706.02216}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P11 Neural Message Passing for Quantum Chemistry}\par
+Justin Gilmer et al. ICML, 2017.\par
+\textbf{Why read it.} Unifies many graph architectures through message, update, and readout functions.\par
+\textbf{Build or investigate.} Build a small edge-aware message-passing model for one molecular regression target.\par
+\textbf{Level.} Intermediate\quad\href{https://proceedings.mlr.press/v70/gilmer17a.html}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P12 Graph Attention Networks}\par
+Petar Veli\v{c}kovi\'c et al. ICLR, 2018.\par
+\textbf{Why read it.} Introduces learned neighborhood weighting and multi-head attention.\par
+\textbf{Build or investigate.} Implement masked graph attention; compare heads and attention dropout with GCN.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1710.10903}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P13 How Powerful are Graph Neural Networks?}\par
+Keyulu Xu et al. ICLR, 2019.\par
+\textbf{Why read it.} Relates aggregation to graph isomorphism and motivates the Graph Isomorphism Network.\par
+\textbf{Build or investigate.} Implement GIN and test sum versus mean aggregation on controlled multiset and graph examples.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1810.00826}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P14 Hierarchical Graph Representation Learning with Differentiable Pooling}\par
+Rex Ying et al. NeurIPS, 2018.\par
+\textbf{Why read it.} Introduces learned graph coarsening for prediction over entire graphs.\par
+\textbf{Build or investigate.} Implement one DiffPool stage and compare it with global mean pooling under matched budgets.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1806.08804}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P15 Gated Graph Sequence Neural Networks}\par
+Yujia Li et al. ICLR, 2016.\par
+\textbf{Why read it.} Connects recurrent gated updates to reasoning on graph structure.\par
+\textbf{Build or investigate.} Implement gated propagation on a synthetic reachability or shortest-path task.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1511.05493}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P16 Simplifying Graph Convolutional Networks}\par
+Felix Wu et al. ICML, 2019.\par
+\textbf{Why read it.} Tests whether nonlinear depth is necessary and supplies a strong inexpensive baseline.\par
+\textbf{Build or investigate.} Reproduce SGC and compare propagation depth, training time, and accuracy against GCN.\par
+\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1902.07153}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P17 Predict then Propagate: Graph Neural Networks meet Personalized PageRank}\par
+Johannes Gasteiger et al. ICLR, 2019.\par
+\textbf{Why read it.} Connects the opening PageRank material to decoupled neural prediction and diffusion.\par
+\textbf{Build or investigate.} Implement APPNP and sweep teleportation probability and propagation steps.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1810.05997}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\clearpage\section*{Expressivity and limitations}
+\begin{minipage}{\linewidth}
+{\large\bfseries P18 Geom-GCN: Geometric Graph Convolutional Networks}\par
+Hongbin Pei et al. ICLR, 2020.\par
+\textbf{Why read it.} Explores geometric neighborhoods when ordinary local aggregation misses useful structure.\par
+\textbf{Build or investigate.} Compare geometric and adjacency neighborhoods using documented public data splits.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2002.05287}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P19 Beyond Homophily in Graph Neural Networks: Current Limitations and Effective Designs}\par
+Jiong Zhu et al. NeurIPS, 2020.\par
+\textbf{Why read it.} Studies graphs whose connected nodes differ and motivates separating ego and neighbor information.\par
+\textbf{Build or investigate.} Implement an H2GCN-style baseline and vary homophily on synthetic graphs.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2006.11468}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P21 Weisfeiler and Leman Go Neural: Higher-order Graph Neural Networks}\par
+Christopher Morris et al. AAAI, 2019.\par
+\textbf{Why read it.} Examines the expressivity ceiling of standard message passing and higher-order alternatives.\par
+\textbf{Build or investigate.} Construct graph pairs that defeat 1-WL and compare a small higher-order model.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1810.02244}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P22 On the Bottleneck of Graph Neural Networks and its Practical Implications}\par
+Uri Alon and Eran Yahav. ICLR, 2021.\par
+\textbf{Why read it.} Introduces over-squashing as a failure of information transmission across graph bottlenecks.\par
+\textbf{Build or investigate.} Reproduce a small long-range task and compare added shortcuts with increased hidden dimension.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2006.05205}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P23 Understanding over-squashing and bottlenecks on graphs via curvature}\par
+Jake Topping et al. ICLR, 2022.\par
+\textbf{Why read it.} Gives a geometric account of bottlenecks and a principled graph-rewiring approach.\par
+\textbf{Build or investigate.} Implement or adapt curvature-based rewiring; compare against random edge additions at equal budget.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2111.14522}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P24 PairNorm: Tackling Oversmoothing in GNNs}\par
+Lingxiao Zhao and Leman Akoglu. ICLR, 2020.\par
+\textbf{Why read it.} Separates representation collapse with depth from other GNN limitations.\par
+\textbf{Build or investigate.} Implement PairNorm and plot node-embedding distances and accuracy as depth increases.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1909.12223}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\clearpage\section*{Evaluation and trust}
+\begin{minipage}{\linewidth}
+{\large\bfseries P20 Pitfalls of Graph Neural Network Evaluation}\par
+Oleksandr Shchur et al. NeurIPS Relational Representation Learning Workshop, 2018.\par
+\textbf{Why read it.} Makes split choice, fair tuning, and uncertainty central to claims about model quality.\par
+\textbf{Build or investigate.} Implement a shared evaluation harness for GCN and GAT across several splits and random seeds.\par
+\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1811.05868}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P28 Open Graph Benchmark: Datasets for Machine Learning on Graphs}\par
+Weihua Hu et al. NeurIPS, 2020.\par
+\textbf{Why read it.} Supplies task-specific datasets, realistic splits, and standardized evaluators.\par
+\textbf{Build or investigate.} Implement an OGB baseline and document why its official split and metric match the task.\par
+\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/2005.00687}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P48 GNNExplainer: Generating Explanations for Graph Neural Networks}\par
+Rex Ying et al. NeurIPS, 2019.\par
+\textbf{Why read it.} Explores which subgraphs and features support a GNN prediction.\par
+\textbf{Build or investigate.} Implement explanation masks on a motif dataset; measure fidelity, sparsity, and stability.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1903.03894}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P49 Adversarial Attacks on Graph Neural Networks via Meta Learning}\par
+Daniel Z\"ugner and Stephan G\"unnemann. ICLR, 2019.\par
+\textbf{Why read it.} Studies sensitivity to training-graph perturbations and motivates robust evaluation.\par
+\textbf{Build or investigate.} On a public benchmark, compare controlled edge perturbations with random edits and report accuracy degradation.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1902.08412}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P50 Temporal Graph Benchmark for Machine Learning on Temporal Graphs}\par
+Shenyang Huang et al. NeurIPS Datasets and Benchmarks Track, 2023.\par
+\textbf{Why read it.} Makes temporal splits, realistic negative candidates, and simple baselines part of credible research.\par
+\textbf{Build or investigate.} Implement an official temporal baseline and compare it with a recent-history heuristic.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2307.01026}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\clearpage\section*{Scalable learning}
+\begin{minipage}{\linewidth}
+{\large\bfseries P25 Cluster-GCN: An Efficient Algorithm for Training Deep and Large Graph Convolutional Networks}\par
+Wei-Lin Chiang et al. KDD, 2019.\par
+\textbf{Why read it.} Uses graph partitions to make minibatch training memory-efficient.\par
+\textbf{Build or investigate.} Train on cluster batches; report peak memory, epoch time, and accuracy against neighbor sampling.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1905.07953}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P26 GraphSAINT: Graph Sampling Based Inductive Learning Method}\par
+Hanqing Zeng et al. ICLR, 2020.\par
+\textbf{Why read it.} Studies subgraph sampling with normalization to improve training efficiency.\par
+\textbf{Build or investigate.} Implement one subgraph sampler and test the contribution of sampling normalization.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1907.04931}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P27 SIGN: Scalable Inception Graph Neural Networks}\par
+Fabrizio Frasca et al. ICML Graph Representation Learning and Beyond Workshop, 2020.\par
+\textbf{Why read it.} Shows how precomputed graph filters can trade storage for fast training.\par
+\textbf{Build or investigate.} Precompute multiple propagation scales and include preprocessing time in comparisons with GraphSAGE.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2004.11198}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\clearpage\section*{Self-supervised learning}
+\begin{minipage}{\linewidth}
+{\large\bfseries P29 Deep Graph Infomax}\par
+Petar Veli\v{c}kovi\'c et al. ICLR, 2019.\par
+\textbf{Why read it.} Introduces node representation learning through local-global contrast.\par
+\textbf{Build or investigate.} Implement DGI and test feature corruption with a frozen linear evaluation protocol.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1809.10341}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P30 Graph Contrastive Learning with Augmentations}\par
+Yuning You et al. NeurIPS, 2020.\par
+\textbf{Why read it.} Makes graph augmentations a central design choice in contrastive pretraining.\par
+\textbf{Build or investigate.} Implement two graph augmentations and assess whether they preserve labels on the chosen dataset.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2010.13902}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P31 Large-Scale Representation Learning on Graphs via Bootstrapping}\par
+Shantanu Thakoor et al. ICLR, 2022.\par
+\textbf{Why read it.} Explores self-supervision without explicit negative pairs and its memory implications.\par
+\textbf{Build or investigate.} Implement a teacher-student moving-average update and ablate stop-gradient or predictor design.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2102.06514}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P32 GraphMAE: Self-Supervised Masked Graph Autoencoders}\par
+Zhenyu Hou et al. KDD, 2022.\par
+\textbf{Why read it.} Uses masked feature reconstruction as an alternative to contrastive objectives.\par
+\textbf{Build or investigate.} Implement masked reconstruction and compare masking ratios with a supervised baseline.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2205.10803}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\clearpage\section*{Heterogeneous and temporal graphs}
+\begin{minipage}{\linewidth}
+{\large\bfseries P33 Modeling Relational Data with Graph Convolutional Networks}\par
+Michael Schlichtkrull et al. ESWC, 2018.\par
+\textbf{Why read it.} Extends message passing to typed relations and knowledge-graph completion.\par
+\textbf{Build or investigate.} Implement basis-decomposed R-GCN on a small relational dataset with leakage-aware edge splits.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1703.06103}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P34 Heterogeneous Graph Attention Network}\par
+Xiao Wang et al. WWW, 2019.\par
+\textbf{Why read it.} Separates attention over neighbors from attention over semantic meta-paths.\par
+\textbf{Build or investigate.} Implement two meta-path channels and compare learned semantic attention with uniform weighting.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1903.07293}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P35 Heterogeneous Graph Transformer}\par
+Ziniu Hu et al. WWW, 2020.\par
+\textbf{Why read it.} Combines type-dependent attention, temporal encodings, and heterogeneous sampling.\par
+\textbf{Build or investigate.} Implement type-specific projections and ablate node and relation types on a manageable graph.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2003.01332}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P36 Inductive Representation Learning on Temporal Graphs}\par
+Da Xu et al. ICLR, 2020.\par
+\textbf{Why read it.} Introduces temporal attention with continuous-time encodings.\par
+\textbf{Build or investigate.} Implement TGAT-style temporal neighbors and verify every prediction uses only past events.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2002.07962}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P37 Temporal Graph Networks for Deep Learning on Dynamic Graphs}\par
+Emanuele Rossi et al. ICML Graph Representation Learning and Beyond Workshop, 2020.\par
+\textbf{Why read it.} Introduces event-driven memory for learning on changing graphs.\par
+\textbf{Build or investigate.} Implement a reduced TGN pipeline and compare memory updates with a memory-free temporal model.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2006.10637}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\clearpage\section*{Graph transformers}
+\begin{minipage}{\linewidth}
+{\large\bfseries P38 A Generalization of Transformer Networks to Graphs}\par
+Vijay Prakash Dwivedi and Xavier Bresson. AAAI Workshop on Deep Learning on Graphs, 2021.\par
+\textbf{Why read it.} Introduces a clear graph-transformer baseline with Laplacian positional information.\par
+\textbf{Build or investigate.} Implement sparse graph attention with Laplacian encodings and test the effect of removing positions.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2012.09699}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P39 Do Transformers Really Perform Bad for Graph Representation?}\par
+Chengxuan Ying et al. NeurIPS, 2021.\par
+\textbf{Why read it.} Shows how structural encodings make global attention useful for graph prediction.\par
+\textbf{Build or investigate.} Implement a compact Graphormer and ablate degree and shortest-path encodings.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2106.05234}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P40 Rethinking Graph Transformers with Spectral Attention}\par
+Devin Kreuzer et al. NeurIPS, 2021.\par
+\textbf{Why read it.} Studies learned spectral position encodings and fully connected attention.\par
+\textbf{Build or investigate.} Implement a small spectral encoder and examine eigenvector-sign perturbations and graph-size cost.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2106.03893}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P41 Recipe for a General, Powerful, Scalable Graph Transformer}\par
+Ladislav Ramp\'ašek et al. NeurIPS, 2022.\par
+\textbf{Why read it.} Combines local message passing, global attention, and position or structure encodings.\par
+\textbf{Build or investigate.} Implement one GPS block and perform a three-component ablation under a fixed parameter budget.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2205.12454}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P42 Exphormer: Sparse Transformers for Graphs}\par
+Hamed Shirzad et al. ICML, 2023.\par
+\textbf{Why read it.} Uses sparse attention patterns to make graph transformers practical on larger graphs.\par
+\textbf{Build or investigate.} Implement expander-style sparse attention and compare memory and accuracy with dense attention.\par
+\textbf{Level.} Advanced\quad\href{https://proceedings.mlr.press/v202/shirzad23a.html}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\clearpage\section*{Generative graph learning}
+\begin{minipage}{\linewidth}
+{\large\bfseries P43 Generative Adversarial Nets}\par
+Ian J. Goodfellow et al. NeurIPS (then NIPS), 2014.\par
+\textbf{Why read it.} Provides the adversarial-learning prerequisite; this paper itself is not a graph model.\par
+\textbf{Build or investigate.} Implement a small GAN on a toy distribution and diagnose instability before attempting graph generation.\par
+\textbf{Level.} Foundation\quad\href{https://papers.nips.cc/paper/2014/hash/f033ed80deb0234979a61f95710dbe25-Abstract.html}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P44 GraphGAN: Graph Representation Learning with Generative Adversarial Nets}\par
+Hongwei Wang et al. AAAI, 2018.\par
+\textbf{Why read it.} Applies adversarial training to connectivity distributions for graph embeddings.\par
+\textbf{Build or investigate.} Implement a small generator-discriminator link model and compare with a random-walk embedding baseline.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1711.08267}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P45 MolGAN: An implicit generative model for small molecular graphs}\par
+Nicola De Cao and Thomas Kipf. ICML Workshop on Theoretical Foundations and Applications of Deep Generative Models, 2018.\par
+\textbf{Why read it.} Combines adversarial graph generation with property objectives and exposes mode collapse.\par
+\textbf{Build or investigate.} Implement a reduced small-molecule generator; report validity, uniqueness, novelty, and diversity.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1805.11973}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P46 GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models}\par
+Jiaxuan You et al. ICML, 2018.\par
+\textbf{Why read it.} Provides an autoregressive alternative to adversarial graph generation.\par
+\textbf{Build or investigate.} Implement a small sequential graph generator and compare degree and clustering distributions.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1802.08773}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P47 DiGress: Discrete Denoising Diffusion for Graph Generation}\par
+Cl\'ement Vignac et al. ICLR, 2023.\par
+\textbf{Why read it.} Introduces categorical diffusion for graph structure and attributes.\par
+\textbf{Build or investigate.} Implement a reduced discrete diffusion model on small synthetic graphs and evaluate structural validity.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2209.14734}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\clearpage\section*{Twenty illustrative research projects}
+A rigorous replication with a meaningful extension, a careful negative result, or a focused new method can all make a strong project. Publication acceptance is not a grading criterion. The required paper is submitted to the course; external conference or journal submission is optional and requires agreement among the authors.\par
+These are scoped research suggestions. Agree on a dataset, question, and compute budget before beginning. Each project should report competitive and simple baselines, valid splits, ablations, error analysis, and reproducible artifacts.\par
+\begin{minipage}{\linewidth}\subsection*{R01 When do biased walks help?}
+Which graph structures make node2vec's walk bias useful?\par\textbf{Data.} Synthetic stochastic block models and Cora. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html}{Dataset documentation}\par
+\textbf{Baselines.} DeepWalk, node2vec, degree features plus logistic regression\par
+\textbf{Evaluation.} Node macro-F1 and accuracy; sweep homophily, walk length, p and q under fixed embedding budgets.\par
+\textbf{Extension.} Relate performance to mixing time and community strength.\par
+\textbf{Compute.} CPU-friendly\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R02 PageRank as a learning prior}
+Can personalized diffusion improve classification when labels are scarce?\par\textbf{Data.} Cora and CiteSeer. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html}{Dataset documentation}\par
+\textbf{Baselines.} MLP, GCN, personalized PageRank propagation\par
+\textbf{Evaluation.} Accuracy versus labeled fraction; fix splits and compare propagation depth and damping.\par
+\textbf{Extension.} Choose damping using local graph structure without test labels.\par
+\textbf{Compute.} CPU or small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R03 Attention under noisy edges}
+Does learned graph attention remain useful as irrelevant edges increase?\par\textbf{Data.} Cora plus controlled random edge additions. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html}{Dataset documentation}\par
+\textbf{Baselines.} GCN, GraphSAGE, GAT\par
+\textbf{Evaluation.} Accuracy and calibration versus edge corruption; match parameter counts and tuning budgets.\par
+\textbf{Extension.} Compare attention entropy with robustness and test a sparsity regularizer.\par
+\textbf{Compute.} Small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R04 Learning across unlike neighbors}
+When do neighborhood aggregation models fail on heterophilous graphs?\par\textbf{Data.} Roman-empire and Minesweeper benchmark splits. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.HeterophilousGraphDataset.html}{Dataset documentation}\par
+\textbf{Baselines.} MLP, GCN, GAT and a heterophily-aware model\par
+\textbf{Evaluation.} Dataset-appropriate accuracy or ROC-AUC; preserve supplied splits and report multiple seeds.\par
+\textbf{Extension.} Adapt the balance of self features and neighbor features.\par
+\textbf{Compute.} Small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R05 How deep can a GNN go?}
+Which changes preserve predictive information as network depth increases?\par\textbf{Data.} Cora and synthetic community graphs. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html}{Dataset documentation}\par
+\textbf{Baselines.} Plain GCN, residual GCN and normalization variants\par
+\textbf{Evaluation.} Accuracy, embedding similarity and Dirichlet energy across depth; control training budget.\par
+\textbf{Extension.} Separate optimization failure from oversmoothing with controlled interventions.\par
+\textbf{Compute.} CPU or small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R06 Rewiring graph bottlenecks}
+Can a few added edges improve long-range information transfer?\par\textbf{Data.} Synthetic trees, barbell graphs and distance-label tasks. \href{https://networkx.org/documentation/stable/reference/generators.html}{Dataset documentation}\par
+\textbf{Baselines.} GCN or MPNN with no rewiring, random rewiring and a topology-aware rule\par
+\textbf{Evaluation.} Long-range task accuracy, path length and runtime at equal edge budgets.\par
+\textbf{Extension.} Study the trade-off between shortcut benefits and structural distortion.\par
+\textbf{Compute.} CPU-friendly\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R07 A fair transformer comparison}
+When does global attention earn its extra compute?\par\textbf{Data.} ZINC benchmark graphs. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.ZINC.html}{Dataset documentation}\par
+\textbf{Baselines.} GIN, a graph transformer and a local/global hybrid\par
+\textbf{Evaluation.} Regression MAE, peak memory and runtime; match parameters and training budget.\par
+\textbf{Extension.} Identify graph sizes or structures where global attention helps.\par
+\textbf{Compute.} Small GPU; use a declared subset for pilots\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R08 Which positional encoding matters?}
+How stable are graph transformers to positional encoding choices?\par\textbf{Data.} ZINC and synthetic symmetric graphs. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.ZINC.html}{Dataset documentation}\par
+\textbf{Baselines.} Transformer without positional encoding, Laplacian encoding and random-walk encoding\par
+\textbf{Evaluation.} MAE and permutation consistency; vary signs, eigenspaces and graph size.\par
+\textbf{Extension.} Test sign-invariant or noise-robust encoding variants.\par
+\textbf{Compute.} Small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R09 Self-supervision with few labels}
+Which graph augmentations help when supervision is limited?\par\textbf{Data.} Cora and CiteSeer. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html}{Dataset documentation}\par
+\textbf{Baselines.} Supervised GCN, DGI and a contrastive graph encoder\par
+\textbf{Evaluation.} Linear-probe accuracy across label budgets; tune augmentations on validation data only.\par
+\textbf{Extension.} Replace uniform edge dropping with a structure-aware rule.\par
+\textbf{Compute.} Small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R10 Masked graph reconstruction}
+Can reconstructing masked features improve robustness to missing attributes?\par\textbf{Data.} Cora and PubMed. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html}{Dataset documentation}\par
+\textbf{Baselines.} MLP, GCN and GraphMAE-style pretraining\par
+\textbf{Evaluation.} Classification accuracy and reconstruction loss across random and structured missingness.\par
+\textbf{Extension.} Compare degree-aware masking with uniform masking.\par
+\textbf{Compute.} Small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R11 Predicting future collaborations}
+How much do graph embeddings improve over simple link heuristics?\par\textbf{Data.} ogbl-collab. \href{https://ogb.stanford.edu/docs/linkprop/#ogbl-collab}{Dataset documentation}\par
+\textbf{Baselines.} Common neighbors, Adamic-Adar, node2vec and GraphSAGE\par
+\textbf{Evaluation.} Official Hits@50 with official temporal splits and negative candidates; document allowed edges.\par
+\textbf{Extension.} Add recency-aware edge weights and audit temporal leakage.\par
+\textbf{Compute.} Moderate GPU; prototype on a declared subset\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R12 Learning from event streams}
+When does temporal memory beat a static graph encoder?\par\textbf{Data.} Wikipedia temporal interaction data distributed with TGN. \href{https://github.com/twitter-research/tgn}{Dataset documentation}\par
+\textbf{Baselines.} Static GraphSAGE, a recency heuristic and TGN\par
+\textbf{Evaluation.} Average precision and ROC-AUC with time-ordered splits and explicit negative sampling.\par
+\textbf{Extension.} Test memory resets, time encodings and unseen-node performance.\par
+\textbf{Compute.} Small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R13 Relations in a knowledge graph}
+Do relation-aware messages improve completion beyond embedding models?\par\textbf{Data.} FB15k-237. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.RelLinkPredDataset.html}{Dataset documentation}\par
+\textbf{Baselines.} DistMult, TransE and R-GCN with a common scoring head where appropriate\par
+\textbf{Evaluation.} Filtered MRR and Hits@10; prevent inverse-relation leakage and report relation-wise errors.\par
+\textbf{Extension.} Allocate relation parameters by frequency or sparsity.\par
+\textbf{Compute.} Small to moderate GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R14 Graph recommendations beyond popularity}
+Can graph propagation improve recommendation for low-activity users?\par\textbf{Data.} MovieLens 100K stable benchmark. \href{https://grouplens.org/datasets/movielens/100k/}{Dataset documentation}\par
+\textbf{Baselines.} Popularity, matrix factorization and LightGCN\par
+\textbf{Evaluation.} Recall@20 and NDCG@20 on a time-ordered split; keep candidate sampling fixed.\par
+\textbf{Extension.} Analyze accuracy and coverage across user-activity groups without inferring sensitive attributes.\par
+\textbf{Compute.} CPU or small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R15 Molecular learning under distribution shift}
+Do stronger graph encoders generalize to new molecular scaffolds?\par\textbf{Data.} ogbg-molhiv. \href{https://ogb.stanford.edu/docs/graphprop/#ogbg-molhiv}{Dataset documentation}\par
+\textbf{Baselines.} Fingerprint classifier, GCN and GIN\par
+\textbf{Evaluation.} Official ROC-AUC on scaffold splits; add calibration and performance by scaffold frequency.\par
+\textbf{Extension.} Compare pretraining or edge-feature treatments under equal tuning budgets.\par
+\textbf{Compute.} Small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R16 Generating diverse small graphs}
+Which generative model best preserves structure without memorization?\par\textbf{Data.} Synthetic community and grid graphs. \href{https://networkx.org/documentation/stable/reference/generators.html}{Dataset documentation}\par
+\textbf{Baselines.} Erdos-Renyi or block-model generator, GraphRNN and a small graph GAN\par
+\textbf{Evaluation.} Validity, uniqueness, novelty, and degree/clustering distribution distances on held-out graphs.\par
+\textbf{Extension.} Diagnose mode collapse as graph size and training diversity change.\par
+\textbf{Compute.} Small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R17 Adversarial versus diffusion generation}
+How do adversarial and diffusion objectives trade quality for cost?\par\textbf{Data.} Small synthetic graphs; optional QM9 extension. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.QM9.html}{Dataset documentation}\par
+\textbf{Baselines.} A MolGAN-inspired discrete generator and a small DiGress-style model\par
+\textbf{Evaluation.} Validity, diversity, novelty, structural fidelity and training/sample time at matched graph sizes.\par
+\textbf{Extension.} If using molecules, add chemical-validity checks and compare conditional generation.\par
+\textbf{Compute.} Moderate GPU; synthetic scope recommended\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R18 Are graph explanations stable?}
+Does a model explanation persist across seeds and harmless perturbations?\par\textbf{Data.} Synthetic motif graphs with known generating motifs. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.BAShapes.html}{Dataset documentation}\par
+\textbf{Baselines.} Gradient saliency, random edge masks and GNNExplainer\par
+\textbf{Evaluation.} Fidelity, sparsity, motif precision/recall and agreement across repeated runs.\par
+\textbf{Extension.} Build a stability-aware explanation selection rule; distinguish explanation from causality.\par
+\textbf{Compute.} CPU or small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R19 Robustness on a fixed edge budget}
+Which defenses withstand targeted structural perturbations?\par\textbf{Data.} Cora or CiteSeer public benchmark graphs. \href{https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html}{Dataset documentation}\par
+\textbf{Baselines.} GCN, GAT, edge-drop training and a simple graph denoiser\par
+\textbf{Evaluation.} Clean and perturbed accuracy across equal budgets; distinguish random from targeted perturbations.\par
+\textbf{Extension.} Test whether defense gains persist on unseen perturbation strategies in an offline benchmark.\par
+\textbf{Compute.} Small GPU\par
+\end{minipage}\par\vspace{8pt}
+\begin{minipage}{\linewidth}\subsection*{R20 Do benchmark rankings survive protocol changes?}
+How sensitive are model rankings to splits, tuning and random seeds?\par\textbf{Data.} Cora plus ogbn-arxiv, with a smaller scoped pilot if needed. \href{https://ogb.stanford.edu/docs/nodeprop/#ogbn-arxiv}{Dataset documentation}\par
+\textbf{Baselines.} MLP, GCN, GraphSAGE and GAT\par
+\textbf{Evaluation.} Accuracy distributions, rank stability, runtime and tuning cost; preserve official test protocols.\par
+\textbf{Extension.} Measure how small search budgets alter conclusions and publish a reproducibility checklist.\par
+\textbf{Compute.} Small to moderate GPU\par
+\end{minipage}\par\vspace{8pt}
+\end{document}

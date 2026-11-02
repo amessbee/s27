@@ -1,0 +1,337 @@
+{
+  "code": "CS4308",
+  "title": "Graph Machine Learning",
+  "tagline": "Read the paper. Build the model. Ask the next question.",
+  "description": "A research and practice course on learning from connected data. Begin with graph theory, random walks, and PageRank; move through DeepWalk, node2vec, graph convolution, attention, adversarial learning, and graph transformers. Read critically, reproduce results, and develop an original, carefully evaluated research project.",
+  "status": "Proposed course plan. Semester, instructor, timetable, credits, eligibility, and assessment details are subject to departmental confirmation.",
+  "semester": "To be announced",
+  "instructor": "To be announced",
+  "credits": "3 credit hours proposed",
+  "duration": "16 weeks proposed, including examinations",
+  "meetings": "Two 75-minute meetings per week proposed; research discussions and practical studios integrated. Optional TA clinic, subject to staffing.",
+  "workload": "Plan for approximately 8–10 hours outside class each week; implementation and project deadlines may require more. The instructor will calibrate scope to available compute.",
+  "prerequisites": [
+    "Data structures and algorithms; basic discrete mathematics and graph terminology.",
+    "Linear algebra, probability, calculus, and an introductory machine learning course or equivalent experience.",
+    "Comfortable Python programming; basic PyTorch experience is strongly recommended. Formal course equivalencies are to be confirmed."
+  ],
+  "objectives": [
+    "Connect graph structure, random walks, spectral ideas, and representation learning.",
+    "Develop the ability to read, explain, implement, and critically evaluate graph machine learning research.",
+    "Carry a focused research question from reproducible baselines to experiments and a written research paper."
+  ],
+  "outcomes": [
+    "Analyze graph representations, connectivity, centrality, random walks, and Laplacians, and relate them to learning tasks.",
+    "Derive and implement representative random-walk, convolutional, attention, adversarial, and transformer methods.",
+    "Critique assumptions, expressivity, scalability, robustness, and evaluation protocols in research papers.",
+    "Design reproducible node, link, or graph prediction experiments with valid splits, baselines, ablations, and uncertainty reporting.",
+    "Communicate at least five paper reproductions in a group portfolio and defend individual contributions.",
+    "Formulate a research question, execute a phased project, and individually write and submit a research paper on the project."
+  ],
+  "assessment": [
+    {
+      "name": "Five-paper portfolio",
+      "weight": 25,
+      "detail": "Five paper studies per group, 5% each. For each: understanding and critique 20%, implementation and reproducibility 40%, evaluation 20%, presentation and individual defense 20%."
+    },
+    {
+      "name": "Surprise quizzes",
+      "weight": 10,
+      "detail": "Short individual quizzes on foundations, assigned readings, and implementation reasoning. Timing is unannounced; scope follows material already assigned."
+    },
+    {
+      "name": "Research participation",
+      "weight": 5,
+      "detail": "Prepared discussion, constructive peer reviews, and evidence-based questions. Attendance alone earns no separate marks."
+    },
+    {
+      "name": "Midterm examination",
+      "weight": 15,
+      "detail": "Individual examination on weeks 1–7; proposed week 8, 90 minutes. Concepts, derivations, graph problems, and interpretation of experiments."
+    },
+    {
+      "name": "Phased research project",
+      "weight": 25,
+      "detail": "Proposal 3%, reproducible baseline 5%, method and pilot 5%, full evaluation and demo 5%, individual research paper 7%."
+    },
+    {
+      "name": "Final examination",
+      "weight": 20,
+      "detail": "Individual cumulative examination with emphasis on post-midterm material; proposed final examination period, 120 minutes."
+    }
+  ],
+  "paper_protocol": [
+    "The class collectively works through a curated set of 50 papers. Weekly readings combine instructor synthesis, paper spotlights, student presentations, and practical discussion; students are not expected to implement all 50.",
+    "Groups will normally have two students. Each group must understand, implement, evaluate, and present at least five distinct papers from the list. Register choices early so the class covers the full list; the instructor fills coverage gaps and approves overlap.",
+    "Choose at least one random-walk or spectral paper, one message-passing or attention paper, one advanced paper, one evaluation or reliability paper, and one paper aligned with the project. For a theoretical or benchmark paper, implement its central diagnostic, counterexample, or evaluation protocol.",
+    "Each study includes a concise critical brief, runnable code with a documented environment, a reproduced central result, one controlled ablation or stress test, an experiment log, and a presentation with questions. Small-scale reproductions are acceptable when the scope and departures are declared.",
+    "Both partners must understand every selected paper and contribute to implementation and presentation. Use contribution statements and brief individual oral checks. Cite reused code and distinguish the group's implementation from upstream code.",
+    "Proposed portfolio checkpoints are weeks 4, 6, 9, 11, and 13. Each checkpoint includes a short live presentation in class or a parallel studio. Recorded full explanations and rotating live discussions keep the workload feasible as enrollment grows."
+  ],
+  "phases": [
+    {
+      "week": "3",
+      "name": "Question and proposal",
+      "weight": 3,
+      "deliverable": "A two-page proposal: research question, hypothesis, related papers, dataset access and license, metrics, compute budget, and risks."
+    },
+    {
+      "week": "6",
+      "name": "Reproducible baseline",
+      "weight": 5,
+      "deliverable": "Data audit, frozen splits, simple and competitive baselines, runnable environment, and initial results."
+    },
+    {
+      "week": "10",
+      "name": "Method and pilot",
+      "weight": 5,
+      "deliverable": "A justified extension or diagnostic, pilot experiments, implementation details, and a revised experiment plan."
+    },
+    {
+      "week": "13",
+      "name": "Evaluation and demo",
+      "weight": 5,
+      "deliverable": "Ablations, multiple seeds where feasible, uncertainty, runtime and memory measurements, error analysis, and a working demonstration."
+    },
+    {
+      "week": "15",
+      "name": "Individual research paper",
+      "weight": 7,
+      "deliverable": "Each student submits an individually authored 6–8 page research paper, excluding references and appendices, plus an artifact link and contribution statement. Shared project results must be attributed; individual analysis and writing are required."
+    }
+  ],
+  "research_standard": "A rigorous replication with a meaningful extension, a careful negative result, or a focused new method can all make a strong project. Publication acceptance is not a grading criterion. The required paper is submitted to the course; external conference or journal submission is optional and requires agreement among the authors.",
+  "paper_structure": "Abstract; introduction and question; related work; method; experimental setup; results and ablations; limitations and ethical considerations; conclusion; references; reproducibility and individual contributions.",
+  "project_rubric": "Across the project milestones, assess clarity of question, technical correctness, strength of baselines and evaluation, reproducibility, and quality of argument. The individual paper is assessed for synthesis and writing as well as the student's documented contribution; novelty alone does not determine the grade.",
+  "policies": [
+    "All assessment weights, examination timings, contact hours, and checkpoint weeks are proposed. The instructor will confirm them before teaching begins. Examination aids, exact dates, late-work rules, and quiz make-up arrangements will be announced under university policy.",
+    "No separate graded homework or attendance component is proposed. Practical exercises support the paper portfolio and project. Any reuse between the two must be declared and must add a distinct contribution to receive credit.",
+    "Use fixed train/validation/test splits; select models on validation data and reserve the test set for final evaluation. Document preprocessing, negative sampling, random seeds, hardware, and runtime. Report all attempted conditions relevant to the research claim.",
+    "Cite papers, datasets, code, and any AI assistance. Students remain responsible for correctness and must be able to explain and reproduce submitted work. Do not fabricate results or submit generated prose as an individually authored research argument without disclosure and instructor guidance.",
+    "Follow dataset licenses and access conditions. Avoid collecting personal data for class projects; use public benchmark or synthetic data with an appropriate research purpose. Do not upload restricted data or credentials to public repositories.",
+    "The attached outline retains the university support and policy text supplied in the original template. Students should consult current official university guidance for support, accessibility, academic integrity, and reporting procedures."
+  ],
+  "weeks": [
+    {
+      "week": 1,
+      "topic": "Graphs as data",
+      "detail": "Graph types, adjacency and incidence matrices, degree, paths, connectivity, graph tasks; Python and sparse graph tools.",
+      "reading": "Graph theory primer; no paper prerequisite",
+      "activity": "Build and inspect a small graph; establish the reproduction workflow.",
+      "papers": []
+    },
+    {
+      "week": 2,
+      "topic": "Spectral structure and random walks",
+      "detail": "Laplacians, eigenvectors, centrality, Markov chains, stationary distributions, PageRank and spectral embeddings.",
+      "reading": "Foundations",
+      "activity": "Implement PageRank; test damping and disconnected graphs.",
+      "papers": [
+        "P01",
+        "P02"
+      ]
+    },
+    {
+      "week": 3,
+      "topic": "Learning with walks",
+      "detail": "DeepWalk, node2vec, proximity and skip-gram; structural versus community similarity.",
+      "reading": "Random-walk embeddings",
+      "activity": "Proposal due; choose and register the five-paper portfolio.",
+      "papers": [
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ]
+    },
+    {
+      "week": 4,
+      "topic": "From graph signals to GCNs",
+      "detail": "Spectral filters, Chebyshev approximations, graph convolution, transductive learning.",
+      "reading": "Spectral and convolutional models",
+      "activity": "Portfolio 1; implement a GCN and audit data leakage.",
+      "papers": [
+        "P07",
+        "P08",
+        "P09"
+      ]
+    },
+    {
+      "week": 5,
+      "topic": "Message passing and attention",
+      "detail": "GraphSAGE, message-passing neural networks, GAT; inductive learning and neighborhood aggregation.",
+      "reading": "Message passing and attention",
+      "activity": "Compare aggregation and attention under matched budgets.",
+      "papers": [
+        "P10",
+        "P11",
+        "P12",
+        "P15"
+      ]
+    },
+    {
+      "week": 6,
+      "topic": "Expressivity and graph prediction",
+      "detail": "Weisfeiler–Leman intuition, graph isomorphism networks, pooling and graph-level tasks.",
+      "reading": "Expressivity and graph prediction",
+      "activity": "Portfolio 2 and project baseline due.",
+      "papers": [
+        "P13",
+        "P14",
+        "P16",
+        "P17",
+        "P21"
+      ]
+    },
+    {
+      "week": 7,
+      "topic": "When graph learning fails",
+      "detail": "Oversmoothing, oversquashing, heterophily, controls and experimental design.",
+      "reading": "Limits and diagnostics",
+      "activity": "Design a failure-case experiment; midterm review.",
+      "papers": [
+        "P18",
+        "P19",
+        "P20",
+        "P22",
+        "P23",
+        "P24"
+      ]
+    },
+    {
+      "week": 8,
+      "topic": "Midterm and research clinic",
+      "detail": "Midterm on weeks 1–7; review baselines and experimental plans.",
+      "reading": "Review and synthesis",
+      "activity": "Individual examination; no new portfolio deadline.",
+      "papers": []
+    },
+    {
+      "week": 9,
+      "topic": "Scaling and self-supervision",
+      "detail": "Sampling, scalable training, graph contrastive learning and masked reconstruction.",
+      "reading": "Scalable and self-supervised learning",
+      "activity": "Portfolio 3; profile compute and test augmentations.",
+      "papers": [
+        "P25",
+        "P26",
+        "P27",
+        "P29",
+        "P30",
+        "P31",
+        "P32"
+      ]
+    },
+    {
+      "week": 10,
+      "topic": "Relations and time",
+      "detail": "Knowledge graphs, heterogeneous graphs, temporal events, leakage-aware temporal splits.",
+      "reading": "Relational and temporal learning",
+      "activity": "Method and pilot due; evaluate inductive or temporal generalization.",
+      "papers": [
+        "P33",
+        "P34",
+        "P35",
+        "P36",
+        "P37"
+      ]
+    },
+    {
+      "week": 11,
+      "topic": "Graph transformers",
+      "detail": "Structural and positional encodings, global attention, local/global hybrid architectures.",
+      "reading": "Graph transformers",
+      "activity": "Portfolio 4; compare transformer and GNN at matched compute.",
+      "papers": [
+        "P38",
+        "P39",
+        "P40",
+        "P41",
+        "P42"
+      ]
+    },
+    {
+      "week": 12,
+      "topic": "Adversarial and generative graph learning",
+      "detail": "GAN principles, GraphGAN, MolGAN, autoregressive graph generation and diffusion.",
+      "reading": "Generative models",
+      "activity": "Measure validity, diversity, and mode collapse; distinguish GAN from GAT.",
+      "papers": [
+        "P43",
+        "P44",
+        "P45",
+        "P46",
+        "P47"
+      ]
+    },
+    {
+      "week": 13,
+      "topic": "Trustworthy graph research",
+      "detail": "Explanations, attacks and robustness, fair comparisons, benchmark protocols and uncertainty.",
+      "reading": "Trustworthiness and evaluation",
+      "activity": "Portfolio 5; project evaluation and demo due.",
+      "papers": [
+        "P28",
+        "P48",
+        "P49",
+        "P50"
+      ]
+    },
+    {
+      "week": 14,
+      "topic": "Research symposium",
+      "detail": "Group project presentations, cross-paper synthesis, reproducibility review.",
+      "reading": "Project-specific revisits",
+      "activity": "Peer review drafts and artifacts; address remaining paper coverage.",
+      "papers": []
+    },
+    {
+      "week": 15,
+      "topic": "Writing and defense",
+      "detail": "Research argument, limitations, error analysis, individual contribution defense.",
+      "reading": "All-course synthesis",
+      "activity": "Individual research paper due; final review.",
+      "papers": []
+    },
+    {
+      "week": 16,
+      "topic": "Final examination",
+      "detail": "Cumulative assessment with emphasis on advanced methods and research reasoning.",
+      "reading": "Review",
+      "activity": "Final exam, subject to the official examination calendar.",
+      "papers": []
+    }
+  ],
+  "resources": [
+    {
+      "title": "Graph Representation Learning",
+      "author": "William L. Hamilton",
+      "url": "https://www.cs.mcgill.ca/~wlh/grl_book/",
+      "use": "Primary optional textbook; graph embeddings and graph neural networks."
+    },
+    {
+      "title": "Network Science",
+      "author": "Albert-Laszlo Barabasi",
+      "url": "https://networksciencebook.com/",
+      "use": "Optional background for graph structure, centrality and network models."
+    },
+    {
+      "title": "NetworkX documentation",
+      "author": "NetworkX developers",
+      "url": "https://networkx.org/documentation/stable/",
+      "use": "Graph theory and algorithm exercises."
+    },
+    {
+      "title": "PyTorch Geometric documentation",
+      "author": "PyG contributors",
+      "url": "https://pytorch-geometric.readthedocs.io/",
+      "use": "Practical graph learning implementations."
+    },
+    {
+      "title": "Open Graph Benchmark",
+      "author": "OGB team",
+      "url": "https://ogb.stanford.edu/",
+      "use": "Datasets, official splits and evaluators."
+    }
+  ]
+}

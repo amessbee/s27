@@ -1,0 +1,222 @@
+[
+  {
+    "id": "R01",
+    "title": "When do biased walks help?",
+    "question": "Which graph structures make node2vec's walk bias useful?",
+    "data": "Synthetic stochastic block models and Cora",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html",
+    "baselines": "DeepWalk, node2vec, degree features plus logistic regression",
+    "evaluation": "Node macro-F1 and accuracy; sweep homophily, walk length, p and q under fixed embedding budgets.",
+    "extension": "Relate performance to mixing time and community strength.",
+    "compute": "CPU-friendly"
+  },
+  {
+    "id": "R02",
+    "title": "PageRank as a learning prior",
+    "question": "Can personalized diffusion improve classification when labels are scarce?",
+    "data": "Cora and CiteSeer",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html",
+    "baselines": "MLP, GCN, personalized PageRank propagation",
+    "evaluation": "Accuracy versus labeled fraction; fix splits and compare propagation depth and damping.",
+    "extension": "Choose damping using local graph structure without test labels.",
+    "compute": "CPU or small GPU"
+  },
+  {
+    "id": "R03",
+    "title": "Attention under noisy edges",
+    "question": "Does learned graph attention remain useful as irrelevant edges increase?",
+    "data": "Cora plus controlled random edge additions",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html",
+    "baselines": "GCN, GraphSAGE, GAT",
+    "evaluation": "Accuracy and calibration versus edge corruption; match parameter counts and tuning budgets.",
+    "extension": "Compare attention entropy with robustness and test a sparsity regularizer.",
+    "compute": "Small GPU"
+  },
+  {
+    "id": "R04",
+    "title": "Learning across unlike neighbors",
+    "question": "When do neighborhood aggregation models fail on heterophilous graphs?",
+    "data": "Roman-empire and Minesweeper benchmark splits",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.HeterophilousGraphDataset.html",
+    "baselines": "MLP, GCN, GAT and a heterophily-aware model",
+    "evaluation": "Dataset-appropriate accuracy or ROC-AUC; preserve supplied splits and report multiple seeds.",
+    "extension": "Adapt the balance of self features and neighbor features.",
+    "compute": "Small GPU"
+  },
+  {
+    "id": "R05",
+    "title": "How deep can a GNN go?",
+    "question": "Which changes preserve predictive information as network depth increases?",
+    "data": "Cora and synthetic community graphs",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html",
+    "baselines": "Plain GCN, residual GCN and normalization variants",
+    "evaluation": "Accuracy, embedding similarity and Dirichlet energy across depth; control training budget.",
+    "extension": "Separate optimization failure from oversmoothing with controlled interventions.",
+    "compute": "CPU or small GPU"
+  },
+  {
+    "id": "R06",
+    "title": "Rewiring graph bottlenecks",
+    "question": "Can a few added edges improve long-range information transfer?",
+    "data": "Synthetic trees, barbell graphs and distance-label tasks",
+    "source": "https://networkx.org/documentation/stable/reference/generators.html",
+    "baselines": "GCN or MPNN with no rewiring, random rewiring and a topology-aware rule",
+    "evaluation": "Long-range task accuracy, path length and runtime at equal edge budgets.",
+    "extension": "Study the trade-off between shortcut benefits and structural distortion.",
+    "compute": "CPU-friendly"
+  },
+  {
+    "id": "R07",
+    "title": "A fair transformer comparison",
+    "question": "When does global attention earn its extra compute?",
+    "data": "ZINC benchmark graphs",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.ZINC.html",
+    "baselines": "GIN, a graph transformer and a local/global hybrid",
+    "evaluation": "Regression MAE, peak memory and runtime; match parameters and training budget.",
+    "extension": "Identify graph sizes or structures where global attention helps.",
+    "compute": "Small GPU; use a declared subset for pilots"
+  },
+  {
+    "id": "R08",
+    "title": "Which positional encoding matters?",
+    "question": "How stable are graph transformers to positional encoding choices?",
+    "data": "ZINC and synthetic symmetric graphs",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.ZINC.html",
+    "baselines": "Transformer without positional encoding, Laplacian encoding and random-walk encoding",
+    "evaluation": "MAE and permutation consistency; vary signs, eigenspaces and graph size.",
+    "extension": "Test sign-invariant or noise-robust encoding variants.",
+    "compute": "Small GPU"
+  },
+  {
+    "id": "R09",
+    "title": "Self-supervision with few labels",
+    "question": "Which graph augmentations help when supervision is limited?",
+    "data": "Cora and CiteSeer",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html",
+    "baselines": "Supervised GCN, DGI and a contrastive graph encoder",
+    "evaluation": "Linear-probe accuracy across label budgets; tune augmentations on validation data only.",
+    "extension": "Replace uniform edge dropping with a structure-aware rule.",
+    "compute": "Small GPU"
+  },
+  {
+    "id": "R10",
+    "title": "Masked graph reconstruction",
+    "question": "Can reconstructing masked features improve robustness to missing attributes?",
+    "data": "Cora and PubMed",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html",
+    "baselines": "MLP, GCN and GraphMAE-style pretraining",
+    "evaluation": "Classification accuracy and reconstruction loss across random and structured missingness.",
+    "extension": "Compare degree-aware masking with uniform masking.",
+    "compute": "Small GPU"
+  },
+  {
+    "id": "R11",
+    "title": "Predicting future collaborations",
+    "question": "How much do graph embeddings improve over simple link heuristics?",
+    "data": "ogbl-collab",
+    "source": "https://ogb.stanford.edu/docs/linkprop/#ogbl-collab",
+    "baselines": "Common neighbors, Adamic–Adar, node2vec and GraphSAGE",
+    "evaluation": "Official Hits@50 with official temporal splits and negative candidates; document allowed edges.",
+    "extension": "Add recency-aware edge weights and audit temporal leakage.",
+    "compute": "Moderate GPU; prototype on a declared subset"
+  },
+  {
+    "id": "R12",
+    "title": "Learning from event streams",
+    "question": "When does temporal memory beat a static graph encoder?",
+    "data": "Wikipedia temporal interaction data distributed with TGN",
+    "source": "https://github.com/twitter-research/tgn",
+    "baselines": "Static GraphSAGE, a recency heuristic and TGN",
+    "evaluation": "Average precision and ROC-AUC with time-ordered splits and explicit negative sampling.",
+    "extension": "Test memory resets, time encodings and unseen-node performance.",
+    "compute": "Small GPU"
+  },
+  {
+    "id": "R13",
+    "title": "Relations in a knowledge graph",
+    "question": "Do relation-aware messages improve completion beyond embedding models?",
+    "data": "FB15k-237",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.RelLinkPredDataset.html",
+    "baselines": "DistMult, TransE and R-GCN with a common scoring head where appropriate",
+    "evaluation": "Filtered MRR and Hits@10; prevent inverse-relation leakage and report relation-wise errors.",
+    "extension": "Allocate relation parameters by frequency or sparsity.",
+    "compute": "Small to moderate GPU"
+  },
+  {
+    "id": "R14",
+    "title": "Graph recommendations beyond popularity",
+    "question": "Can graph propagation improve recommendation for low-activity users?",
+    "data": "MovieLens 100K stable benchmark",
+    "source": "https://grouplens.org/datasets/movielens/100k/",
+    "baselines": "Popularity, matrix factorization and LightGCN",
+    "evaluation": "Recall@20 and NDCG@20 on a time-ordered split; keep candidate sampling fixed.",
+    "extension": "Analyze accuracy and coverage across user-activity groups without inferring sensitive attributes.",
+    "compute": "CPU or small GPU"
+  },
+  {
+    "id": "R15",
+    "title": "Molecular learning under distribution shift",
+    "question": "Do stronger graph encoders generalize to new molecular scaffolds?",
+    "data": "ogbg-molhiv",
+    "source": "https://ogb.stanford.edu/docs/graphprop/#ogbg-molhiv",
+    "baselines": "Fingerprint classifier, GCN and GIN",
+    "evaluation": "Official ROC-AUC on scaffold splits; add calibration and performance by scaffold frequency.",
+    "extension": "Compare pretraining or edge-feature treatments under equal tuning budgets.",
+    "compute": "Small GPU"
+  },
+  {
+    "id": "R16",
+    "title": "Generating diverse small graphs",
+    "question": "Which generative model best preserves structure without memorization?",
+    "data": "Synthetic community and grid graphs",
+    "source": "https://networkx.org/documentation/stable/reference/generators.html",
+    "baselines": "Erdos–Renyi or block-model generator, GraphRNN and a small graph GAN",
+    "evaluation": "Validity, uniqueness, novelty, and degree/clustering distribution distances on held-out graphs.",
+    "extension": "Diagnose mode collapse as graph size and training diversity change.",
+    "compute": "Small GPU"
+  },
+  {
+    "id": "R17",
+    "title": "Adversarial versus diffusion generation",
+    "question": "How do adversarial and diffusion objectives trade quality for cost?",
+    "data": "Small synthetic graphs; optional QM9 extension",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.QM9.html",
+    "baselines": "A MolGAN-inspired discrete generator and a small DiGress-style model",
+    "evaluation": "Validity, diversity, novelty, structural fidelity and training/sample time at matched graph sizes.",
+    "extension": "If using molecules, add chemical-validity checks and compare conditional generation.",
+    "compute": "Moderate GPU; synthetic scope recommended"
+  },
+  {
+    "id": "R18",
+    "title": "Are graph explanations stable?",
+    "question": "Does a model explanation persist across seeds and harmless perturbations?",
+    "data": "Synthetic motif graphs with known generating motifs",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.BAShapes.html",
+    "baselines": "Gradient saliency, random edge masks and GNNExplainer",
+    "evaluation": "Fidelity, sparsity, motif precision/recall and agreement across repeated runs.",
+    "extension": "Build a stability-aware explanation selection rule; distinguish explanation from causality.",
+    "compute": "CPU or small GPU"
+  },
+  {
+    "id": "R19",
+    "title": "Robustness on a fixed edge budget",
+    "question": "Which defenses withstand targeted structural perturbations?",
+    "data": "Cora or CiteSeer public benchmark graphs",
+    "source": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html",
+    "baselines": "GCN, GAT, edge-drop training and a simple graph denoiser",
+    "evaluation": "Clean and perturbed accuracy across equal budgets; distinguish random from targeted perturbations.",
+    "extension": "Test whether defense gains persist on unseen perturbation strategies in an offline benchmark.",
+    "compute": "Small GPU"
+  },
+  {
+    "id": "R20",
+    "title": "Do benchmark rankings survive protocol changes?",
+    "question": "How sensitive are model rankings to splits, tuning and random seeds?",
+    "data": "Cora plus ogbn-arxiv, with a smaller scoped pilot if needed",
+    "source": "https://ogb.stanford.edu/docs/nodeprop/#ogbn-arxiv",
+    "baselines": "MLP, GCN, GraphSAGE and GAT",
+    "evaluation": "Accuracy distributions, rank stability, runtime and tuning cost; preserve official test protocols.",
+    "extension": "Measure how small search budgets alter conclusions and publish a reproducibility checklist.",
+    "compute": "Small to moderate GPU"
+  }
+]
