@@ -12,7 +12,7 @@
 {\Large\bfseries CS4308 Graph Machine Learning}\par
 {\huge\bfseries Fifty papers to read and build}\par
 \vspace{5pt}
-A curated path from graph structure and random walks to neural message passing, transformers, generation, and reliable evaluation. The selection combines the instructor's graph-learning research with influential methods and evaluation frameworks from the wider field. Bibliographic sources were checked in November 2026. The year shown is the cited publication year; an arXiv preprint may be earlier. Workshop papers are identified explicitly.
+A curated path from graph structure and random walks to neural message passing, transformers, generation, and reliable evaluation. The selection combines the instructor's graph-learning research with foundational methods, evaluation frameworks, and selected 2024--2026 research from the wider field. Bibliographic sources were checked in November 2026. The year shown is the cited publication year; an arXiv preprint may be earlier. Workshop papers are identified explicitly.
 \section*{How to use this list}
 The class collectively discusses all 50 papers. Each group, normally a pair, must understand, implement, evaluate, and present at least five distinct papers. Register a balanced selection: one random-walk or spectral method, one message-passing or attention method, one advanced method, one evaluation or reliability paper, and one project-aligned paper. For theory and benchmark papers, implement a central diagnostic or evaluation protocol.
 
@@ -21,22 +21,24 @@ Submit a critical brief, reproducible code, a central result, one ablation or st
 GAN means generative adversarial network; GAT means graph attention network. The original GAN paper supplies the general prerequisite, followed by GraphGAN and MolGAN for graph-based adversarial learning.
 \section*{Weekly reading map}
 
-\textbf{Week 2: Spectral structure and graph descriptors.} P01, P02, P06\par
+\textbf{Week 2: Spectral structure and graph descriptors.} P01, P06\par
 \textbf{Week 3: Walk embeddings and statistical representations.} P03, P04, P05, P07, P08\par
 \textbf{Week 4: From graph signals to GCNs.} P12, P13, P16\par
 \textbf{Week 5: Message passing and attention.} P14, P15, P17, P20\par
-\textbf{Week 6: Graph prediction and feature construction.} P10, P18, P19, P21, P22\par
-\textbf{Week 7: Expressivity, failure modes and evaluation.} P24, P25, P26, P48\par
-\textbf{Week 9: Scaling and self-supervision.} P09, P11, P27, P28, P29, P30, P31\par
-\textbf{Week 10: Graph learning in practice.} P32, P33, P34, P35, P36, P37, P38, P39\par
-\textbf{Week 11: Graph transformers and structural encodings.} P23, P40, P41\par
-\textbf{Week 12: Adversarial and generative graph learning.} P42, P43, P44, P45\par
+\textbf{Week 6: Graph prediction and feature construction.} P10, P19, P21, P22\par
+\textbf{Week 7: Expressivity, failure modes and evaluation.} P25, P26, P48\par
+\textbf{Week 9: Scaling, self-supervision and transfer.} P09, P11, P18, P27, P28, P30, P31\par
+\textbf{Week 10: Graph learning in practice.} P02, P32, P33, P34, P35, P36, P37, P38\par
+\textbf{Week 11: Graph transformers and tokenization.} P23, P39, P40, P41, P44\par
+\textbf{Week 12: Adversarial and generative graph learning.} P29, P42, P43, P45\par
 \textbf{Week 13: Trustworthy graph research.} P46, P47, P49, P50\par
+\textbf{Week 14: Research symposium and foundation models.} P24\par
 \clearpage\section*{Selection and coverage}
-The 50-paper set includes 22 publications coauthored by Mudassir Shabbir on graph learning and its representation foundations, plus 28 influential papers selected for their significance to the field.\par
+The 50-paper set includes 22 publications coauthored by Mudassir Shabbir, 19 field landmarks and nine recent research additions. Seventeen readings were published in 2024-2026: eight in 2024, six in 2025 and three in 2026.\par
 Author coverage comes first: include the publicly verifiable graph-learning papers, graph descriptors, graph-learning applications, and directly relevant graph-distinguishability foundations coauthored by Mudassir Shabbir. Coverage was checked on 2 November 2026; this does not assert coverage of unpublished or unlisted manuscripts.\par
-The remaining 28 readings are chosen for foundational ideas, influential model families, and established benchmarks or evaluation methods. This is a reasoned syllabus selection, not a citation-count ranking. It preserves PageRank, DeepWalk, node2vec, GCN, GAN, GAT and graph transformers, with message passing, self-supervision, and trustworthy evaluation.\par
+The 28 wider-field readings balance 19 foundational methods and evaluation frameworks with nine recent papers: three additions each from 2024, 2025 and 2026. Selection prioritizes methodological significance, influence and course relevance. Recent work is labeled as such; especially for 2026, long-term impact is not yet established. PageRank, DeepWalk, node2vec, GCN, GAN, GAT and graph transformers remain covered.\par
 A preprint and its published version count as one reading. Distinct conference and extended journal papers are retained where they make separate contributions; their relationship is noted. Preprints and works in progress are labeled. General geometry and control papers without a direct graph-learning contribution are outside this reading set.\par
+All nine recent additions have verified official conference proceedings records. Years follow the published venue, not the first arXiv posting: for example, GraphAny is an ICLR 2025 paper. Combined with the instructor's papers, the list contains eight publications from 2024, six from 2025 and three from 2026.\par
 All 50 receive class coverage through lectures, concise paper spotlights and discussions. The assigned week identifies the main discussion; groups may choose papers across weeks for their five-paper portfolio.\par
 Coverage sources: \href{https://orcid.org/0000-0002-6961-0961}{author ORCID}; \href{https://anwar-said.github.io/anwarsaid/CV.pdf}{coauthor publication list}; \href{https://amessbee.github.io/s27/reading_selection.json}{coverage and version audit}. Each entry links its primary publication or manuscript.\par
 \clearpage
@@ -48,14 +50,6 @@ Lawrence Page et al. Stanford InfoLab Technical Report 1999-66, 1999.\par
 \textbf{Why read it.} Connects graph centrality, Markov chains, and ranking before learned representations.\par
 \textbf{Build or investigate.} Implement power iteration with teleportation; test dangling nodes and sensitivity to the damping factor.\par
 \textbf{Level.} Foundation\quad\href{http://ilpubs.stanford.edu:8090/422/}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P02 Laplacian Eigenmaps and Spectral Techniques for Embedding and Clustering}\par
-Mikhail Belkin and Partha Niyogi. NeurIPS (then NIPS), 2001.\par
-\textcolor{ink}{\small FIELD LANDMARK}\par
-\textbf{Why read it.} Introduces the graph Laplacian as a bridge between geometry, embeddings, and spectral learning.\par
-\textbf{Build or investigate.} Compute two-dimensional spectral embeddings of a small graph; compare neighborhoods with a random layout.\par
-\textbf{Level.} Foundation\quad\href{https://papers.nips.cc/paper_files/paper/2001/hash/f106b7f99d2cb30c3db1c3cc0fde9ccb-Abstract.html}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
 {\large\bfseries P03 DeepWalk: Online Learning of Social Representations}\par
@@ -181,14 +175,6 @@ Petar Veli\v{c}kovi\'c et al. ICLR, 2018.\par
 \textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1710.10903}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P18 Hierarchical Graph Representation Learning with Differentiable Pooling}\par
-Rex Ying et al. NeurIPS, 2018.\par
-\textcolor{ink}{\small FIELD LANDMARK}\par
-\textbf{Why read it.} Introduces learned graph coarsening for prediction over entire graphs.\par
-\textbf{Build or investigate.} Implement one DiffPool stage and compare it with global mean pooling under matched budgets.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1806.08804}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
 {\large\bfseries P19 How Powerful are Graph Neural Networks?}\par
 Keyulu Xu et al. ICLR, 2019.\par
 \textcolor{ink}{\small FIELD LANDMARK}\par
@@ -232,14 +218,6 @@ Anwar Said, Yifan Wei, Obaid Ullah Ahmad, Mudassir Shabbir, Waseem Abbas, Xenofo
 \end{minipage}\par\vspace{10pt}
 \Needspace{16\baselineskip}\section*{Expressivity and limits}
 \begin{minipage}{\linewidth}
-{\large\bfseries P24 Beyond Homophily in Graph Neural Networks: Current Limitations and Effective Designs}\par
-Jiong Zhu et al. NeurIPS, 2020.\par
-\textcolor{ink}{\small FIELD LANDMARK}\par
-\textbf{Why read it.} Studies graphs whose connected nodes differ and motivates separating ego and neighbor information.\par
-\textbf{Build or investigate.} Implement an H2GCN-style baseline and vary homophily on synthetic graphs.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2006.11468}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
 {\large\bfseries P25 On the Bottleneck of Graph Neural Networks and its Practical Implications}\par
 Uri Alon and Eran Yahav. ICLR, 2021.\par
 \textcolor{ink}{\small FIELD LANDMARK}\par
@@ -257,28 +235,12 @@ Muhammad Raza, Obaid Ullah Ahmad, Mudassir Shabbir, Xenofon Koutsoukos, Waseem A
 \end{minipage}\par\vspace{10pt}
 \Needspace{16\baselineskip}\section*{Scaling and self-supervision}
 \begin{minipage}{\linewidth}
-{\large\bfseries P27 Deep Graph Infomax}\par
-Petar Veli\v{c}kovi\'c et al. ICLR, 2019.\par
-\textcolor{ink}{\small FIELD LANDMARK}\par
-\textbf{Why read it.} Introduces node representation learning through local-global contrast.\par
-\textbf{Build or investigate.} Implement DGI and test feature corruption with a frozen linear evaluation protocol.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1809.10341}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
 {\large\bfseries P28 Graph Contrastive Learning with Augmentations}\par
 Yuning You et al. NeurIPS, 2020.\par
 \textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Makes graph augmentations a central design choice in contrastive pretraining.\par
 \textbf{Build or investigate.} Implement two graph augmentations and assess whether they preserve labels on the chosen dataset.\par
 \textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2010.13902}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P29 GraphSAINT: Graph Sampling Based Inductive Learning Method}\par
-Hanqing Zeng et al. ICLR, 2020.\par
-\textcolor{ink}{\small FIELD LANDMARK}\par
-\textbf{Why read it.} Studies subgraph sampling with normalization to improve training efficiency.\par
-\textbf{Build or investigate.} Implement one subgraph sampler and test the contribution of sampling normalization.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1907.04931}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
 {\large\bfseries P30 Control-Based Graph Embeddings with Data Augmentation for Contrastive Learning}\par
@@ -350,20 +312,37 @@ Obaid Ullah Ahmad, Mudassir Shabbir, Waseem Abbas, Xenofon Koutsoukos. IEEE Tran
 \end{minipage}\par\vspace{10pt}
 \Needspace{16\baselineskip}\section*{Relational and temporal learning}
 \begin{minipage}{\linewidth}
-{\large\bfseries P38 Modeling Relational Data with Graph Convolutional Networks}\par
-Michael Schlichtkrull et al. ESWC, 2018.\par
-\textcolor{ink}{\small FIELD LANDMARK}\par
-\textbf{Why read it.} Extends message passing to typed relations and knowledge-graph completion.\par
-\textbf{Build or investigate.} Implement basis-decomposed R-GCN on a small relational dataset with leakage-aware edge splits.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1703.06103}{Primary source $\nearrow$}\par
+{\large\bfseries P02 Towards Foundation Models for Knowledge Graph Reasoning}\par
+Mikhail Galkin, Xinyu Yuan, Hesham Mostafa, Jian Tang, Zhaocheng Zhu. ICLR 2024, 2024.\par
+\textcolor{ink}{\small RECENT RESEARCH / 2024}\par
+\textbf{Why read it.} A significant step toward transferable knowledge-graph reasoning across unseen entity and relation vocabularies; connects graph representations with foundation-model generalization.\par
+\textbf{Build or investigate.} Use an available pretrained model on two small held-out knowledge graphs; compare zero-shot inference and limited fine-tuning with a task-specific baseline. Audit graph overlap.\par
+\textbf{Level.} Advanced\quad\href{https://proceedings.iclr.cc/paper_files/paper/2024/hash/85dd09d356ca561169b2c03e43cf305e-Abstract-Conference.html}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\Needspace{16\baselineskip}\section*{Graph foundation models}
+\begin{minipage}{\linewidth}
+{\large\bfseries P27 One For All: Towards Training One Graph Model For All Classification Tasks}\par
+Hao Liu, Jiarui Feng, Lecheng Kong, Ningyue Liang, Dacheng Tao, Yixin Chen, Muhan Zhang. ICLR 2024, 2024.\par
+\textcolor{ink}{\small RECENT RESEARCH / 2024}\par
+\textbf{Why read it.} Studies a unified representation for node, link and graph tasks using text attributes and graph prompting; a useful reference for cross-domain graph learning.\par
+\textbf{Build or investigate.} Reproduce a small two-domain transfer experiment using cached text embeddings; ablate prompt substructures and compare against separately trained GNNs.\par
+\textbf{Level.} Advanced\quad\href{https://proceedings.iclr.cc/paper_files/paper/2024/hash/57faf5642eb06e0602b95f6aa989b38a-Abstract-Conference.html}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P39 Inductive Representation Learning on Temporal Graphs}\par
-Da Xu et al. ICLR, 2020.\par
-\textcolor{ink}{\small FIELD LANDMARK}\par
-\textbf{Why read it.} Introduces temporal attention with continuous-time encodings.\par
-\textbf{Build or investigate.} Implement TGAT-style temporal neighbors and verify every prediction uses only past events.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2002.07962}{Primary source $\nearrow$}\par
+{\large\bfseries P18 Fully-inductive Node Classification on Arbitrary Graphs}\par
+Jianan Zhao, Zhaocheng Zhu, Mikhail Galkin, Hesham Mostafa, Michael Bronstein, Jian Tang. ICLR 2025, 2025.\par
+\textcolor{ink}{\small RECENT RESEARCH / 2025}\par
+\textbf{Why read it.} Extends inductive learning to graphs with different feature and label spaces; provides a sharp experimental test of what cross-graph generalization means.\par
+\textbf{Build or investigate.} Evaluate a released GraphAny model on two unseen small graphs with differing feature dimensions; compare against linear propagation and a supervised GCN without target-test tuning.\par
+\textbf{Level.} Advanced\quad\href{https://proceedings.iclr.cc/paper_files/paper/2025/hash/3bdeb28a531f7af94b56bcdf8ee88f17-Abstract-Conference.html}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P24 Towards Graph Foundation Models: Learning Generalities Across Graphs via Task-Trees}\par
+Zehong Wang, Zheyuan Zhang, Tianyi Ma, Nitesh V. Chawla, Chuxu Zhang, Yanfang Ye. ICML 2025, PMLR 267, 65518-65555, 2025.\par
+\textcolor{ink}{\small RECENT RESEARCH / 2025}\par
+\textbf{Why read it.} Uses task-trees to align node-, edge- and graph-level learning; connects transferability arguments with cross-task and cross-domain experiments.\par
+\textbf{Build or investigate.} Build task-trees for one small dataset and two prediction tasks; test a frozen or lightly fine-tuned encoder against a task-specific baseline and audit pretraining overlap.\par
+\textbf{Level.} Advanced\quad\href{https://proceedings.mlr.press/v267/wang25eq.html}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \Needspace{16\baselineskip}\section*{Graph transformers}
 \begin{minipage}{\linewidth}
@@ -381,6 +360,22 @@ Ladislav Ramp\'ašek et al. NeurIPS, 2022.\par
 \textbf{Why read it.} Combines local message passing, global attention, and position or structure encodings.\par
 \textbf{Build or investigate.} Implement one GPS block and perform a three-component ablation under a fixed parameter budget.\par
 \textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2205.12454}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P39 Relational Graph Transformer}\par
+Vijay Prakash Dwivedi, Sri Jaladi, Yangyi Shen, Federico Lopez, Charilaos Kanatsoulis, Rishi Puri, Matthias Fey, Jure Leskovec. ICLR 2026, 2026.\par
+\textcolor{ink}{\small RECENT RESEARCH / 2026}\par
+\textbf{Why read it.} A recent transformer design for heterogeneous temporal graphs derived from relational tables; examines how tokenization and local/global attention adapt to database structure.\par
+\textbf{Build or investigate.} Compare RelGT and a GNN on one small RelBench task at matched compute; ablate temporal or structural token components and report memory and predictive performance.\par
+\textbf{Level.} Advanced\quad\href{https://proceedings.iclr.cc/paper_files/paper/2026/hash/fa1ef43326cfb8a808c0649708187f2a-Abstract-Conference.html}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P44 Graph Tokenization for Bridging Graphs and Transformers}\par
+Zeyuan Guo, Enmao Diao, Cheng Yang, Chuan Shi. ICLR 2026, 2026.\par
+\textcolor{ink}{\small RECENT RESEARCH / 2026}\par
+\textbf{Why read it.} Explores reversible graph serialization and substructure-guided tokenization for standard sequence transformers, offering a fresh alternative to specialized graph architectures.\par
+\textbf{Build or investigate.} Serialize small graphs, train or reuse a compact tokenizer, and compare a small transformer with a GNN; measure sensitivity to node permutations, sequence length and vocabulary size.\par
+\textbf{Level.} Advanced\quad\href{https://proceedings.iclr.cc/paper_files/paper/2026/hash/2c0781f2ed2d8054d4f27a19bd8c380b-Abstract-Conference.html}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \Needspace{16\baselineskip}\section*{Generative graph learning}
 \begin{minipage}{\linewidth}
@@ -400,14 +395,6 @@ Hongwei Wang et al. AAAI, 2018.\par
 \textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1711.08267}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P44 GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models}\par
-Jiaxuan You et al. ICML, 2018.\par
-\textcolor{ink}{\small FIELD LANDMARK}\par
-\textbf{Why read it.} Provides an autoregressive alternative to adversarial graph generation.\par
-\textbf{Build or investigate.} Implement a small sequential graph generator and compare degree and clustering distributions.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1802.08773}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
 {\large\bfseries P45 MolGAN: An implicit generative model for small molecular graphs}\par
 Nicola De Cao and Thomas Kipf. ICML Workshop on Theoretical Foundations and Applications of Deep Generative Models, 2018.\par
 \textcolor{ink}{\small FIELD LANDMARK}\par
@@ -415,15 +402,15 @@ Nicola De Cao and Thomas Kipf. ICML Workshop on Theoretical Foundations and Appl
 \textbf{Build or investigate.} Implement a reduced small-molecule generator; report validity, uniqueness, novelty, and diversity.\par
 \textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1805.11973}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
-\Needspace{16\baselineskip}\section*{Evaluation and trust}
 \begin{minipage}{\linewidth}
-{\large\bfseries P46 Adversarial Attacks on Graph Neural Networks via Meta Learning}\par
-Daniel Z\"ugner and Stephan G\"unnemann. ICLR, 2019.\par
-\textcolor{ink}{\small FIELD LANDMARK}\par
-\textbf{Why read it.} Studies sensitivity to training-graph perturbations and motivates robust evaluation.\par
-\textbf{Build or investigate.} On a public benchmark, compare controlled edge perturbations with random edits and report accuracy degradation.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1902.08412}{Primary source $\nearrow$}\par
+{\large\bfseries P29 A Large-scale Training Paradigm for Graph Generative Models}\par
+Yu Wang, Ryan Rossi, Namyong Park, Huiyuan Chen, Nesreen Ahmed, Puja Trivedi, Franck Dernoncourt, Danai Koutra, Tyler Derr. ICLR 2025, 2025.\par
+\textcolor{ink}{\small RECENT RESEARCH / 2025}\par
+\textbf{Why read it.} Studies graph generation across multiple domains and text conditioning, moving the discussion from single-dataset fitting to reusable generative models.\par
+\textbf{Build or investigate.} Evaluate a released checkpoint on a small held-out graph family; compare zero-shot and fine-tuned generation using validity, diversity, structural statistics and inference cost.\par
+\textbf{Level.} Advanced\quad\href{https://proceedings.iclr.cc/paper_files/paper/2025/hash/3a2ef31a1e45908901adc0ca853a8faf-Abstract-Conference.html}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
+\Needspace{16\baselineskip}\section*{Evaluation and trust}
 \begin{minipage}{\linewidth}
 {\large\bfseries P47 GNNExplainer: Generating Explanations for Graph Neural Networks}\par
 Rex Ying et al. NeurIPS, 2019.\par
@@ -457,7 +444,23 @@ Anwar Said, Roza G. Bayrak, Tyler Derr, Mudassir Shabbir, Daniel Moyer, Catie Ch
 \textbf{Build or investigate.} Reproduce a small benchmark with authorized data, subject-disjoint splits and a non-graph baseline; test graph-construction sensitivity without making clinical claims.\par
 \textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2306.06202}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
-\clearpage\section*{Twenty illustrative research projects}
+\begin{minipage}{\linewidth}
+{\large\bfseries P38 RelBench: A Benchmark for Deep Learning on Relational Databases}\par
+Joshua Robinson, Rishabh Ranjan, Weihua Hu, Kexin Huang, Jiaqi Han, Alejandro Dobles, Matthias Fey, Jan E. Lenssen, Yiwen Yuan, Zecheng Zhang, Xinwei He, Jure Leskovec. NeurIPS 2024 Datasets and Benchmarks, 2024.\par
+\textcolor{ink}{\small RECENT RESEARCH / 2024}\par
+\textbf{Why read it.} Establishes a benchmark for graph-based prediction over linked database tables, making temporal leakage and comparisons with tabular feature engineering central research questions.\par
+\textbf{Build or investigate.} Run one small relational prediction task with official temporal splits; compare a GNN with a tabular baseline and inspect which joins would leak future information.\par
+\textbf{Level.} Advanced\quad\href{https://papers.nips.cc/paper_files/paper/2024/hash/25cd345233c65fac1fec0ce61d0f7836-Abstract-Datasets_and_Benchmarks_Track.html}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P46 Robustness in Text-Attributed Graph Learning: Insights, Trade-offs, and New Defenses}\par
+Runlin Lei, Lu Yi, Mingguo He, Pengyu Qiu, Zhewei Wei, Yongchao Liu, Chuntao Hong. ICLR 2026, 2026.\par
+\textcolor{ink}{\small RECENT RESEARCH / 2026}\par
+\textbf{Why read it.} Examines textual and structural perturbations in a common evaluation framework, connecting graph-learning robustness with the growing use of language-model features.\par
+\textbf{Build or investigate.} On a public benchmark, compare text-only, edge-only and combined perturbations under fixed budgets; evaluate a GNN and a text encoder while separating poisoning from evasion.\par
+\textbf{Level.} Advanced\quad\href{https://proceedings.iclr.cc/paper_files/paper/2026/hash/5133c31f29df92e056434cd86805cb6a-Abstract-Conference.html}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\Needspace{20\baselineskip}\section*{Twenty illustrative research projects}
 A rigorous replication with a meaningful extension, a careful negative result, or a focused new method can all make a strong project. Publication acceptance is not a grading criterion. The required paper is submitted to the course; external conference or journal submission is optional and requires agreement among the authors.\par
 These are scoped research suggestions. Agree on a dataset, question, and compute budget before beginning. Each project should report competitive and simple baselines, valid splits, ablations, error analysis, and reproducible artifacts.\par
 \begin{minipage}{\linewidth}\subsection*{R01 When do biased walks help?}

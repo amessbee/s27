@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 C = json.loads((ROOT / 'course.json').read_text())
 P = json.loads((ROOT / 'course_papers.json').read_text())
 R = json.loads((ROOT / 'projects.json').read_text())
+P = sorted(P, key=lambda p: (C['reading_categories'].index(p['category']), p['year'], p['id']))
 W = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'
 NS = {'w': W}
 def tag(x): return '{'+W+'}'+x
@@ -158,7 +159,7 @@ def build_tex():
 {\Large\bfseries CS4308 Graph Machine Learning}\par
 {\huge\bfseries Fifty papers to read and build}\par
 \vspace{5pt}
-A curated path from graph structure and random walks to neural message passing, transformers, generation, and reliable evaluation. The selection combines the instructor's graph-learning research with influential methods and evaluation frameworks from the wider field. Bibliographic sources were checked in November 2026. The year shown is the cited publication year; an arXiv preprint may be earlier. Workshop papers are identified explicitly.
+A curated path from graph structure and random walks to neural message passing, transformers, generation, and reliable evaluation. The selection combines the instructor's graph-learning research with foundational methods, evaluation frameworks, and selected 2024--2026 research from the wider field. Bibliographic sources were checked in November 2026. The year shown is the cited publication year; an arXiv preprint may be earlier. Workshop papers are identified explicitly.
 \section*{How to use this list}
 The class collectively discusses all 50 papers. Each group, normally a pair, must understand, implement, evaluate, and present at least five distinct papers. Register a balanced selection: one random-walk or spectral method, one message-passing or attention method, one advanced method, one evaluation or reliability paper, and one project-aligned paper. For theory and benchmark papers, implement a central diagnostic or evaluation protocol.
 
@@ -181,13 +182,13 @@ GAN means generative adversarial network; GAT means graph attention network. The
             out.append(r'\begin{minipage}{\linewidth}')
             out.append(r'{\large\bfseries '+p['id']+' '+tex(p['title'])+r'}\par')
             out.append(tex(p['authors'].rstrip('.'))+'. '+tex(p['venue'])+', '+str(p['year'])+r'.\par')
-            out.append(r'\textcolor{ink}{\small '+('MUDASSIR SHABBIR / RESEARCH' if p.get('instructor_paper') else 'FIELD LANDMARK')+r'}\par')
+            out.append(r'\textcolor{ink}{\small '+('MUDASSIR SHABBIR / RESEARCH' if p.get('instructor_paper') else ('RECENT RESEARCH / '+str(p['year']) if p.get('recent_addition') else 'FIELD LANDMARK'))+r'}\par')
             if p.get('display_note'):out.append(r'{\small '+tex(p['display_note'])+r'}\par')
             out.append(r'\textbf{Why read it.} '+tex(p['why'])+r'\par')
             out.append(r'\textbf{Build or investigate.} '+tex(p['exercise'])+r'\par')
             out.append(r'\textbf{Level.} '+tex(p['difficulty'])+r'\quad\href{'+p['url']+r'}{Primary source $\nearrow$}\par')
             out.append(r'\end{minipage}\par\vspace{10pt}')
-    out.append(r'\clearpage\section*{Twenty illustrative research projects}')
+    out.append(r'\Needspace{20\baselineskip}\section*{Twenty illustrative research projects}')
     out.append(tex(C['research_standard'])+r'\par')
     out.append(r'These are scoped research suggestions. Agree on a dataset, question, and compute budget before beginning. Each project should report competitive and simple baselines, valid splits, ablations, error analysis, and reproducible artifacts.\par')
     for r in R:

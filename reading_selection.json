@@ -5,11 +5,12 @@
   "total": 50,
   "author_papers": 22,
   "field_papers": 28,
-  "summary": "The 50-paper set includes 22 publications coauthored by Mudassir Shabbir on graph learning and its representation foundations, plus 28 influential papers selected for their significance to the field.",
+  "summary": "The 50-paper set includes 22 publications coauthored by Mudassir Shabbir, 19 field landmarks and nine recent research additions. Seventeen readings were published in 2024–2026: eight in 2024, six in 2025 and three in 2026.",
   "policy": [
     "Author coverage comes first: include the publicly verifiable graph-learning papers, graph descriptors, graph-learning applications, and directly relevant graph-distinguishability foundations coauthored by Mudassir Shabbir. Coverage was checked on 2 November 2026; this does not assert coverage of unpublished or unlisted manuscripts.",
-    "The remaining 28 readings are chosen for foundational ideas, influential model families, and established benchmarks or evaluation methods. This is a reasoned syllabus selection, not a citation-count ranking. It preserves PageRank, DeepWalk, node2vec, GCN, GAN, GAT and graph transformers, with message passing, self-supervision, and trustworthy evaluation.",
+    "The 28 wider-field readings balance 19 foundational methods and evaluation frameworks with nine recent papers: three additions each from 2024, 2025 and 2026. Selection prioritizes methodological significance, influence and course relevance. Recent work is labeled as such; especially for 2026, long-term impact is not yet established. PageRank, DeepWalk, node2vec, GCN, GAN, GAT and graph transformers remain covered.",
     "A preprint and its published version count as one reading. Distinct conference and extended journal papers are retained where they make separate contributions; their relationship is noted. Preprints and works in progress are labeled. General geometry and control papers without a direct graph-learning contribution are outside this reading set.",
+    "All nine recent additions have verified official conference proceedings records. Years follow the published venue, not the first arXiv posting: for example, GraphAny is an ICLR 2025 paper. Combined with the instructor’s papers, the list contains eight publications from 2024, six from 2025 and three from 2026.",
     "All 50 receive class coverage through lectures, concise paper spotlights and discussions. The assigned week identifies the main discussion; groups may choose papers across weeks for their five-paper portfolio."
   ],
   "coverage_sources": [
@@ -477,6 +478,8 @@
     {
       "id": "P01",
       "title": "The PageRank Citation Ranking: Bringing Order to the Web",
+      "year": 1999,
+      "selection_type": "Field landmark",
       "reason": "Connects graph centrality, Markov chains, and ranking before learned representations.",
       "sources": [
         "http://ilpubs.stanford.edu:8090/422/",
@@ -485,15 +488,19 @@
     },
     {
       "id": "P02",
-      "title": "Laplacian Eigenmaps and Spectral Techniques for Embedding and Clustering",
-      "reason": "Introduces the graph Laplacian as a bridge between geometry, embeddings, and spectral learning.",
+      "title": "Towards Foundation Models for Knowledge Graph Reasoning",
+      "year": 2024,
+      "selection_type": "Recent research",
+      "reason": "A significant step toward transferable knowledge-graph reasoning across unseen entity and relation vocabularies; connects graph representations with foundation-model generalization.",
       "sources": [
-        "https://papers.nips.cc/paper_files/paper/2001/hash/f106b7f99d2cb30c3db1c3cc0fde9ccb-Abstract.html"
+        "https://proceedings.iclr.cc/paper_files/paper/2024/hash/85dd09d356ca561169b2c03e43cf305e-Abstract-Conference.html"
       ]
     },
     {
       "id": "P03",
       "title": "DeepWalk: Online Learning of Social Representations",
+      "year": 2014,
+      "selection_type": "Field landmark",
       "reason": "Turns short random walks into a practical unsupervised representation-learning pipeline.",
       "sources": [
         "https://arxiv.org/abs/1403.6652",
@@ -503,6 +510,8 @@
     {
       "id": "P04",
       "title": "node2vec: Scalable Feature Learning for Networks",
+      "year": 2016,
+      "selection_type": "Field landmark",
       "reason": "Shows how biased walks trade off local neighborhoods and structural roles.",
       "sources": [
         "https://arxiv.org/abs/1607.00653"
@@ -511,6 +520,8 @@
     {
       "id": "P12",
       "title": "The Graph Neural Network Model",
+      "year": 2009,
+      "selection_type": "Field landmark",
       "reason": "An early general formulation of neural computation on graphs; provides historical grounding for today’s message-passing architectures.",
       "sources": [
         "https://doi.org/10.1109/TNN.2008.2005605",
@@ -520,6 +531,8 @@
     {
       "id": "P13",
       "title": "Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering",
+      "year": 2016,
+      "selection_type": "Field landmark",
       "reason": "Replaces expensive eigendecomposition with localized polynomial filters.",
       "sources": [
         "https://arxiv.org/abs/1606.09375"
@@ -528,6 +541,8 @@
     {
       "id": "P14",
       "title": "Inductive Representation Learning on Large Graphs",
+      "year": 2017,
+      "selection_type": "Field landmark",
       "reason": "Introduces neighborhood sampling and aggregation for generalization to unseen nodes.",
       "sources": [
         "https://arxiv.org/abs/1706.02216"
@@ -536,6 +551,8 @@
     {
       "id": "P15",
       "title": "Neural Message Passing for Quantum Chemistry",
+      "year": 2017,
+      "selection_type": "Field landmark",
       "reason": "Unifies many graph architectures through message, update, and readout functions.",
       "sources": [
         "https://proceedings.mlr.press/v70/gilmer17a.html"
@@ -544,6 +561,8 @@
     {
       "id": "P16",
       "title": "Semi-Supervised Classification with Graph Convolutional Networks",
+      "year": 2017,
+      "selection_type": "Field landmark",
       "reason": "Establishes a compact, reproducible baseline for learning from node features and edges.",
       "sources": [
         "https://arxiv.org/abs/1609.02907"
@@ -552,6 +571,8 @@
     {
       "id": "P17",
       "title": "Graph Attention Networks",
+      "year": 2018,
+      "selection_type": "Field landmark",
       "reason": "Introduces learned neighborhood weighting and multi-head attention.",
       "sources": [
         "https://arxiv.org/abs/1710.10903"
@@ -559,16 +580,19 @@
     },
     {
       "id": "P18",
-      "title": "Hierarchical Graph Representation Learning with Differentiable Pooling",
-      "reason": "Introduces learned graph coarsening for prediction over entire graphs.",
+      "title": "Fully-inductive Node Classification on Arbitrary Graphs",
+      "year": 2025,
+      "selection_type": "Recent research",
+      "reason": "Extends inductive learning to graphs with different feature and label spaces; provides a sharp experimental test of what cross-graph generalization means.",
       "sources": [
-        "https://arxiv.org/abs/1806.08804",
-        "https://papers.nips.cc/paper_files/paper/2018/hash/e77dbaf6759253c7c6d0efc5690369c7-Abstract.html"
+        "https://proceedings.iclr.cc/paper_files/paper/2025/hash/3bdeb28a531f7af94b56bcdf8ee88f17-Abstract-Conference.html"
       ]
     },
     {
       "id": "P19",
       "title": "How Powerful are Graph Neural Networks?",
+      "year": 2019,
+      "selection_type": "Field landmark",
       "reason": "Relates aggregation to graph isomorphism and motivates the Graph Isomorphism Network.",
       "sources": [
         "https://arxiv.org/abs/1810.00826",
@@ -577,15 +601,19 @@
     },
     {
       "id": "P24",
-      "title": "Beyond Homophily in Graph Neural Networks: Current Limitations and Effective Designs",
-      "reason": "Studies graphs whose connected nodes differ and motivates separating ego and neighbor information.",
+      "title": "Towards Graph Foundation Models: Learning Generalities Across Graphs via Task-Trees",
+      "year": 2025,
+      "selection_type": "Recent research",
+      "reason": "Uses task-trees to align node-, edge- and graph-level learning; connects transferability arguments with cross-task and cross-domain experiments.",
       "sources": [
-        "https://arxiv.org/abs/2006.11468"
+        "https://proceedings.mlr.press/v267/wang25eq.html"
       ]
     },
     {
       "id": "P25",
       "title": "On the Bottleneck of Graph Neural Networks and its Practical Implications",
+      "year": 2021,
+      "selection_type": "Field landmark",
       "reason": "Introduces over-squashing as a failure of information transmission across graph bottlenecks.",
       "sources": [
         "https://arxiv.org/abs/2006.05205"
@@ -593,15 +621,19 @@
     },
     {
       "id": "P27",
-      "title": "Deep Graph Infomax",
-      "reason": "Introduces node representation learning through local-global contrast.",
+      "title": "One For All: Towards Training One Graph Model For All Classification Tasks",
+      "year": 2024,
+      "selection_type": "Recent research",
+      "reason": "Studies a unified representation for node, link and graph tasks using text attributes and graph prompting; a useful reference for cross-domain graph learning.",
       "sources": [
-        "https://arxiv.org/abs/1809.10341"
+        "https://proceedings.iclr.cc/paper_files/paper/2024/hash/57faf5642eb06e0602b95f6aa989b38a-Abstract-Conference.html"
       ]
     },
     {
       "id": "P28",
       "title": "Graph Contrastive Learning with Augmentations",
+      "year": 2020,
+      "selection_type": "Field landmark",
       "reason": "Makes graph augmentations a central design choice in contrastive pretraining.",
       "sources": [
         "https://arxiv.org/abs/2010.13902"
@@ -609,32 +641,39 @@
     },
     {
       "id": "P29",
-      "title": "GraphSAINT: Graph Sampling Based Inductive Learning Method",
-      "reason": "Studies subgraph sampling with normalization to improve training efficiency.",
+      "title": "A Large-scale Training Paradigm for Graph Generative Models",
+      "year": 2025,
+      "selection_type": "Recent research",
+      "reason": "Studies graph generation across multiple domains and text conditioning, moving the discussion from single-dataset fitting to reusable generative models.",
       "sources": [
-        "https://arxiv.org/abs/1907.04931"
+        "https://proceedings.iclr.cc/paper_files/paper/2025/hash/3a2ef31a1e45908901adc0ca853a8faf-Abstract-Conference.html"
       ]
     },
     {
       "id": "P38",
-      "title": "Modeling Relational Data with Graph Convolutional Networks",
-      "reason": "Extends message passing to typed relations and knowledge-graph completion.",
+      "title": "RelBench: A Benchmark for Deep Learning on Relational Databases",
+      "year": 2024,
+      "selection_type": "Recent research",
+      "reason": "Establishes a benchmark for graph-based prediction over linked database tables, making temporal leakage and comparisons with tabular feature engineering central research questions.",
       "sources": [
-        "https://arxiv.org/abs/1703.06103",
-        "https://research.vu.nl/en/publications/modeling-relational-data-with-graph-convolutional-networks/"
+        "https://papers.nips.cc/paper_files/paper/2024/hash/25cd345233c65fac1fec0ce61d0f7836-Abstract-Datasets_and_Benchmarks_Track.html"
       ]
     },
     {
       "id": "P39",
-      "title": "Inductive Representation Learning on Temporal Graphs",
-      "reason": "Introduces temporal attention with continuous-time encodings.",
+      "title": "Relational Graph Transformer",
+      "year": 2026,
+      "selection_type": "Recent research",
+      "reason": "A recent transformer design for heterogeneous temporal graphs derived from relational tables; examines how tokenization and local/global attention adapt to database structure.",
       "sources": [
-        "https://arxiv.org/abs/2002.07962"
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/fa1ef43326cfb8a808c0649708187f2a-Abstract-Conference.html"
       ]
     },
     {
       "id": "P40",
       "title": "Do Transformers Really Perform Bad for Graph Representation?",
+      "year": 2021,
+      "selection_type": "Field landmark",
       "reason": "Shows how structural encodings make global attention useful for graph prediction.",
       "sources": [
         "https://arxiv.org/abs/2106.05234"
@@ -643,6 +682,8 @@
     {
       "id": "P41",
       "title": "Recipe for a General, Powerful, Scalable Graph Transformer",
+      "year": 2022,
+      "selection_type": "Field landmark",
       "reason": "Combines local message passing, global attention, and position or structure encodings.",
       "sources": [
         "https://arxiv.org/abs/2205.12454",
@@ -652,6 +693,8 @@
     {
       "id": "P42",
       "title": "Generative Adversarial Nets",
+      "year": 2014,
+      "selection_type": "Field landmark",
       "reason": "Provides the adversarial-learning prerequisite; this paper itself is not a graph model.",
       "sources": [
         "https://papers.nips.cc/paper/2014/hash/f033ed80deb0234979a61f95710dbe25-Abstract.html"
@@ -660,6 +703,8 @@
     {
       "id": "P43",
       "title": "GraphGAN: Graph Representation Learning with Generative Adversarial Nets",
+      "year": 2018,
+      "selection_type": "Field landmark",
       "reason": "Applies adversarial training to connectivity distributions for graph embeddings.",
       "sources": [
         "https://arxiv.org/abs/1711.08267",
@@ -668,15 +713,19 @@
     },
     {
       "id": "P44",
-      "title": "GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models",
-      "reason": "Provides an autoregressive alternative to adversarial graph generation.",
+      "title": "Graph Tokenization for Bridging Graphs and Transformers",
+      "year": 2026,
+      "selection_type": "Recent research",
+      "reason": "Explores reversible graph serialization and substructure-guided tokenization for standard sequence transformers, offering a fresh alternative to specialized graph architectures.",
       "sources": [
-        "https://arxiv.org/abs/1802.08773"
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/2c0781f2ed2d8054d4f27a19bd8c380b-Abstract-Conference.html"
       ]
     },
     {
       "id": "P45",
       "title": "MolGAN: An implicit generative model for small molecular graphs",
+      "year": 2018,
+      "selection_type": "Field landmark",
       "reason": "Combines adversarial graph generation with property objectives and exposes mode collapse.",
       "sources": [
         "https://arxiv.org/abs/1805.11973"
@@ -684,15 +733,19 @@
     },
     {
       "id": "P46",
-      "title": "Adversarial Attacks on Graph Neural Networks via Meta Learning",
-      "reason": "Studies sensitivity to training-graph perturbations and motivates robust evaluation.",
+      "title": "Robustness in Text-Attributed Graph Learning: Insights, Trade-offs, and New Defenses",
+      "year": 2026,
+      "selection_type": "Recent research",
+      "reason": "Examines textual and structural perturbations in a common evaluation framework, connecting graph-learning robustness with the growing use of language-model features.",
       "sources": [
-        "https://arxiv.org/abs/1902.08412"
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/5133c31f29df92e056434cd86805cb6a-Abstract-Conference.html"
       ]
     },
     {
       "id": "P47",
       "title": "GNNExplainer: Generating Explanations for Graph Neural Networks",
+      "year": 2019,
+      "selection_type": "Field landmark",
       "reason": "Explores which subgraphs and features support a GNN prediction.",
       "sources": [
         "https://arxiv.org/abs/1903.03894"
@@ -701,11 +754,76 @@
     {
       "id": "P48",
       "title": "Open Graph Benchmark: Datasets for Machine Learning on Graphs",
+      "year": 2020,
+      "selection_type": "Field landmark",
       "reason": "Supplies task-specific datasets, realistic splits, and standardized evaluators.",
       "sources": [
         "https://arxiv.org/abs/2005.00687",
         "https://papers.nips.cc/paper/2020/file/fb60d411a5c5b72b2e7d3527cfc84fd0-Paper.pdf"
       ]
+    }
+  ],
+  "recent_additions": 9,
+  "landmark_papers": 19,
+  "publication_year_counts": {
+    "2024": 8,
+    "2025": 6,
+    "2026": 3
+  },
+  "recent_replacements": [
+    {
+      "id": "P02",
+      "previous_title": "Laplacian Eigenmaps and Spectral Techniques for Embedding and Clustering",
+      "new_title": "Towards Foundation Models for Knowledge Graph Reasoning",
+      "reason": "Make room for verified 2024–2026 research while preserving all 22 author papers and the requested core methods."
+    },
+    {
+      "id": "P27",
+      "previous_title": "Deep Graph Infomax",
+      "new_title": "One For All: Towards Training One Graph Model For All Classification Tasks",
+      "reason": "Make room for verified 2024–2026 research while preserving all 22 author papers and the requested core methods."
+    },
+    {
+      "id": "P38",
+      "previous_title": "Modeling Relational Data with Graph Convolutional Networks",
+      "new_title": "RelBench: A Benchmark for Deep Learning on Relational Databases",
+      "reason": "Make room for verified 2024–2026 research while preserving all 22 author papers and the requested core methods."
+    },
+    {
+      "id": "P18",
+      "previous_title": "Hierarchical Graph Representation Learning with Differentiable Pooling",
+      "new_title": "Fully-inductive Node Classification on Arbitrary Graphs",
+      "reason": "Make room for verified 2024–2026 research while preserving all 22 author papers and the requested core methods."
+    },
+    {
+      "id": "P24",
+      "previous_title": "Beyond Homophily in Graph Neural Networks: Current Limitations and Effective Designs",
+      "new_title": "Towards Graph Foundation Models: Learning Generalities Across Graphs via Task-Trees",
+      "reason": "Make room for verified 2024–2026 research while preserving all 22 author papers and the requested core methods."
+    },
+    {
+      "id": "P29",
+      "previous_title": "GraphSAINT: Graph Sampling Based Inductive Learning Method",
+      "new_title": "A Large-scale Training Paradigm for Graph Generative Models",
+      "reason": "Make room for verified 2024–2026 research while preserving all 22 author papers and the requested core methods."
+    },
+    {
+      "id": "P39",
+      "previous_title": "Inductive Representation Learning on Temporal Graphs",
+      "new_title": "Relational Graph Transformer",
+      "reason": "Make room for verified 2024–2026 research while preserving all 22 author papers and the requested core methods."
+    },
+    {
+      "id": "P44",
+      "previous_title": "GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models",
+      "new_title": "Graph Tokenization for Bridging Graphs and Transformers",
+      "reason": "Make room for verified 2024–2026 research while preserving all 22 author papers and the requested core methods."
+    },
+    {
+      "id": "P46",
+      "previous_title": "Adversarial Attacks on Graph Neural Networks via Meta Learning",
+      "new_title": "Robustness in Text-Attributed Graph Learning: Insights, Trade-offs, and New Defenses",
+      "reason": "Make room for verified 2024–2026 research while preserving all 22 author papers and the requested core methods."
     }
   ]
 }

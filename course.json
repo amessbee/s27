@@ -61,7 +61,7 @@
     }
   ],
   "paper_protocol": [
-    "Class coverage spans 50 papers: 22 coauthored by Mudassir Shabbir and 28 influential field papers. Lectures, paper spotlights, presentations and practical discussions cover the collection; students implement their five selected papers.",
+    "Class coverage spans 50 papers: 22 coauthored by Mudassir Shabbir and 28 selected field papers. Lectures, paper spotlights, presentations and practical discussions cover the collection; students implement their five selected papers.",
     "Groups will normally have two students. Each group must understand, implement, evaluate, and present at least five distinct papers from the list. Register choices early so the class covers the full list; the instructor fills coverage gaps and approves overlap.",
     "Choose at least one random-walk or spectral paper, one message-passing or attention paper, one advanced paper, one evaluation or reliability paper, and one paper aligned with the project. For a theoretical or benchmark paper, implement its central diagnostic, counterexample, or evaluation protocol.",
     "Each study includes a concise critical brief, runnable code with a documented environment, a reproduced central result, one controlled ablation or stress test, an experiment log, and a presentation with questions. Small-scale reproductions are acceptable when the scope and departures are declared.",
@@ -128,7 +128,6 @@
       "activity": "Implement PageRank; test damping and disconnected graphs.",
       "papers": [
         "P01",
-        "P02",
         "P06"
       ]
     },
@@ -174,12 +173,11 @@
     {
       "week": 6,
       "topic": "Graph prediction and feature construction",
-      "detail": "GIN, pooling, attributed-graph representations and control-informed features; graph-level prediction and fair feature comparisons.",
+      "detail": "GIN, graph-level readouts, attributed-graph representations and control-informed features; fair feature comparisons.",
       "reading": "Expressivity and graph prediction",
       "activity": "Portfolio 2 and project baseline due.",
       "papers": [
         "P10",
-        "P18",
         "P19",
         "P21",
         "P22"
@@ -188,11 +186,10 @@
     {
       "week": 7,
       "topic": "Expressivity, failure modes and evaluation",
-      "detail": "Graph distinguishability, heterophily, oversquashing, benchmark splits and experimental controls.",
+      "detail": "Graph distinguishability, oversquashing, benchmark splits and experimental controls; discuss homophily assumptions.",
       "reading": "Limits and diagnostics",
       "activity": "Design a failure-case experiment; midterm review.",
       "papers": [
-        "P24",
         "P25",
         "P26",
         "P48"
@@ -208,16 +205,16 @@
     },
     {
       "week": 9,
-      "topic": "Scaling and self-supervision",
-      "detail": "Streaming and multiscale descriptors, sampled training, graph contrastive learning and control-informed learning backbones.",
+      "topic": "Scaling, self-supervision and transfer",
+      "detail": "Streaming descriptors, contrastive learning and learning backbones; OFA and GraphAny for cross-domain graph learning.",
       "reading": "Parallel paper spotlights and instructor synthesis; portfolio groups study their selected papers in depth.",
       "activity": "Portfolio 3; descriptor and augmentation spotlights; profile compute and sparsity.",
       "papers": [
         "P09",
         "P11",
+        "P18",
         "P27",
         "P28",
-        "P29",
         "P30",
         "P31"
       ]
@@ -225,49 +222,51 @@
     {
       "week": 10,
       "topic": "Graph learning in practice",
-      "detail": "GNNs for combinatorial optimization, circuits, code, communication networks and resilient control; relational and temporal modeling.",
+      "detail": "GNNs for optimization, circuits, code and resilient control; knowledge-graph transfer with ULTRA and relational evaluation with RelBench.",
       "reading": "Parallel paper spotlights and instructor synthesis; portfolio groups study their selected papers in depth.",
       "activity": "Method and pilot due; application spotlights and feasibility or leakage checks.",
       "papers": [
+        "P02",
         "P32",
         "P33",
         "P34",
         "P35",
         "P36",
         "P37",
-        "P38",
-        "P39"
+        "P38"
       ]
     },
     {
       "week": 11,
-      "topic": "Graph transformers and structural encodings",
-      "detail": "Graphormer, local/global hybrid architectures and control-based rank encoding; compare structural features and attention at matched compute.",
+      "topic": "Graph transformers and tokenization",
+      "detail": "Graphormer, local/global architectures and control-based rank encoding; 2026 relational transformers and graph tokenization.",
       "reading": "Graph transformers",
-      "activity": "Portfolio 4; compare transformer and GNN at matched compute.",
+      "activity": "Portfolio 4; compare transformer, tokenization and GNN approaches at matched compute.",
       "papers": [
         "P23",
+        "P39",
         "P40",
-        "P41"
+        "P41",
+        "P44"
       ]
     },
     {
       "week": 12,
       "topic": "Adversarial and generative graph learning",
-      "detail": "GAN principles, GraphGAN, MolGAN and autoregressive graph generation; validity, diversity and mode collapse.",
+      "detail": "GAN, GraphGAN and MolGAN; multi-domain generative pretraining, text conditioning, validity and diversity.",
       "reading": "Generative models",
       "activity": "Measure validity, diversity, and mode collapse; distinguish GAN from GAT.",
       "papers": [
+        "P29",
         "P42",
         "P43",
-        "P44",
         "P45"
       ]
     },
     {
       "week": 13,
       "topic": "Trustworthy graph research",
-      "detail": "Explanations, adversarial robustness, graph unlearning and brain-connectomics evaluation; limitations, privacy and reproducibility.",
+      "detail": "Explanations, graph unlearning, brain-connectomics evaluation and 2026 robustness research on text-attributed graphs.",
       "reading": "Trustworthiness and evaluation",
       "activity": "Portfolio 5; project evaluation and demo due.",
       "papers": [
@@ -279,11 +278,13 @@
     },
     {
       "week": 14,
-      "topic": "Research symposium",
-      "detail": "Group project presentations, cross-paper synthesis, reproducibility review.",
-      "reading": "Project-specific revisits",
+      "topic": "Research symposium and foundation models",
+      "detail": "Group project presentations and cross-paper synthesis; task-tree foundation models as a capstone on transfer and generalization.",
+      "reading": "Capstone paper spotlight and project-specific revisits",
       "activity": "Peer review drafts and artifacts; address remaining paper coverage.",
-      "papers": []
+      "papers": [
+        "P24"
+      ]
     },
     {
       "week": 15,
@@ -335,12 +336,25 @@
     }
   ],
   "reading_selection": {
-    "summary": "The 50-paper set includes 22 publications coauthored by Mudassir Shabbir on graph learning and its representation foundations, plus 28 influential papers selected for their significance to the field.",
+    "summary": "The 50-paper set includes 22 publications coauthored by Mudassir Shabbir, 19 field landmarks and nine recent research additions. Seventeen readings were published in 2024–2026: eight in 2024, six in 2025 and three in 2026.",
     "policy": [
       "Author coverage comes first: include the publicly verifiable graph-learning papers, graph descriptors, graph-learning applications, and directly relevant graph-distinguishability foundations coauthored by Mudassir Shabbir. Coverage was checked on 2 November 2026; this does not assert coverage of unpublished or unlisted manuscripts.",
-      "The remaining 28 readings are chosen for foundational ideas, influential model families, and established benchmarks or evaluation methods. This is a reasoned syllabus selection, not a citation-count ranking. It preserves PageRank, DeepWalk, node2vec, GCN, GAN, GAT and graph transformers, with message passing, self-supervision, and trustworthy evaluation.",
+      "The 28 wider-field readings balance 19 foundational methods and evaluation frameworks with nine recent papers: three additions each from 2024, 2025 and 2026. Selection prioritizes methodological significance, influence and course relevance. Recent work is labeled as such; especially for 2026, long-term impact is not yet established. PageRank, DeepWalk, node2vec, GCN, GAN, GAT and graph transformers remain covered.",
       "A preprint and its published version count as one reading. Distinct conference and extended journal papers are retained where they make separate contributions; their relationship is noted. Preprints and works in progress are labeled. General geometry and control papers without a direct graph-learning contribution are outside this reading set.",
+      "All nine recent additions have verified official conference proceedings records. Years follow the published venue, not the first arXiv posting: for example, GraphAny is an ICLR 2025 paper. Combined with the instructor’s papers, the list contains eight publications from 2024, six from 2025 and three from 2026.",
       "All 50 receive class coverage through lectures, concise paper spotlights and discussions. The assigned week identifies the main discussion; groups may choose papers across weeks for their five-paper portfolio."
     ]
-  }
+  },
+  "reading_categories": [
+    "Foundations and representations",
+    "Graph neural networks",
+    "Expressivity and limits",
+    "Scaling and self-supervision",
+    "Applications and graph optimization",
+    "Relational and temporal learning",
+    "Graph foundation models",
+    "Graph transformers",
+    "Generative graph learning",
+    "Evaluation and trust"
+  ]
 }

@@ -21,22 +21,24 @@
   },
   {
     "id": "P02",
-    "title": "Laplacian Eigenmaps and Spectral Techniques for Embedding and Clustering",
-    "authors": "Mikhail Belkin and Partha Niyogi",
-    "year": 2001,
-    "venue": "NeurIPS (then NIPS)",
-    "url": "https://papers.nips.cc/paper_files/paper/2001/hash/f106b7f99d2cb30c3db1c3cc0fde9ccb-Abstract.html",
-    "category": "Foundations and representations",
-    "why": "Introduces the graph Laplacian as a bridge between geometry, embeddings, and spectral learning.",
-    "exercise": "Compute two-dimensional spectral embeddings of a small graph; compare neighborhoods with a random layout.",
-    "difficulty": "Foundation",
-    "method": "Laplacian eigenmaps",
+    "year": 2024,
+    "title": "Towards Foundation Models for Knowledge Graph Reasoning",
+    "authors": "Mikhail Galkin, Xinyu Yuan, Hesham Mostafa, Jian Tang, Zhaocheng Zhu",
+    "venue": "ICLR 2024",
+    "url": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/85dd09d356ca561169b2c03e43cf305e-Abstract-Conference.html",
+    "method": "ULTRA",
+    "category": "Relational and temporal learning",
+    "week": 10,
+    "why": "A significant step toward transferable knowledge-graph reasoning across unseen entity and relation vocabularies; connects graph representations with foundation-model generalization.",
+    "exercise": "Use an available pretrained model on two small held-out knowledge graphs; compare zero-shot inference and limited fine-tuning with a task-specific baseline. Audit graph overlap.",
+    "difficulty": "Advanced",
     "sources": [
-      "https://papers.nips.cc/paper_files/paper/2001/hash/f106b7f99d2cb30c3db1c3cc0fde9ccb-Abstract.html"
+      "https://proceedings.iclr.cc/paper_files/paper/2024/hash/85dd09d356ca561169b2c03e43cf305e-Abstract-Conference.html"
     ],
     "instructor_paper": false,
-    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
-    "week": 2
+    "recent_addition": true,
+    "publication_status": "Published in official conference proceedings",
+    "selection_basis": "Recent research: methodological significance, course relevance and reproducible evaluation; long-term impact is still developing."
   },
   {
     "id": "P03",
@@ -359,23 +361,24 @@
   },
   {
     "id": "P18",
-    "title": "Hierarchical Graph Representation Learning with Differentiable Pooling",
-    "authors": "Rex Ying et al.",
-    "year": 2018,
-    "venue": "NeurIPS",
-    "url": "https://arxiv.org/abs/1806.08804",
-    "category": "Graph neural networks",
-    "why": "Introduces learned graph coarsening for prediction over entire graphs.",
-    "exercise": "Implement one DiffPool stage and compare it with global mean pooling under matched budgets.",
-    "difficulty": "Intermediate",
-    "method": "DiffPool",
+    "year": 2025,
+    "title": "Fully-inductive Node Classification on Arbitrary Graphs",
+    "authors": "Jianan Zhao, Zhaocheng Zhu, Mikhail Galkin, Hesham Mostafa, Michael Bronstein, Jian Tang",
+    "venue": "ICLR 2025",
+    "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/3bdeb28a531f7af94b56bcdf8ee88f17-Abstract-Conference.html",
+    "method": "GraphAny",
+    "category": "Graph foundation models",
+    "week": 9,
+    "why": "Extends inductive learning to graphs with different feature and label spaces; provides a sharp experimental test of what cross-graph generalization means.",
+    "exercise": "Evaluate a released GraphAny model on two unseen small graphs with differing feature dimensions; compare against linear propagation and a supervised GCN without target-test tuning.",
+    "difficulty": "Advanced",
     "sources": [
-      "https://arxiv.org/abs/1806.08804",
-      "https://papers.nips.cc/paper_files/paper/2018/hash/e77dbaf6759253c7c6d0efc5690369c7-Abstract.html"
+      "https://proceedings.iclr.cc/paper_files/paper/2025/hash/3bdeb28a531f7af94b56bcdf8ee88f17-Abstract-Conference.html"
     ],
     "instructor_paper": false,
-    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
-    "week": 6
+    "recent_addition": true,
+    "publication_status": "Published in official conference proceedings",
+    "selection_basis": "Recent research: methodological significance, course relevance and reproducible evaluation; long-term impact is still developing."
   },
   {
     "id": "P19",
@@ -493,22 +496,24 @@
   },
   {
     "id": "P24",
-    "title": "Beyond Homophily in Graph Neural Networks: Current Limitations and Effective Designs",
-    "authors": "Jiong Zhu et al.",
-    "year": 2020,
-    "venue": "NeurIPS",
-    "url": "https://arxiv.org/abs/2006.11468",
-    "category": "Expressivity and limits",
-    "why": "Studies graphs whose connected nodes differ and motivates separating ego and neighbor information.",
-    "exercise": "Implement an H2GCN-style baseline and vary homophily on synthetic graphs.",
-    "difficulty": "Intermediate",
-    "method": "H2GCN",
+    "year": 2025,
+    "title": "Towards Graph Foundation Models: Learning Generalities Across Graphs via Task-Trees",
+    "authors": "Zehong Wang, Zheyuan Zhang, Tianyi Ma, Nitesh V. Chawla, Chuxu Zhang, Yanfang Ye",
+    "venue": "ICML 2025, PMLR 267, 65518–65555",
+    "url": "https://proceedings.mlr.press/v267/wang25eq.html",
+    "method": "GIT",
+    "category": "Graph foundation models",
+    "week": 14,
+    "why": "Uses task-trees to align node-, edge- and graph-level learning; connects transferability arguments with cross-task and cross-domain experiments.",
+    "exercise": "Build task-trees for one small dataset and two prediction tasks; test a frozen or lightly fine-tuned encoder against a task-specific baseline and audit pretraining overlap.",
+    "difficulty": "Advanced",
     "sources": [
-      "https://arxiv.org/abs/2006.11468"
+      "https://proceedings.mlr.press/v267/wang25eq.html"
     ],
     "instructor_paper": false,
-    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
-    "week": 7
+    "recent_addition": true,
+    "publication_status": "Published in official conference proceedings",
+    "selection_basis": "Recent research: methodological significance, course relevance and reproducible evaluation; long-term impact is still developing."
   },
   {
     "id": "P25",
@@ -553,22 +558,24 @@
   },
   {
     "id": "P27",
-    "title": "Deep Graph Infomax",
-    "authors": "Petar Veličković et al.",
-    "year": 2019,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/1809.10341",
-    "category": "Scaling and self-supervision",
-    "why": "Introduces node representation learning through local-global contrast.",
-    "exercise": "Implement DGI and test feature corruption with a frozen linear evaluation protocol.",
-    "difficulty": "Intermediate",
-    "method": "DGI",
+    "year": 2024,
+    "title": "One For All: Towards Training One Graph Model For All Classification Tasks",
+    "authors": "Hao Liu, Jiarui Feng, Lecheng Kong, Ningyue Liang, Dacheng Tao, Yixin Chen, Muhan Zhang",
+    "venue": "ICLR 2024",
+    "url": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/57faf5642eb06e0602b95f6aa989b38a-Abstract-Conference.html",
+    "method": "OFA",
+    "category": "Graph foundation models",
+    "week": 9,
+    "why": "Studies a unified representation for node, link and graph tasks using text attributes and graph prompting; a useful reference for cross-domain graph learning.",
+    "exercise": "Reproduce a small two-domain transfer experiment using cached text embeddings; ablate prompt substructures and compare against separately trained GNNs.",
+    "difficulty": "Advanced",
     "sources": [
-      "https://arxiv.org/abs/1809.10341"
+      "https://proceedings.iclr.cc/paper_files/paper/2024/hash/57faf5642eb06e0602b95f6aa989b38a-Abstract-Conference.html"
     ],
     "instructor_paper": false,
-    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
-    "week": 9
+    "recent_addition": true,
+    "publication_status": "Published in official conference proceedings",
+    "selection_basis": "Recent research: methodological significance, course relevance and reproducible evaluation; long-term impact is still developing."
   },
   {
     "id": "P28",
@@ -591,22 +598,24 @@
   },
   {
     "id": "P29",
-    "title": "GraphSAINT: Graph Sampling Based Inductive Learning Method",
-    "authors": "Hanqing Zeng et al.",
-    "year": 2020,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/1907.04931",
-    "category": "Scaling and self-supervision",
-    "why": "Studies subgraph sampling with normalization to improve training efficiency.",
-    "exercise": "Implement one subgraph sampler and test the contribution of sampling normalization.",
-    "difficulty": "Intermediate",
-    "method": "GraphSAINT",
+    "year": 2025,
+    "title": "A Large-scale Training Paradigm for Graph Generative Models",
+    "authors": "Yu Wang, Ryan Rossi, Namyong Park, Huiyuan Chen, Nesreen Ahmed, Puja Trivedi, Franck Dernoncourt, Danai Koutra, Tyler Derr",
+    "venue": "ICLR 2025",
+    "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/3a2ef31a1e45908901adc0ca853a8faf-Abstract-Conference.html",
+    "method": "LGGM",
+    "category": "Generative graph learning",
+    "week": 12,
+    "why": "Studies graph generation across multiple domains and text conditioning, moving the discussion from single-dataset fitting to reusable generative models.",
+    "exercise": "Evaluate a released checkpoint on a small held-out graph family; compare zero-shot and fine-tuned generation using validity, diversity, structural statistics and inference cost.",
+    "difficulty": "Advanced",
     "sources": [
-      "https://arxiv.org/abs/1907.04931"
+      "https://proceedings.iclr.cc/paper_files/paper/2025/hash/3a2ef31a1e45908901adc0ca853a8faf-Abstract-Conference.html"
     ],
     "instructor_paper": false,
-    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
-    "week": 9
+    "recent_addition": true,
+    "publication_status": "Published in official conference proceedings",
+    "selection_basis": "Recent research: methodological significance, course relevance and reproducible evaluation; long-term impact is still developing."
   },
   {
     "title": "Control-Based Graph Embeddings with Data Augmentation for Contrastive Learning",
@@ -796,42 +805,45 @@
   },
   {
     "id": "P38",
-    "title": "Modeling Relational Data with Graph Convolutional Networks",
-    "authors": "Michael Schlichtkrull et al.",
-    "year": 2018,
-    "venue": "ESWC",
-    "url": "https://arxiv.org/abs/1703.06103",
-    "category": "Relational and temporal learning",
-    "why": "Extends message passing to typed relations and knowledge-graph completion.",
-    "exercise": "Implement basis-decomposed R-GCN on a small relational dataset with leakage-aware edge splits.",
-    "difficulty": "Intermediate",
-    "method": "R-GCN",
+    "year": 2024,
+    "title": "RelBench: A Benchmark for Deep Learning on Relational Databases",
+    "authors": "Joshua Robinson, Rishabh Ranjan, Weihua Hu, Kexin Huang, Jiaqi Han, Alejandro Dobles, Matthias Fey, Jan E. Lenssen, Yiwen Yuan, Zecheng Zhang, Xinwei He, Jure Leskovec",
+    "venue": "NeurIPS 2024 Datasets and Benchmarks",
+    "url": "https://papers.nips.cc/paper_files/paper/2024/hash/25cd345233c65fac1fec0ce61d0f7836-Abstract-Datasets_and_Benchmarks_Track.html",
+    "method": "RelBench",
+    "category": "Evaluation and trust",
+    "week": 10,
+    "why": "Establishes a benchmark for graph-based prediction over linked database tables, making temporal leakage and comparisons with tabular feature engineering central research questions.",
+    "exercise": "Run one small relational prediction task with official temporal splits; compare a GNN with a tabular baseline and inspect which joins would leak future information.",
+    "difficulty": "Advanced",
     "sources": [
-      "https://arxiv.org/abs/1703.06103",
-      "https://research.vu.nl/en/publications/modeling-relational-data-with-graph-convolutional-networks/"
+      "https://papers.nips.cc/paper_files/paper/2024/hash/25cd345233c65fac1fec0ce61d0f7836-Abstract-Datasets_and_Benchmarks_Track.html"
     ],
     "instructor_paper": false,
-    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
-    "week": 10
+    "recent_addition": true,
+    "publication_status": "Published in official conference proceedings",
+    "selection_basis": "Recent research: methodological significance, course relevance and reproducible evaluation; long-term impact is still developing."
   },
   {
     "id": "P39",
-    "title": "Inductive Representation Learning on Temporal Graphs",
-    "authors": "Da Xu et al.",
-    "year": 2020,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/2002.07962",
-    "category": "Relational and temporal learning",
-    "why": "Introduces temporal attention with continuous-time encodings.",
-    "exercise": "Implement TGAT-style temporal neighbors and verify every prediction uses only past events.",
+    "year": 2026,
+    "title": "Relational Graph Transformer",
+    "authors": "Vijay Prakash Dwivedi, Sri Jaladi, Yangyi Shen, Federico Lopez, Charilaos Kanatsoulis, Rishi Puri, Matthias Fey, Jure Leskovec",
+    "venue": "ICLR 2026",
+    "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/fa1ef43326cfb8a808c0649708187f2a-Abstract-Conference.html",
+    "method": "RelGT",
+    "category": "Graph transformers",
+    "week": 11,
+    "why": "A recent transformer design for heterogeneous temporal graphs derived from relational tables; examines how tokenization and local/global attention adapt to database structure.",
+    "exercise": "Compare RelGT and a GNN on one small RelBench task at matched compute; ablate temporal or structural token components and report memory and predictive performance.",
     "difficulty": "Advanced",
-    "method": "TGAT",
     "sources": [
-      "https://arxiv.org/abs/2002.07962"
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/fa1ef43326cfb8a808c0649708187f2a-Abstract-Conference.html"
     ],
     "instructor_paper": false,
-    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
-    "week": 10
+    "recent_addition": true,
+    "publication_status": "Published in official conference proceedings",
+    "selection_basis": "Recent research: methodological significance, course relevance and reproducible evaluation; long-term impact is still developing."
   },
   {
     "id": "P40",
@@ -913,22 +925,24 @@
   },
   {
     "id": "P44",
-    "title": "GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models",
-    "authors": "Jiaxuan You et al.",
-    "year": 2018,
-    "venue": "ICML",
-    "url": "https://arxiv.org/abs/1802.08773",
-    "category": "Generative graph learning",
-    "why": "Provides an autoregressive alternative to adversarial graph generation.",
-    "exercise": "Implement a small sequential graph generator and compare degree and clustering distributions.",
+    "year": 2026,
+    "title": "Graph Tokenization for Bridging Graphs and Transformers",
+    "authors": "Zeyuan Guo, Enmao Diao, Cheng Yang, Chuan Shi",
+    "venue": "ICLR 2026",
+    "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/2c0781f2ed2d8054d4f27a19bd8c380b-Abstract-Conference.html",
+    "method": "Graph tokenization",
+    "category": "Graph transformers",
+    "week": 11,
+    "why": "Explores reversible graph serialization and substructure-guided tokenization for standard sequence transformers, offering a fresh alternative to specialized graph architectures.",
+    "exercise": "Serialize small graphs, train or reuse a compact tokenizer, and compare a small transformer with a GNN; measure sensitivity to node permutations, sequence length and vocabulary size.",
     "difficulty": "Advanced",
-    "method": "GraphRNN",
     "sources": [
-      "https://arxiv.org/abs/1802.08773"
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/2c0781f2ed2d8054d4f27a19bd8c380b-Abstract-Conference.html"
     ],
     "instructor_paper": false,
-    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
-    "week": 12
+    "recent_addition": true,
+    "publication_status": "Published in official conference proceedings",
+    "selection_basis": "Recent research: methodological significance, course relevance and reproducible evaluation; long-term impact is still developing."
   },
   {
     "id": "P45",
@@ -951,22 +965,24 @@
   },
   {
     "id": "P46",
-    "title": "Adversarial Attacks on Graph Neural Networks via Meta Learning",
-    "authors": "Daniel Zügner and Stephan Günnemann",
-    "year": 2019,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/1902.08412",
+    "year": 2026,
+    "title": "Robustness in Text-Attributed Graph Learning: Insights, Trade-offs, and New Defenses",
+    "authors": "Runlin Lei, Lu Yi, Mingguo He, Pengyu Qiu, Zhewei Wei, Yongchao Liu, Chuntao Hong",
+    "venue": "ICLR 2026",
+    "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/5133c31f29df92e056434cd86805cb6a-Abstract-Conference.html",
+    "method": "TAG robustness",
     "category": "Evaluation and trust",
-    "why": "Studies sensitivity to training-graph perturbations and motivates robust evaluation.",
-    "exercise": "On a public benchmark, compare controlled edge perturbations with random edits and report accuracy degradation.",
+    "week": 13,
+    "why": "Examines textual and structural perturbations in a common evaluation framework, connecting graph-learning robustness with the growing use of language-model features.",
+    "exercise": "On a public benchmark, compare text-only, edge-only and combined perturbations under fixed budgets; evaluate a GNN and a text encoder while separating poisoning from evasion.",
     "difficulty": "Advanced",
-    "method": "Metattack",
     "sources": [
-      "https://arxiv.org/abs/1902.08412"
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/5133c31f29df92e056434cd86805cb6a-Abstract-Conference.html"
     ],
     "instructor_paper": false,
-    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
-    "week": 13
+    "recent_addition": true,
+    "publication_status": "Published in official conference proceedings",
+    "selection_basis": "Recent research: methodological significance, course relevance and reproducible evaluation; long-term impact is still developing."
   },
   {
     "id": "P47",
