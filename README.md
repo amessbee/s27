@@ -6,10 +6,10 @@ A research and practice course moving from graph theory and PageRank through gra
 
 ## Course materials
 
-- [Completed course outline — Word](CS4308_Course_Outline.docx)
 - [Completed course outline — PDF](CS4308_Course_Outline.pdf)
 - [50-paper reading companion and 20 project briefs — PDF](CS4308_Papers.pdf)
-- [Reading companion — LaTeX](CS4308_Papers.tex)
+- [PyG introduction by example](https://pytorch-geometric.readthedocs.io/en/latest/get_started/introduction.html)
+- [Open Graph Benchmark getting started](https://ogb.stanford.edu/docs/home/)
 
 The course proposes a 16-week schedule. Groups, normally pairs, understand, implement, evaluate, and present at least five papers. Assessment includes surprise quizzes, a midterm, a final examination, and a phased research project. Every student individually writes and submits a research paper on the project. Publication acceptance is not required.
 
