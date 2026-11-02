@@ -15,6 +15,7 @@
     document.querySelector('#no-results').hidden = visible !== 0;
   }
   function reset() { input.value = ''; select.value = ''; filter(); }
+  document.querySelector('#author-papers').addEventListener('click', () => { input.value = 'mudassir shabbir'; select.value = ''; filter(); });
   input.addEventListener('input', filter);
   select.addEventListener('change', filter);
   document.querySelector('#reset-papers').addEventListener('click', () => { reset(); input.focus(); });

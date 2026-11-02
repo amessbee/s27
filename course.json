@@ -61,7 +61,7 @@
     }
   ],
   "paper_protocol": [
-    "The class collectively works through a curated set of 50 papers. Weekly readings combine instructor synthesis, paper spotlights, student presentations, and practical discussion; students are not expected to implement all 50.",
+    "Class coverage spans 50 papers: 22 coauthored by Mudassir Shabbir and 28 influential field papers. Lectures, paper spotlights, presentations and practical discussions cover the collection; students implement their five selected papers.",
     "Groups will normally have two students. Each group must understand, implement, evaluate, and present at least five distinct papers from the list. Register choices early so the class covers the full list; the instructor fills coverage gaps and approves overlap.",
     "Choose at least one random-walk or spectral paper, one message-passing or attention paper, one advanced paper, one evaluation or reliability paper, and one paper aligned with the project. For a theoretical or benchmark paper, implement its central diagnostic, counterexample, or evaluation protocol.",
     "Each study includes a concise critical brief, runnable code with a documented environment, a reproduced central result, one controlled ablation or stress test, an experiment log, and a presentation with questions. Small-scale reproductions are acceptable when the scope and departures are declared.",
@@ -122,80 +122,80 @@
     },
     {
       "week": 2,
-      "topic": "Spectral structure and random walks",
-      "detail": "Laplacians, eigenvectors, centrality, Markov chains, stationary distributions, PageRank and spectral embeddings.",
+      "topic": "Spectral structure and graph descriptors",
+      "detail": "Laplacians, centrality, random walks and PageRank; spectral embeddings and multiscale structural summaries.",
       "reading": "Foundations",
       "activity": "Implement PageRank; test damping and disconnected graphs.",
       "papers": [
         "P01",
-        "P02"
+        "P02",
+        "P06"
       ]
     },
     {
       "week": 3,
-      "topic": "Learning with walks",
-      "detail": "DeepWalk, node2vec, proximity and skip-gram; structural versus community similarity.",
+      "topic": "Walk embeddings and statistical representations",
+      "detail": "DeepWalk, node2vec, effective resistance, distributed and streaming descriptors; learned versus engineered features.",
       "reading": "Random-walk embeddings",
       "activity": "Proposal due; choose and register the five-paper portfolio.",
       "papers": [
         "P03",
         "P04",
         "P05",
-        "P06"
+        "P07",
+        "P08"
       ]
     },
     {
       "week": 4,
       "topic": "From graph signals to GCNs",
-      "detail": "Spectral filters, Chebyshev approximations, graph convolution, transductive learning.",
+      "detail": "The original graph neural network model, spectral filters, Chebyshev approximations and graph convolution.",
       "reading": "Spectral and convolutional models",
       "activity": "Portfolio 1; implement a GCN and audit data leakage.",
       "papers": [
-        "P07",
-        "P08",
-        "P09"
+        "P12",
+        "P13",
+        "P16"
       ]
     },
     {
       "week": 5,
       "topic": "Message passing and attention",
-      "detail": "GraphSAGE, message-passing neural networks, GAT; inductive learning and neighborhood aggregation.",
+      "detail": "GraphSAGE, MPNNs and GAT; local spectral augmentation, inductive learning and neighborhood aggregation.",
       "reading": "Message passing and attention",
       "activity": "Compare aggregation and attention under matched budgets.",
       "papers": [
-        "P10",
-        "P11",
-        "P12",
-        "P15"
+        "P14",
+        "P15",
+        "P17",
+        "P20"
       ]
     },
     {
       "week": 6,
-      "topic": "Expressivity and graph prediction",
-      "detail": "Weisfeiler–Leman intuition, graph isomorphism networks, pooling and graph-level tasks.",
+      "topic": "Graph prediction and feature construction",
+      "detail": "GIN, pooling, attributed-graph representations and control-informed features; graph-level prediction and fair feature comparisons.",
       "reading": "Expressivity and graph prediction",
       "activity": "Portfolio 2 and project baseline due.",
       "papers": [
-        "P13",
-        "P14",
-        "P16",
-        "P17",
-        "P21"
+        "P10",
+        "P18",
+        "P19",
+        "P21",
+        "P22"
       ]
     },
     {
       "week": 7,
-      "topic": "When graph learning fails",
-      "detail": "Oversmoothing, oversquashing, heterophily, controls and experimental design.",
+      "topic": "Expressivity, failure modes and evaluation",
+      "detail": "Graph distinguishability, heterophily, oversquashing, benchmark splits and experimental controls.",
       "reading": "Limits and diagnostics",
       "activity": "Design a failure-case experiment; midterm review.",
       "papers": [
-        "P18",
-        "P19",
-        "P20",
-        "P22",
-        "P23",
-        "P24"
+        "P24",
+        "P25",
+        "P26",
+        "P48"
       ]
     },
     {
@@ -209,70 +209,70 @@
     {
       "week": 9,
       "topic": "Scaling and self-supervision",
-      "detail": "Sampling, scalable training, graph contrastive learning and masked reconstruction.",
-      "reading": "Scalable and self-supervised learning",
-      "activity": "Portfolio 3; profile compute and test augmentations.",
+      "detail": "Streaming and multiscale descriptors, sampled training, graph contrastive learning and control-informed learning backbones.",
+      "reading": "Parallel paper spotlights and instructor synthesis; portfolio groups study their selected papers in depth.",
+      "activity": "Portfolio 3; descriptor and augmentation spotlights; profile compute and sparsity.",
       "papers": [
-        "P25",
-        "P26",
+        "P09",
+        "P11",
         "P27",
+        "P28",
         "P29",
         "P30",
-        "P31",
-        "P32"
+        "P31"
       ]
     },
     {
       "week": 10,
-      "topic": "Relations and time",
-      "detail": "Knowledge graphs, heterogeneous graphs, temporal events, leakage-aware temporal splits.",
-      "reading": "Relational and temporal learning",
-      "activity": "Method and pilot due; evaluate inductive or temporal generalization.",
+      "topic": "Graph learning in practice",
+      "detail": "GNNs for combinatorial optimization, circuits, code, communication networks and resilient control; relational and temporal modeling.",
+      "reading": "Parallel paper spotlights and instructor synthesis; portfolio groups study their selected papers in depth.",
+      "activity": "Method and pilot due; application spotlights and feasibility or leakage checks.",
       "papers": [
+        "P32",
         "P33",
         "P34",
         "P35",
         "P36",
-        "P37"
+        "P37",
+        "P38",
+        "P39"
       ]
     },
     {
       "week": 11,
-      "topic": "Graph transformers",
-      "detail": "Structural and positional encodings, global attention, local/global hybrid architectures.",
+      "topic": "Graph transformers and structural encodings",
+      "detail": "Graphormer, local/global hybrid architectures and control-based rank encoding; compare structural features and attention at matched compute.",
       "reading": "Graph transformers",
       "activity": "Portfolio 4; compare transformer and GNN at matched compute.",
       "papers": [
-        "P38",
-        "P39",
+        "P23",
         "P40",
-        "P41",
-        "P42"
+        "P41"
       ]
     },
     {
       "week": 12,
       "topic": "Adversarial and generative graph learning",
-      "detail": "GAN principles, GraphGAN, MolGAN, autoregressive graph generation and diffusion.",
+      "detail": "GAN principles, GraphGAN, MolGAN and autoregressive graph generation; validity, diversity and mode collapse.",
       "reading": "Generative models",
       "activity": "Measure validity, diversity, and mode collapse; distinguish GAN from GAT.",
       "papers": [
+        "P42",
         "P43",
         "P44",
-        "P45",
-        "P46",
-        "P47"
+        "P45"
       ]
     },
     {
       "week": 13,
       "topic": "Trustworthy graph research",
-      "detail": "Explanations, attacks and robustness, fair comparisons, benchmark protocols and uncertainty.",
+      "detail": "Explanations, adversarial robustness, graph unlearning and brain-connectomics evaluation; limitations, privacy and reproducibility.",
       "reading": "Trustworthiness and evaluation",
       "activity": "Portfolio 5; project evaluation and demo due.",
       "papers": [
-        "P28",
-        "P48",
+        "P46",
+        "P47",
         "P49",
         "P50"
       ]
@@ -333,5 +333,14 @@
       "url": "https://ogb.stanford.edu/",
       "use": "Datasets, official splits and evaluators."
     }
-  ]
+  ],
+  "reading_selection": {
+    "summary": "The 50-paper set includes 22 publications coauthored by Mudassir Shabbir on graph learning and its representation foundations, plus 28 influential papers selected for their significance to the field.",
+    "policy": [
+      "Author coverage comes first: include the publicly verifiable graph-learning papers, graph descriptors, graph-learning applications, and directly relevant graph-distinguishability foundations coauthored by Mudassir Shabbir. Coverage was checked on 2 November 2026; this does not assert coverage of unpublished or unlisted manuscripts.",
+      "The remaining 28 readings are chosen for foundational ideas, influential model families, and established benchmarks or evaluation methods. This is a reasoned syllabus selection, not a citation-count ranking. It preserves PageRank, DeepWalk, node2vec, GCN, GAN, GAT and graph transformers, with message passing, self-supervision, and trustworthy evaluation.",
+      "A preprint and its published version count as one reading. Distinct conference and extended journal papers are retained where they make separate contributions; their relationship is noted. Preprints and works in progress are labeled. General geometry and control papers without a direct graph-learning contribution are outside this reading set.",
+      "All 50 receive class coverage through lectures, concise paper spotlights and discussions. The assigned week identifies the main discussion; groups may choose papers across weeks for their five-paper portfolio."
+    ]
+  }
 }

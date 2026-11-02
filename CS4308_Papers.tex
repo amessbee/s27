@@ -12,30 +12,39 @@
 {\Large\bfseries CS4308 Graph Machine Learning}\par
 {\huge\bfseries Fifty papers to read and build}\par
 \vspace{5pt}
-A curated path from graph structure and random walks to neural message passing, transformers, generation, and reliable evaluation. This is a foundational research syllabus, not an exhaustive survey of the newest literature. Bibliographic sources were checked in November 2026. The year shown is the cited publication year; an arXiv preprint may be earlier. Workshop papers are identified explicitly.
+A curated path from graph structure and random walks to neural message passing, transformers, generation, and reliable evaluation. The selection combines the instructor's graph-learning research with influential methods and evaluation frameworks from the wider field. Bibliographic sources were checked in November 2026. The year shown is the cited publication year; an arXiv preprint may be earlier. Workshop papers are identified explicitly.
 \section*{How to use this list}
 The class collectively discusses all 50 papers. Each group, normally a pair, must understand, implement, evaluate, and present at least five distinct papers. Register a balanced selection: one random-walk or spectral method, one message-passing or attention method, one advanced method, one evaluation or reliability paper, and one project-aligned paper. For theory and benchmark papers, implement a central diagnostic or evaluation protocol.
 
 Submit a critical brief, reproducible code, a central result, one ablation or stress test, and a presentation for each study. Small-scale reproductions are acceptable when explicitly scoped. Both partners must contribute and defend the work. Suggested checkpoints are weeks 4, 6, 9, 11, and 13. This reading companion uses the same P01--P50 identifiers as the course outline and website.
 
-GAN means generative adversarial network; GAT means graph attention network. P43 supplies the general GAN prerequisite, while P44 and P45 apply adversarial objectives to graph representation or generation.
+GAN means generative adversarial network; GAT means graph attention network. The original GAN paper supplies the general prerequisite, followed by GraphGAN and MolGAN for graph-based adversarial learning.
 \section*{Weekly reading map}
 
-\textbf{Week 2: Spectral structure and random walks.} P01, P02\par
-\textbf{Week 3: Learning with walks.} P03, P04, P05, P06\par
-\textbf{Week 4: From graph signals to GCNs.} P07, P08, P09\par
-\textbf{Week 5: Message passing and attention.} P10, P11, P12, P15\par
-\textbf{Week 6: Expressivity and graph prediction.} P13, P14, P16, P17, P21\par
-\textbf{Week 7: When graph learning fails.} P18, P19, P20, P22, P23, P24\par
-\textbf{Week 9: Scaling and self-supervision.} P25, P26, P27, P29, P30, P31, P32\par
-\textbf{Week 10: Relations and time.} P33, P34, P35, P36, P37\par
-\textbf{Week 11: Graph transformers.} P38, P39, P40, P41, P42\par
-\textbf{Week 12: Adversarial and generative graph learning.} P43, P44, P45, P46, P47\par
-\textbf{Week 13: Trustworthy graph research.} P28, P48, P49, P50\par
-\clearpage\section*{Foundations and embeddings}
+\textbf{Week 2: Spectral structure and graph descriptors.} P01, P02, P06\par
+\textbf{Week 3: Walk embeddings and statistical representations.} P03, P04, P05, P07, P08\par
+\textbf{Week 4: From graph signals to GCNs.} P12, P13, P16\par
+\textbf{Week 5: Message passing and attention.} P14, P15, P17, P20\par
+\textbf{Week 6: Graph prediction and feature construction.} P10, P18, P19, P21, P22\par
+\textbf{Week 7: Expressivity, failure modes and evaluation.} P24, P25, P26, P48\par
+\textbf{Week 9: Scaling and self-supervision.} P09, P11, P27, P28, P29, P30, P31\par
+\textbf{Week 10: Graph learning in practice.} P32, P33, P34, P35, P36, P37, P38, P39\par
+\textbf{Week 11: Graph transformers and structural encodings.} P23, P40, P41\par
+\textbf{Week 12: Adversarial and generative graph learning.} P42, P43, P44, P45\par
+\textbf{Week 13: Trustworthy graph research.} P46, P47, P49, P50\par
+\clearpage\section*{Selection and coverage}
+The 50-paper set includes 22 publications coauthored by Mudassir Shabbir on graph learning and its representation foundations, plus 28 influential papers selected for their significance to the field.\par
+Author coverage comes first: include the publicly verifiable graph-learning papers, graph descriptors, graph-learning applications, and directly relevant graph-distinguishability foundations coauthored by Mudassir Shabbir. Coverage was checked on 2 November 2026; this does not assert coverage of unpublished or unlisted manuscripts.\par
+The remaining 28 readings are chosen for foundational ideas, influential model families, and established benchmarks or evaluation methods. This is a reasoned syllabus selection, not a citation-count ranking. It preserves PageRank, DeepWalk, node2vec, GCN, GAN, GAT and graph transformers, with message passing, self-supervision, and trustworthy evaluation.\par
+A preprint and its published version count as one reading. Distinct conference and extended journal papers are retained where they make separate contributions; their relationship is noted. Preprints and works in progress are labeled. General geometry and control papers without a direct graph-learning contribution are outside this reading set.\par
+All 50 receive class coverage through lectures, concise paper spotlights and discussions. The assigned week identifies the main discussion; groups may choose papers across weeks for their five-paper portfolio.\par
+Coverage sources: \href{https://orcid.org/0000-0002-6961-0961}{author ORCID}; \href{https://anwar-said.github.io/anwarsaid/CV.pdf}{coauthor publication list}; \href{https://amessbee.github.io/s27/reading_selection.json}{coverage and version audit}. Each entry links its primary publication or manuscript.\par
+\clearpage
+\Needspace{16\baselineskip}\section*{Foundations and representations}
 \begin{minipage}{\linewidth}
 {\large\bfseries P01 The PageRank Citation Ranking: Bringing Order to the Web}\par
 Lawrence Page et al. Stanford InfoLab Technical Report 1999-66, 1999.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Connects graph centrality, Markov chains, and ranking before learned representations.\par
 \textbf{Build or investigate.} Implement power iteration with teleportation; test dangling nodes and sensitivity to the damping factor.\par
 \textbf{Level.} Foundation\quad\href{http://ilpubs.stanford.edu:8090/422/}{Primary source $\nearrow$}\par
@@ -43,6 +52,7 @@ Lawrence Page et al. Stanford InfoLab Technical Report 1999-66, 1999.\par
 \begin{minipage}{\linewidth}
 {\large\bfseries P02 Laplacian Eigenmaps and Spectral Techniques for Embedding and Clustering}\par
 Mikhail Belkin and Partha Niyogi. NeurIPS (then NIPS), 2001.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Introduces the graph Laplacian as a bridge between geometry, embeddings, and spectral learning.\par
 \textbf{Build or investigate.} Compute two-dimensional spectral embeddings of a small graph; compare neighborhoods with a random layout.\par
 \textbf{Level.} Foundation\quad\href{https://papers.nips.cc/paper_files/paper/2001/hash/f106b7f99d2cb30c3db1c3cc0fde9ccb-Abstract.html}{Primary source $\nearrow$}\par
@@ -50,346 +60,402 @@ Mikhail Belkin and Partha Niyogi. NeurIPS (then NIPS), 2001.\par
 \begin{minipage}{\linewidth}
 {\large\bfseries P03 DeepWalk: Online Learning of Social Representations}\par
 Bryan Perozzi et al. KDD, 2014.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Turns short random walks into a practical unsupervised representation-learning pipeline.\par
 \textbf{Build or investigate.} Implement walk generation and skip-gram training; evaluate node classification with a fixed split.\par
 \textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1403.6652}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P04 LINE: Large-scale Information Network Embedding}\par
-Jian Tang et al. WWW, 2015.\par
-\textbf{Why read it.} Separates first-order and second-order proximity and introduces efficient edge sampling.\par
-\textbf{Build or investigate.} Implement the two proximity objectives and compare their concatenation on link prediction.\par
-\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1503.03578}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P05 node2vec: Scalable Feature Learning for Networks}\par
+{\large\bfseries P04 node2vec: Scalable Feature Learning for Networks}\par
 Aditya Grover and Jure Leskovec. KDD, 2016.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Shows how biased walks trade off local neighborhoods and structural roles.\par
 \textbf{Build or investigate.} Sweep return and exploration parameters against DeepWalk using identical downstream evaluation.\par
 \textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1607.00653}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P06 Network Embedding as Matrix Factorization: Unifying DeepWalk, LINE, PTE, and node2vec}\par
-Jiezhong Qiu et al. WSDM, 2018.\par
-\textbf{Why read it.} Explains random-walk embeddings through matrix factorization and spectral graph structure.\par
-\textbf{Build or investigate.} Construct NetMF on a small graph and compare it with sampled DeepWalk embeddings.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1710.02971}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\clearpage\section*{Graph neural networks}
-\begin{minipage}{\linewidth}
-{\large\bfseries P07 Spectral Networks and Locally Connected Networks on Graphs}\par
-Joan Bruna et al. ICLR, 2014.\par
-\textbf{Why read it.} Provides a historical starting point for learned convolution in a graph Fourier basis.\par
-\textbf{Build or investigate.} Implement one spectral filtering layer and measure how its parameters depend on the graph basis.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1312.6203}{Primary source $\nearrow$}\par
+{\large\bfseries P05 Estimating Descriptors for Large Graphs}\par
+Zohair Raza Hassan, Mudassir Shabbir, Imdadullah Khan, Waseem Abbas. PAKDD 2020, LNCS 12084, 779-791, 2020.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+{\small Conference paper; the extended edge-stream journal paper is a separate reading.}\par
+\textbf{Why read it.} Streaming graph descriptors for classification.\par
+\textbf{Build or investigate.} Implement reservoir-sampled graphlet counts; plot descriptor error and classification accuracy against the memory budget.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1007/978-3-030-47426-3_60}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P08 Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering}\par
+{\large\bfseries P06 Interpretable Multi-Scale Graph Descriptors via Structural Compression}\par
+Ammar Ahmed, Zohair Raza Hassan, Mudassir Shabbir. Information Sciences 533, 169-180, 2020.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Interpretable multiscale graph representations for classification via structural compression.\par
+\textbf{Build or investigate.} Implement structural compression at several scales; compare descriptor discrimination and runtime with degree and spectral summaries.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1016/j.ins.2020.05.032}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P07 DGSD: Distributed Graph Representation via Graph Statistical Properties}\par
+Anwar Said, Saeed-Ul Hassan, Suppawong Tuarob, Raheel Nawaz, Mudassir Shabbir. Future Generation Computer Systems 119, 166-175, 2021.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Distributed permutation-invariant graph embedding.\par
+\textbf{Build or investigate.} Construct statistical descriptors under different graph partitions; test permutation invariance and compare with a degree-histogram baseline.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1016/j.future.2021.02.005}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P08 NetKI: A Kirchhoff Index Based Statistical Graph Embedding in Nearly Linear Time}\par
+Anwar Said, Saeed-Ul Hassan, Waseem Abbas, Mudassir Shabbir. Neurocomputing 433, 108-118, 2021.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Scalable graph representation and graph classification using effective resistance.\par
+\textbf{Build or investigate.} Compute exact effective resistances on small graphs, compare an approximate NetKI representation, and measure runtime versus classification quality.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1016/j.neucom.2020.12.075}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P09 Computing Graph Descriptors on Edge Streams}\par
+Zohair Raza Hassan, Sarwan Ali, Imdadullah Khan, Mudassir Shabbir, Waseem Abbas. ACM Transactions on Knowledge Discovery from Data 17(8), article 112, 2023.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+{\small Journal extension of the 2020 descriptor paper; reproduce its additional contribution.}\par
+\textbf{Why read it.} Streaming structural/spectral graph descriptors and graph classification.\par
+\textbf{Build or investigate.} Reproduce one streaming descriptor and compare against exact computation across memory budgets and stream orderings; isolate the journal extension.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1145/3591468}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P10 On Augmenting Topological Graph Representations for Attributed Graphs}\par
+Anwar Said, Mudassir Shabbir, Saeed-Ul Hassan, Zohair Raza Hassan, Ammar Ahmed, Xenofon Koutsoukos. Applied Soft Computing 136, 110104, 2023.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Integrating graph attributes with topological representations for graph classification.\par
+\textbf{Build or investigate.} Compare topology-only, attributes-only and augmented representations under fixed splits to test when node attributes add useful information.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1016/j.asoc.2023.110104}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P11 MSDGSD: A Scalable Graph Descriptor for Processing Large Graphs}\par
+Muhammad Ali, Anwar Said, Iqra Safder, Saeed Ul Hassan, Naif Radi Aljohani, Mudassir Shabbir. IEEE Transactions on Computational Social Systems 11(3), 3594-3605, 2024.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Scalable graph descriptors for downstream machine learning.\par
+\textbf{Build or investigate.} Implement a tractable multiscale descriptor; compare DGSD and MSDGSD at matched compute and measure accuracy and runtime as graph size grows.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1109/TCSS.2023.3338691}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\Needspace{16\baselineskip}\section*{Graph neural networks}
+\begin{minipage}{\linewidth}
+{\large\bfseries P12 The Graph Neural Network Model}\par
+Franco Scarselli, Marco Gori, Ah Chung Tsoi, Markus Hagenbuchner, Gabriele Monfardini. IEEE Transactions on Neural Networks 20(1), 61-80, 2009.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
+\textbf{Why read it.} An early general formulation of neural computation on graphs; provides historical grounding for today's message-passing architectures.\par
+\textbf{Build or investigate.} Implement a small recurrent graph-state update and examine convergence; compare its assumptions with a fixed-depth GCN.\par
+\textbf{Level.} Advanced\quad\href{https://doi.org/10.1109/TNN.2008.2005605}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P13 Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering}\par
 Michaël Defferrard et al. NeurIPS (then NIPS), 2016.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Replaces expensive eigendecomposition with localized polynomial filters.\par
 \textbf{Build or investigate.} Implement Chebyshev recurrence; compare polynomial order, receptive field, runtime, and accuracy.\par
 \textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1606.09375}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P09 Semi-Supervised Classification with Graph Convolutional Networks}\par
-Thomas N. Kipf and Max Welling. ICLR, 2017.\par
-\textbf{Why read it.} Establishes a compact, reproducible baseline for learning from node features and edges.\par
-\textbf{Build or investigate.} Implement a two-layer GCN; ablate self-loops, normalization, and feature-only baselines.\par
-\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1609.02907}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P10 Inductive Representation Learning on Large Graphs}\par
+{\large\bfseries P14 Inductive Representation Learning on Large Graphs}\par
 William L. Hamilton et al. NeurIPS (then NIPS), 2017.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Introduces neighborhood sampling and aggregation for generalization to unseen nodes.\par
 \textbf{Build or investigate.} Implement mean aggregation with sampling and evaluate a genuine inductive node split.\par
 \textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1706.02216}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P11 Neural Message Passing for Quantum Chemistry}\par
+{\large\bfseries P15 Neural Message Passing for Quantum Chemistry}\par
 Justin Gilmer et al. ICML, 2017.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Unifies many graph architectures through message, update, and readout functions.\par
 \textbf{Build or investigate.} Build a small edge-aware message-passing model for one molecular regression target.\par
 \textbf{Level.} Intermediate\quad\href{https://proceedings.mlr.press/v70/gilmer17a.html}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P12 Graph Attention Networks}\par
+{\large\bfseries P16 Semi-Supervised Classification with Graph Convolutional Networks}\par
+Thomas N. Kipf and Max Welling. ICLR, 2017.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
+\textbf{Why read it.} Establishes a compact, reproducible baseline for learning from node features and edges.\par
+\textbf{Build or investigate.} Implement a two-layer GCN; ablate self-loops, normalization, and feature-only baselines.\par
+\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1609.02907}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P17 Graph Attention Networks}\par
 Petar Veli\v{c}kovi\'c et al. ICLR, 2018.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Introduces learned neighborhood weighting and multi-head attention.\par
 \textbf{Build or investigate.} Implement masked graph attention; compare heads and attention dropout with GCN.\par
 \textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1710.10903}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P13 How Powerful are Graph Neural Networks?}\par
-Keyulu Xu et al. ICLR, 2019.\par
-\textbf{Why read it.} Relates aggregation to graph isomorphism and motivates the Graph Isomorphism Network.\par
-\textbf{Build or investigate.} Implement GIN and test sum versus mean aggregation on controlled multiset and graph examples.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1810.00826}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P14 Hierarchical Graph Representation Learning with Differentiable Pooling}\par
+{\large\bfseries P18 Hierarchical Graph Representation Learning with Differentiable Pooling}\par
 Rex Ying et al. NeurIPS, 2018.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Introduces learned graph coarsening for prediction over entire graphs.\par
 \textbf{Build or investigate.} Implement one DiffPool stage and compare it with global mean pooling under matched budgets.\par
 \textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1806.08804}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P15 Gated Graph Sequence Neural Networks}\par
-Yujia Li et al. ICLR, 2016.\par
-\textbf{Why read it.} Connects recurrent gated updates to reasoning on graph structure.\par
-\textbf{Build or investigate.} Implement gated propagation on a synthetic reachability or shortest-path task.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1511.05493}{Primary source $\nearrow$}\par
+{\large\bfseries P19 How Powerful are Graph Neural Networks?}\par
+Keyulu Xu et al. ICLR, 2019.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
+\textbf{Why read it.} Relates aggregation to graph isomorphism and motivates the Graph Isomorphism Network.\par
+\textbf{Build or investigate.} Implement GIN and test sum versus mean aggregation on controlled multiset and graph examples.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1810.00826}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P16 Simplifying Graph Convolutional Networks}\par
-Felix Wu et al. ICML, 2019.\par
-\textbf{Why read it.} Tests whether nonlinear depth is necessary and supplies a strong inexpensive baseline.\par
-\textbf{Build or investigate.} Reproduce SGC and compare propagation depth, training time, and accuracy against GCN.\par
-\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1902.07153}{Primary source $\nearrow$}\par
+{\large\bfseries P20 Enhanced Graph Neural Networks with Ego-Centric Spectral Subgraph Embeddings Augmentation}\par
+Anwar Said, Mudassir Shabbir, Tyler Derr, Waseem Abbas, Xenofon Koutsoukos. 22nd IEEE International Conference on Machine Learning and Applications (ICMLA), 2023.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Spectral ego-subgraph embeddings augment GNN node features.\par
+\textbf{Build or investigate.} Augment a GCN with ego-subgraph spectral features; vary neighborhood radius and include feature-only and random-feature controls.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1109/ICMLA58977.2023.00341}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P17 Predict then Propagate: Graph Neural Networks meet Personalized PageRank}\par
-Johannes Gasteiger et al. ICLR, 2019.\par
-\textbf{Why read it.} Connects the opening PageRank material to decoupled neural prediction and diffusion.\par
-\textbf{Build or investigate.} Implement APPNP and sweep teleportation probability and propagation steps.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1810.05997}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\clearpage\section*{Expressivity and limitations}
-\begin{minipage}{\linewidth}
-{\large\bfseries P18 Geom-GCN: Geometric Graph Convolutional Networks}\par
-Hongbin Pei et al. ICLR, 2020.\par
-\textbf{Why read it.} Explores geometric neighborhoods when ordinary local aggregation misses useful structure.\par
-\textbf{Build or investigate.} Compare geometric and adjacency neighborhoods using documented public data splits.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2002.05287}{Primary source $\nearrow$}\par
+{\large\bfseries P21 Improving Graph Machine Learning Performance Through Feature Augmentation Based on Network Control Theory}\par
+Anwar Said, Obaid Ullah Ahmad, Waseem Abbas, Mudassir Shabbir, Xenofon Koutsoukos. 32nd Mediterranean Conference on Control and Automation (MED), 322-327, 2024.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+{\small Conference study; compare with the expanded 2025 rank-encoding paper.}\par
+\textbf{Why read it.} Network control based node-feature augmentation for GNNs.\par
+\textbf{Build or investigate.} Add network-control features to a fixed GNN; compare no features, random features and spectral features while holding the training budget constant.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1109/MED61351.2024.10566241}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P19 Beyond Homophily in Graph Neural Networks: Current Limitations and Effective Designs}\par
+{\large\bfseries P22 Network Controllability Perspectives on Graph Representation}\par
+Anwar Said, Obaid Ullah Ahmad, Waseem Abbas, Mudassir Shabbir, Xenofon Koutsoukos. IEEE Transactions on Knowledge and Data Engineering 36(8), 4116-4128, 2024.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Control-theoretic graph representation for machine learning.\par
+\textbf{Build or investigate.} Construct a control-theoretic graph representation and compare it with spectral and degree features under the same classifier and split.\par
+\textbf{Level.} Advanced\quad\href{https://doi.org/10.1109/TKDE.2023.3331318}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P23 Feature Construction Using Network Control Theory and Rank Encoding for Graph Machine Learning}\par
+Anwar Said, Yifan Wei, Obaid Ullah Ahmad, Mudassir Shabbir, Waseem Abbas, Xenofon Koutsoukos. IEEE Open Journal of Control Systems, 2025.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+{\small Expanded journal study following the 2024 feature-augmentation paper.}\par
+\textbf{Why read it.} Controllability and rank encoding generate expressive node features for graph classification.\par
+\textbf{Build or investigate.} Reproduce rank-based node features on small benchmarks; compare the 2024 feature construction, rank encoding and standard positional encodings.\par
+\textbf{Level.} Advanced\quad\href{https://doi.org/10.1109/OJCSYS.2025.3599371}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\Needspace{16\baselineskip}\section*{Expressivity and limits}
+\begin{minipage}{\linewidth}
+{\large\bfseries P24 Beyond Homophily in Graph Neural Networks: Current Limitations and Effective Designs}\par
 Jiong Zhu et al. NeurIPS, 2020.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Studies graphs whose connected nodes differ and motivates separating ego and neighbor information.\par
 \textbf{Build or investigate.} Implement an H2GCN-style baseline and vary homophily on synthetic graphs.\par
 \textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2006.11468}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P21 Weisfeiler and Leman Go Neural: Higher-order Graph Neural Networks}\par
-Christopher Morris et al. AAAI, 2019.\par
-\textbf{Why read it.} Examines the expressivity ceiling of standard message passing and higher-order alternatives.\par
-\textbf{Build or investigate.} Construct graph pairs that defeat 1-WL and compare a small higher-order model.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1810.02244}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P22 On the Bottleneck of Graph Neural Networks and its Practical Implications}\par
+{\large\bfseries P25 On the Bottleneck of Graph Neural Networks and its Practical Implications}\par
 Uri Alon and Eran Yahav. ICLR, 2021.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Introduces over-squashing as a failure of information transmission across graph bottlenecks.\par
 \textbf{Build or investigate.} Reproduce a small long-range task and compare added shortcuts with increased hidden dimension.\par
 \textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2006.05205}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P23 Understanding over-squashing and bottlenecks on graphs via curvature}\par
-Jake Topping et al. ICLR, 2022.\par
-\textbf{Why read it.} Gives a geometric account of bottlenecks and a principled graph-rewiring approach.\par
-\textbf{Build or investigate.} Implement or adapt curvature-based rewiring; compare against random edge additions at equal budget.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2111.14522}{Primary source $\nearrow$}\par
+{\large\bfseries P26 Control-based Conditions for Graph Distinguishability}\par
+Muhammad Raza, Obaid Ullah Ahmad, Mudassir Shabbir, Xenofon Koutsoukos, Waseem Abbas. SIAM Conference on Control and its Applications (CT), 31-38, 2025.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Uses control-theoretic conditions to study graph distinguishability, connecting spectral structure with the limits of graph representations.\par
+\textbf{Build or investigate.} Enumerate small graph pairs and test walk-matrix conditions alongside spectral and 1-WL signatures; report what each criterion can and cannot distinguish.\par
+\textbf{Level.} Advanced\quad\href{https://doi.org/10.1137/1.9781611978742.5}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
+\Needspace{16\baselineskip}\section*{Scaling and self-supervision}
 \begin{minipage}{\linewidth}
-{\large\bfseries P24 PairNorm: Tackling Oversmoothing in GNNs}\par
-Lingxiao Zhao and Leman Akoglu. ICLR, 2020.\par
-\textbf{Why read it.} Separates representation collapse with depth from other GNN limitations.\par
-\textbf{Build or investigate.} Implement PairNorm and plot node-embedding distances and accuracy as depth increases.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1909.12223}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\clearpage\section*{Evaluation and trust}
-\begin{minipage}{\linewidth}
-{\large\bfseries P20 Pitfalls of Graph Neural Network Evaluation}\par
-Oleksandr Shchur et al. NeurIPS Relational Representation Learning Workshop, 2018.\par
-\textbf{Why read it.} Makes split choice, fair tuning, and uncertainty central to claims about model quality.\par
-\textbf{Build or investigate.} Implement a shared evaluation harness for GCN and GAT across several splits and random seeds.\par
-\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/1811.05868}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P28 Open Graph Benchmark: Datasets for Machine Learning on Graphs}\par
-Weihua Hu et al. NeurIPS, 2020.\par
-\textbf{Why read it.} Supplies task-specific datasets, realistic splits, and standardized evaluators.\par
-\textbf{Build or investigate.} Implement an OGB baseline and document why its official split and metric match the task.\par
-\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/2005.00687}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P48 GNNExplainer: Generating Explanations for Graph Neural Networks}\par
-Rex Ying et al. NeurIPS, 2019.\par
-\textbf{Why read it.} Explores which subgraphs and features support a GNN prediction.\par
-\textbf{Build or investigate.} Implement explanation masks on a motif dataset; measure fidelity, sparsity, and stability.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1903.03894}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P49 Adversarial Attacks on Graph Neural Networks via Meta Learning}\par
-Daniel Z\"ugner and Stephan G\"unnemann. ICLR, 2019.\par
-\textbf{Why read it.} Studies sensitivity to training-graph perturbations and motivates robust evaluation.\par
-\textbf{Build or investigate.} On a public benchmark, compare controlled edge perturbations with random edits and report accuracy degradation.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1902.08412}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P50 Temporal Graph Benchmark for Machine Learning on Temporal Graphs}\par
-Shenyang Huang et al. NeurIPS Datasets and Benchmarks Track, 2023.\par
-\textbf{Why read it.} Makes temporal splits, realistic negative candidates, and simple baselines part of credible research.\par
-\textbf{Build or investigate.} Implement an official temporal baseline and compare it with a recent-history heuristic.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2307.01026}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\clearpage\section*{Scalable learning}
-\begin{minipage}{\linewidth}
-{\large\bfseries P25 Cluster-GCN: An Efficient Algorithm for Training Deep and Large Graph Convolutional Networks}\par
-Wei-Lin Chiang et al. KDD, 2019.\par
-\textbf{Why read it.} Uses graph partitions to make minibatch training memory-efficient.\par
-\textbf{Build or investigate.} Train on cluster batches; report peak memory, epoch time, and accuracy against neighbor sampling.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1905.07953}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P26 GraphSAINT: Graph Sampling Based Inductive Learning Method}\par
-Hanqing Zeng et al. ICLR, 2020.\par
-\textbf{Why read it.} Studies subgraph sampling with normalization to improve training efficiency.\par
-\textbf{Build or investigate.} Implement one subgraph sampler and test the contribution of sampling normalization.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1907.04931}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P27 SIGN: Scalable Inception Graph Neural Networks}\par
-Fabrizio Frasca et al. ICML Graph Representation Learning and Beyond Workshop, 2020.\par
-\textbf{Why read it.} Shows how precomputed graph filters can trade storage for fast training.\par
-\textbf{Build or investigate.} Precompute multiple propagation scales and include preprocessing time in comparisons with GraphSAGE.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2004.11198}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\clearpage\section*{Self-supervised learning}
-\begin{minipage}{\linewidth}
-{\large\bfseries P29 Deep Graph Infomax}\par
+{\large\bfseries P27 Deep Graph Infomax}\par
 Petar Veli\v{c}kovi\'c et al. ICLR, 2019.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Introduces node representation learning through local-global contrast.\par
 \textbf{Build or investigate.} Implement DGI and test feature corruption with a frozen linear evaluation protocol.\par
 \textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1809.10341}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P30 Graph Contrastive Learning with Augmentations}\par
+{\large\bfseries P28 Graph Contrastive Learning with Augmentations}\par
 Yuning You et al. NeurIPS, 2020.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Makes graph augmentations a central design choice in contrastive pretraining.\par
 \textbf{Build or investigate.} Implement two graph augmentations and assess whether they preserve labels on the chosen dataset.\par
 \textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2010.13902}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P31 Large-Scale Representation Learning on Graphs via Bootstrapping}\par
-Shantanu Thakoor et al. ICLR, 2022.\par
-\textbf{Why read it.} Explores self-supervision without explicit negative pairs and its memory implications.\par
-\textbf{Build or investigate.} Implement a teacher-student moving-average update and ablate stop-gradient or predictor design.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2102.06514}{Primary source $\nearrow$}\par
+{\large\bfseries P29 GraphSAINT: Graph Sampling Based Inductive Learning Method}\par
+Hanqing Zeng et al. ICLR, 2020.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
+\textbf{Why read it.} Studies subgraph sampling with normalization to improve training efficiency.\par
+\textbf{Build or investigate.} Implement one subgraph sampler and test the contribution of sampling normalization.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1907.04931}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P32 GraphMAE: Self-Supervised Masked Graph Autoencoders}\par
-Zhenyu Hou et al. KDD, 2022.\par
-\textbf{Why read it.} Uses masked feature reconstruction as an alternative to contrastive objectives.\par
-\textbf{Build or investigate.} Implement masked reconstruction and compare masking ratios with a supervised baseline.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2205.10803}{Primary source $\nearrow$}\par
+{\large\bfseries P30 Control-Based Graph Embeddings with Data Augmentation for Contrastive Learning}\par
+Obaid Ullah Ahmad, Anwar Said, Mudassir Shabbir, Xenofon Koutsoukos, Waseem Abbas. American Control Conference (ACC), 27-32, 2024.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Unsupervised contrastive graph representation with control-informed augmentation.\par
+\textbf{Build or investigate.} Compare control-informed graph augmentations with random edge deletion under the same contrastive objective; ablate augmentation strength.\par
+\textbf{Level.} Advanced\quad\href{https://doi.org/10.23919/ACC60939.2024.10644876}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
-\clearpage\section*{Heterogeneous and temporal graphs}
 \begin{minipage}{\linewidth}
-{\large\bfseries P33 Modeling Relational Data with Graph Convolutional Networks}\par
+{\large\bfseries P31 Learning Backbones: Sparsifying Graphs Through Zero Forcing for Effective Graph-Based Learning}\par
+Obaid Ullah Ahmad, Anwar Said, Mudassir Shabbir, Xenofon Koutsoukos, Waseem Abbas. Complex Networks \& Their Applications XIII (COMPLEX NETWORKS 2024), 85-100, 2025.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+{\small Conference held in 2024; proceedings published in 2025. The arXiv version is the same reading.}\par
+\textbf{Why read it.} Zero-forcing graph sparsification for downstream GNN classification.\par
+\textbf{Build or investigate.} Extract zero-forcing backbones; compare with random and degree-based edge retention at matched sparsity, reporting accuracy, runtime and connectivity.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1007/978-3-031-82427-2_8}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\Needspace{16\baselineskip}\section*{Applications and graph optimization}
+\begin{minipage}{\linewidth}
+{\large\bfseries P32 Leveraging Deep Learning and SNA Approaches for Smart City Policing in the Developing World}\par
+Saeed-Ul Hassan, Mudassir Shabbir, Sehrish Iqbal, Anwar Said, Faisal Kamiran, Raheel Nawaz, Umar Saif. International Journal of Information Management 56, 102045, 2021.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Direct GCN application to binary node classification in communication networks; suitable critical discussion of privacy, bias and evaluation.\par
+\textbf{Build or investigate.} Use synthetic communication graphs to study label prediction and structural bias; evaluate leakage and false-positive disparities without profiling real individuals.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1016/j.ijinfomgt.2019.102045}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P33 Attack-Resilient Multi-Agent Flocking Control Using Graph Neural Networks}\par
+Chandreyee Bhowmick, Mudassir Shabbir, Xenofon Koutsoukos. 30th Mediterranean Conference on Control and Automation (MED), 300-305, 2022.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} GCN-based distributed flocking resilient to adversarial communication.\par
+\textbf{Build or investigate.} Simulate a small flock under compromised neighbor messages; compare the GNN controller with a nominal controller using collision and cohesion metrics.\par
+\textbf{Level.} Intermediate\quad\href{https://cs.vuse.vanderbilt.edu/koutsoxd/www/Publications/Attack-Resilient_Multi-Agent_Flocking_Control_Using_Graph_Neural_Networks.pdf}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P34 Circuit Design Completion Using Graph Neural Networks}\par
+Anwar Said, Mudassir Shabbir, Brian Broll, Waseem Abbas, Peter V\"olgyesi, Xenofon Koutsoukos. Neural Computing and Applications 35, 12145-12157, 2023.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} GNNs for missing circuit components and connections.\par
+\textbf{Build or investigate.} Mask a component or connection in small circuit graphs; compare GNN completion with frequency and topology baselines using circuit-level held-out splits.\par
+\textbf{Level.} Intermediate\quad\href{https://doi.org/10.1007/s00521-023-08346-x}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P35 Learning-Based Heuristic for Combinatorial Optimization of the Minimum Dominating Set Problem using Graph Convolutional Networks}\par
+Abihith Kothapalli, Mudassir Shabbir, Xenofon Koutsoukos. arXiv:2306.03434, 2023.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+{\small Preprint.}\par
+\textbf{Why read it.} GCNs for NP-hard graph combinatorial optimization.\par
+\textbf{Build or investigate.} Train on small synthetic graphs; compare feasible dominating sets against greedy and exact solutions, then test size and graph-family generalization.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2306.03434}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P36 Sequential Graph Neural Networks for Source Code Vulnerability Identification}\par
+Ammar Ahmed, Anwar Said, Mudassir Shabbir, Xenofon Koutsoukos. HotSoS 2023 work in progress; arXiv:2306.05375, 2023.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+{\small Work-in-progress/preprint version; no journal publication is claimed.}\par
+\textbf{Why read it.} Sequential/GNN code representation, vulnerability classification and CVEFGE dataset.\par
+\textbf{Build or investigate.} Build a small code-graph pipeline and compare GNN versus sequence-only features; split by project and remove near-duplicate functions before evaluation.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2306.05375}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P37 A Graph Machine Learning Framework to Compute Zero Forcing Sets in Graphs}\par
+Obaid Ullah Ahmad, Mudassir Shabbir, Waseem Abbas, Xenofon Koutsoukos. IEEE Transactions on Network Science and Engineering 11(2), 2110-2123, 2024.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Graph ML solution to zero-forcing set computation.\par
+\textbf{Build or investigate.} Train a graph learner to propose zero-forcing sets; verify feasibility by simulation and compare set size and runtime with greedy and exact small-graph solvers.\par
+\textbf{Level.} Advanced\quad\href{https://doi.org/10.1109/TNSE.2023.3337750}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\Needspace{16\baselineskip}\section*{Relational and temporal learning}
+\begin{minipage}{\linewidth}
+{\large\bfseries P38 Modeling Relational Data with Graph Convolutional Networks}\par
 Michael Schlichtkrull et al. ESWC, 2018.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Extends message passing to typed relations and knowledge-graph completion.\par
 \textbf{Build or investigate.} Implement basis-decomposed R-GCN on a small relational dataset with leakage-aware edge splits.\par
 \textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1703.06103}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P34 Heterogeneous Graph Attention Network}\par
-Xiao Wang et al. WWW, 2019.\par
-\textbf{Why read it.} Separates attention over neighbors from attention over semantic meta-paths.\par
-\textbf{Build or investigate.} Implement two meta-path channels and compare learned semantic attention with uniform weighting.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1903.07293}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P35 Heterogeneous Graph Transformer}\par
-Ziniu Hu et al. WWW, 2020.\par
-\textbf{Why read it.} Combines type-dependent attention, temporal encodings, and heterogeneous sampling.\par
-\textbf{Build or investigate.} Implement type-specific projections and ablate node and relation types on a manageable graph.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2003.01332}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P36 Inductive Representation Learning on Temporal Graphs}\par
+{\large\bfseries P39 Inductive Representation Learning on Temporal Graphs}\par
 Da Xu et al. ICLR, 2020.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Introduces temporal attention with continuous-time encodings.\par
 \textbf{Build or investigate.} Implement TGAT-style temporal neighbors and verify every prediction uses only past events.\par
 \textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2002.07962}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
+\Needspace{16\baselineskip}\section*{Graph transformers}
 \begin{minipage}{\linewidth}
-{\large\bfseries P37 Temporal Graph Networks for Deep Learning on Dynamic Graphs}\par
-Emanuele Rossi et al. ICML Graph Representation Learning and Beyond Workshop, 2020.\par
-\textbf{Why read it.} Introduces event-driven memory for learning on changing graphs.\par
-\textbf{Build or investigate.} Implement a reduced TGN pipeline and compare memory updates with a memory-free temporal model.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2006.10637}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\clearpage\section*{Graph transformers}
-\begin{minipage}{\linewidth}
-{\large\bfseries P38 A Generalization of Transformer Networks to Graphs}\par
-Vijay Prakash Dwivedi and Xavier Bresson. AAAI Workshop on Deep Learning on Graphs, 2021.\par
-\textbf{Why read it.} Introduces a clear graph-transformer baseline with Laplacian positional information.\par
-\textbf{Build or investigate.} Implement sparse graph attention with Laplacian encodings and test the effect of removing positions.\par
-\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2012.09699}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P39 Do Transformers Really Perform Bad for Graph Representation?}\par
+{\large\bfseries P40 Do Transformers Really Perform Bad for Graph Representation?}\par
 Chengxuan Ying et al. NeurIPS, 2021.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Shows how structural encodings make global attention useful for graph prediction.\par
 \textbf{Build or investigate.} Implement a compact Graphormer and ablate degree and shortest-path encodings.\par
 \textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2106.05234}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P40 Rethinking Graph Transformers with Spectral Attention}\par
-Devin Kreuzer et al. NeurIPS, 2021.\par
-\textbf{Why read it.} Studies learned spectral position encodings and fully connected attention.\par
-\textbf{Build or investigate.} Implement a small spectral encoder and examine eigenvector-sign perturbations and graph-size cost.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2106.03893}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
 {\large\bfseries P41 Recipe for a General, Powerful, Scalable Graph Transformer}\par
 Ladislav Ramp\'ašek et al. NeurIPS, 2022.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Combines local message passing, global attention, and position or structure encodings.\par
 \textbf{Build or investigate.} Implement one GPS block and perform a three-component ablation under a fixed parameter budget.\par
 \textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2205.12454}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
+\Needspace{16\baselineskip}\section*{Generative graph learning}
 \begin{minipage}{\linewidth}
-{\large\bfseries P42 Exphormer: Sparse Transformers for Graphs}\par
-Hamed Shirzad et al. ICML, 2023.\par
-\textbf{Why read it.} Uses sparse attention patterns to make graph transformers practical on larger graphs.\par
-\textbf{Build or investigate.} Implement expander-style sparse attention and compare memory and accuracy with dense attention.\par
-\textbf{Level.} Advanced\quad\href{https://proceedings.mlr.press/v202/shirzad23a.html}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\clearpage\section*{Generative graph learning}
-\begin{minipage}{\linewidth}
-{\large\bfseries P43 Generative Adversarial Nets}\par
+{\large\bfseries P42 Generative Adversarial Nets}\par
 Ian J. Goodfellow et al. NeurIPS (then NIPS), 2014.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Provides the adversarial-learning prerequisite; this paper itself is not a graph model.\par
 \textbf{Build or investigate.} Implement a small GAN on a toy distribution and diagnose instability before attempting graph generation.\par
 \textbf{Level.} Foundation\quad\href{https://papers.nips.cc/paper/2014/hash/f033ed80deb0234979a61f95710dbe25-Abstract.html}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P44 GraphGAN: Graph Representation Learning with Generative Adversarial Nets}\par
+{\large\bfseries P43 GraphGAN: Graph Representation Learning with Generative Adversarial Nets}\par
 Hongwei Wang et al. AAAI, 2018.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Applies adversarial training to connectivity distributions for graph embeddings.\par
 \textbf{Build or investigate.} Implement a small generator-discriminator link model and compare with a random-walk embedding baseline.\par
 \textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1711.08267}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P45 MolGAN: An implicit generative model for small molecular graphs}\par
-Nicola De Cao and Thomas Kipf. ICML Workshop on Theoretical Foundations and Applications of Deep Generative Models, 2018.\par
-\textbf{Why read it.} Combines adversarial graph generation with property objectives and exposes mode collapse.\par
-\textbf{Build or investigate.} Implement a reduced small-molecule generator; report validity, uniqueness, novelty, and diversity.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1805.11973}{Primary source $\nearrow$}\par
-\end{minipage}\par\vspace{10pt}
-\begin{minipage}{\linewidth}
-{\large\bfseries P46 GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models}\par
+{\large\bfseries P44 GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models}\par
 Jiaxuan You et al. ICML, 2018.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
 \textbf{Why read it.} Provides an autoregressive alternative to adversarial graph generation.\par
 \textbf{Build or investigate.} Implement a small sequential graph generator and compare degree and clustering distributions.\par
 \textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1802.08773}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \begin{minipage}{\linewidth}
-{\large\bfseries P47 DiGress: Discrete Denoising Diffusion for Graph Generation}\par
-Cl\'ement Vignac et al. ICLR, 2023.\par
-\textbf{Why read it.} Introduces categorical diffusion for graph structure and attributes.\par
-\textbf{Build or investigate.} Implement a reduced discrete diffusion model on small synthetic graphs and evaluate structural validity.\par
-\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/2209.14734}{Primary source $\nearrow$}\par
+{\large\bfseries P45 MolGAN: An implicit generative model for small molecular graphs}\par
+Nicola De Cao and Thomas Kipf. ICML Workshop on Theoretical Foundations and Applications of Deep Generative Models, 2018.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
+\textbf{Why read it.} Combines adversarial graph generation with property objectives and exposes mode collapse.\par
+\textbf{Build or investigate.} Implement a reduced small-molecule generator; report validity, uniqueness, novelty, and diversity.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1805.11973}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\Needspace{16\baselineskip}\section*{Evaluation and trust}
+\begin{minipage}{\linewidth}
+{\large\bfseries P46 Adversarial Attacks on Graph Neural Networks via Meta Learning}\par
+Daniel Z\"ugner and Stephan G\"unnemann. ICLR, 2019.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
+\textbf{Why read it.} Studies sensitivity to training-graph perturbations and motivates robust evaluation.\par
+\textbf{Build or investigate.} On a public benchmark, compare controlled edge perturbations with random edits and report accuracy degradation.\par
+\textbf{Level.} Advanced\quad\href{https://arxiv.org/abs/1902.08412}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P47 GNNExplainer: Generating Explanations for Graph Neural Networks}\par
+Rex Ying et al. NeurIPS, 2019.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
+\textbf{Why read it.} Explores which subgraphs and features support a GNN prediction.\par
+\textbf{Build or investigate.} Implement explanation masks on a motif dataset; measure fidelity, sparsity, and stability.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/1903.03894}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P48 Open Graph Benchmark: Datasets for Machine Learning on Graphs}\par
+Weihua Hu et al. NeurIPS, 2020.\par
+\textcolor{ink}{\small FIELD LANDMARK}\par
+\textbf{Why read it.} Supplies task-specific datasets, realistic splits, and standardized evaluators.\par
+\textbf{Build or investigate.} Implement an OGB baseline and document why its official split and metric match the task.\par
+\textbf{Level.} Foundation\quad\href{https://arxiv.org/abs/2005.00687}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P49 A Survey of Graph Unlearning}\par
+Anwar Said, Ngoc N. Tran, Yuying Zhao, Tyler Derr, Mudassir Shabbir, Waseem Abbas, Xenofon Koutsoukos. arXiv:2310.02164; revised October 2025, 2023.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+{\small First posted in 2023; this reading uses the October 2025 revision.}\par
+\textbf{Why read it.} Survey of graph machine unlearning, privacy, evaluation and applications.\par
+\textbf{Build or investigate.} Select one surveyed unlearning method; compare deletion utility, retained-task performance and compute against full retraining using a clearly stated threat model.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2310.02164}{Primary source $\nearrow$}\par
+\end{minipage}\par\vspace{10pt}
+\begin{minipage}{\linewidth}
+{\large\bfseries P50 NeuroGraph: Benchmarks for Graph Machine Learning in Brain Connectomics}\par
+Anwar Said, Roza G. Bayrak, Tyler Derr, Mudassir Shabbir, Daniel Moyer, Catie Chang, Xenofon Koutsoukos. NeurIPS 2023 Datasets and Benchmarks, 2023.\par
+\textcolor{ink}{\small MUDASSIR SHABBIR / RESEARCH}\par
+\textbf{Why read it.} Graph ML benchmark for brain connectomics.\par
+\textbf{Build or investigate.} Reproduce a small benchmark with authorized data, subject-disjoint splits and a non-graph baseline; test graph-construction sensitivity without making clinical claims.\par
+\textbf{Level.} Intermediate\quad\href{https://arxiv.org/abs/2306.06202}{Primary source $\nearrow$}\par
 \end{minipage}\par\vspace{10pt}
 \clearpage\section*{Twenty illustrative research projects}
 A rigorous replication with a meaningful extension, a careful negative result, or a focused new method can all make a strong project. Publication acceptance is not a grading criterion. The required paper is submitted to the course; external conference or journal submission is optional and requires agreement among the authors.\par

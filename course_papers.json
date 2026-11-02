@@ -6,7 +6,7 @@
     "year": 1999,
     "venue": "Stanford InfoLab Technical Report 1999-66",
     "url": "http://ilpubs.stanford.edu:8090/422/",
-    "category": "Foundations and embeddings",
+    "category": "Foundations and representations",
     "why": "Connects graph centrality, Markov chains, and ranking before learned representations.",
     "exercise": "Implement power iteration with teleportation; test dangling nodes and sensitivity to the damping factor.",
     "difficulty": "Foundation",
@@ -14,7 +14,10 @@
     "sources": [
       "http://ilpubs.stanford.edu:8090/422/",
       "https://www.cs.uml.edu/~haim/teaching/iws/tirsaa/sources/google/PageRank_Citation_cover.html"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 2
   },
   {
     "id": "P02",
@@ -23,14 +26,17 @@
     "year": 2001,
     "venue": "NeurIPS (then NIPS)",
     "url": "https://papers.nips.cc/paper_files/paper/2001/hash/f106b7f99d2cb30c3db1c3cc0fde9ccb-Abstract.html",
-    "category": "Foundations and embeddings",
+    "category": "Foundations and representations",
     "why": "Introduces the graph Laplacian as a bridge between geometry, embeddings, and spectral learning.",
     "exercise": "Compute two-dimensional spectral embeddings of a small graph; compare neighborhoods with a random layout.",
     "difficulty": "Foundation",
     "method": "Laplacian eigenmaps",
     "sources": [
       "https://papers.nips.cc/paper_files/paper/2001/hash/f106b7f99d2cb30c3db1c3cc0fde9ccb-Abstract.html"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 2
   },
   {
     "id": "P03",
@@ -39,7 +45,7 @@
     "year": 2014,
     "venue": "KDD",
     "url": "https://arxiv.org/abs/1403.6652",
-    "category": "Foundations and embeddings",
+    "category": "Foundations and representations",
     "why": "Turns short random walks into a practical unsupervised representation-learning pipeline.",
     "exercise": "Implement walk generation and skip-gram training; evaluate node classification with a fixed split.",
     "difficulty": "Foundation",
@@ -47,74 +53,217 @@
     "sources": [
       "https://arxiv.org/abs/1403.6652",
       "https://research.google/pubs/deepwalk-online-learning-of-social-representations/"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 3
   },
   {
     "id": "P04",
-    "title": "LINE: Large-scale Information Network Embedding",
-    "authors": "Jian Tang et al.",
-    "year": 2015,
-    "venue": "WWW",
-    "url": "https://arxiv.org/abs/1503.03578",
-    "category": "Foundations and embeddings",
-    "why": "Separates first-order and second-order proximity and introduces efficient edge sampling.",
-    "exercise": "Implement the two proximity objectives and compare their concatenation on link prediction.",
-    "difficulty": "Foundation",
-    "method": "LINE",
-    "sources": [
-      "https://arxiv.org/abs/1503.03578"
-    ]
-  },
-  {
-    "id": "P05",
     "title": "node2vec: Scalable Feature Learning for Networks",
     "authors": "Aditya Grover and Jure Leskovec",
     "year": 2016,
     "venue": "KDD",
     "url": "https://arxiv.org/abs/1607.00653",
-    "category": "Foundations and embeddings",
+    "category": "Foundations and representations",
     "why": "Shows how biased walks trade off local neighborhoods and structural roles.",
     "exercise": "Sweep return and exploration parameters against DeepWalk using identical downstream evaluation.",
     "difficulty": "Foundation",
     "method": "node2vec",
     "sources": [
       "https://arxiv.org/abs/1607.00653"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 3
   },
   {
-    "id": "P06",
-    "title": "Network Embedding as Matrix Factorization: Unifying DeepWalk, LINE, PTE, and node2vec",
-    "authors": "Jiezhong Qiu et al.",
-    "year": 2018,
-    "venue": "WSDM",
-    "url": "https://arxiv.org/abs/1710.02971",
-    "category": "Foundations and embeddings",
-    "why": "Explains random-walk embeddings through matrix factorization and spectral graph structure.",
-    "exercise": "Construct NetMF on a small graph and compare it with sampled DeepWalk embeddings.",
-    "difficulty": "Advanced",
-    "method": "NetMF",
+    "title": "Estimating Descriptors for Large Graphs",
+    "authors": "Zohair Raza Hassan, Mudassir Shabbir, Imdadullah Khan, Waseem Abbas",
+    "year": 2020,
+    "venue": "PAKDD 2020, LNCS 12084, 779–791",
+    "url": "https://doi.org/10.1007/978-3-030-47426-3_60",
+    "relevance": "Streaming graph descriptors for classification.",
+    "version_note": "Conference predecessor to Computing Graph Descriptors on Edge Streams; distinct publication. arXiv:2001.10301 is this work.",
     "sources": [
-      "https://arxiv.org/abs/1710.02971"
-    ]
+      "https://doi.org/10.1007/978-3-030-47426-3_60",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7206190/",
+      "https://arxiv.org/abs/2001.10301"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Foundations and representations",
+    "week": 3,
+    "method": "Streaming descriptors",
+    "why": "Streaming graph descriptors for classification.",
+    "exercise": "Implement reservoir-sampled graphlet counts; plot descriptor error and classification accuracy against the memory budget.",
+    "difficulty": "Intermediate",
+    "display_note": "Conference paper; the extended edge-stream journal paper is a separate reading.",
+    "id": "P05"
   },
   {
-    "id": "P07",
-    "title": "Spectral Networks and Locally Connected Networks on Graphs",
-    "authors": "Joan Bruna et al.",
-    "year": 2014,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/1312.6203",
+    "title": "Interpretable Multi-Scale Graph Descriptors via Structural Compression",
+    "authors": "Ammar Ahmed, Zohair Raza Hassan, Mudassir Shabbir",
+    "year": 2020,
+    "venue": "Information Sciences 533, 169–180",
+    "url": "https://doi.org/10.1016/j.ins.2020.05.032",
+    "relevance": "Interpretable multiscale graph representations for classification via structural compression.",
+    "version_note": "HOSD and HOSD-Lite.",
+    "sources": [
+      "https://www.sciencedirect.com/science/article/pii/S0020025520304266",
+      "https://cs.vuse.vanderbilt.edu/koutsoxd/www/Publications/1-s2.0-S1568494623001229-main.pdf"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Foundations and representations",
+    "week": 2,
+    "method": "HOSD",
+    "why": "Interpretable multiscale graph representations for classification via structural compression.",
+    "exercise": "Implement structural compression at several scales; compare descriptor discrimination and runtime with degree and spectral summaries.",
+    "difficulty": "Intermediate",
+    "display_note": "",
+    "id": "P06"
+  },
+  {
+    "title": "DGSD: Distributed Graph Representation via Graph Statistical Properties",
+    "authors": "Anwar Said, Saeed-Ul Hassan, Suppawong Tuarob, Raheel Nawaz, Mudassir Shabbir",
+    "year": 2021,
+    "venue": "Future Generation Computer Systems 119, 166–175",
+    "url": "https://doi.org/10.1016/j.future.2021.02.005",
+    "relevance": "Distributed permutation-invariant graph embedding.",
+    "version_note": "",
+    "sources": [
+      "https://doi.org/10.1016/j.future.2021.02.005",
+      "https://e-space.mmu.ac.uk/627339/6/DGSD-1.pdf"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Foundations and representations",
+    "week": 3,
+    "method": "DGSD",
+    "why": "Distributed permutation-invariant graph embedding.",
+    "exercise": "Construct statistical descriptors under different graph partitions; test permutation invariance and compare with a degree-histogram baseline.",
+    "difficulty": "Intermediate",
+    "display_note": "",
+    "id": "P07"
+  },
+  {
+    "title": "NetKI: A Kirchhoff Index Based Statistical Graph Embedding in Nearly Linear Time",
+    "authors": "Anwar Said, Saeed-Ul Hassan, Waseem Abbas, Mudassir Shabbir",
+    "year": 2021,
+    "venue": "Neurocomputing 433, 108–118",
+    "url": "https://doi.org/10.1016/j.neucom.2020.12.075",
+    "relevance": "Scalable graph representation and graph classification using effective resistance.",
+    "version_note": "",
+    "sources": [
+      "https://doi.org/10.1016/j.neucom.2020.12.075",
+      "https://www.sciencedirect.com/science/article/abs/pii/S0925231220319755",
+      "https://anwar-said.github.io/anwarsaid/CV.pdf"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Foundations and representations",
+    "week": 3,
+    "method": "NetKI",
+    "why": "Scalable graph representation and graph classification using effective resistance.",
+    "exercise": "Compute exact effective resistances on small graphs, compare an approximate NetKI representation, and measure runtime versus classification quality.",
+    "difficulty": "Intermediate",
+    "display_note": "",
+    "id": "P08"
+  },
+  {
+    "title": "Computing Graph Descriptors on Edge Streams",
+    "authors": "Zohair Raza Hassan, Sarwan Ali, Imdadullah Khan, Mudassir Shabbir, Waseem Abbas",
+    "year": 2023,
+    "venue": "ACM Transactions on Knowledge Discovery from Data 17(8), article 112",
+    "url": "https://doi.org/10.1145/3591468",
+    "relevance": "Streaming structural/spectral graph descriptors and graph classification.",
+    "version_note": "Extended journal work adds a NetLSD-based descriptor to the 2020 conference paper; count separately. arXiv:2109.01494 (2021, revised 2023) is this journal manuscript.",
+    "sources": [
+      "https://doi.org/10.1145/3591468",
+      "https://arxiv.org/abs/2109.01494",
+      "https://labs.utdallas.edu/syse-cirens/publications/"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Foundations and representations",
+    "week": 9,
+    "method": "Edge-stream graph descriptors",
+    "why": "Streaming structural/spectral graph descriptors and graph classification.",
+    "exercise": "Reproduce one streaming descriptor and compare against exact computation across memory budgets and stream orderings; isolate the journal extension.",
+    "difficulty": "Intermediate",
+    "display_note": "Journal extension of the 2020 descriptor paper; reproduce its additional contribution.",
+    "id": "P09"
+  },
+  {
+    "title": "On Augmenting Topological Graph Representations for Attributed Graphs",
+    "authors": "Anwar Said, Mudassir Shabbir, Saeed-Ul Hassan, Zohair Raza Hassan, Ammar Ahmed, Xenofon Koutsoukos",
+    "year": 2023,
+    "venue": "Applied Soft Computing 136, 110104",
+    "url": "https://doi.org/10.1016/j.asoc.2023.110104",
+    "relevance": "Integrating graph attributes with topological representations for graph classification.",
+    "version_note": "",
+    "sources": [
+      "https://doi.org/10.1016/j.asoc.2023.110104",
+      "https://www.sciencedirect.com/science/article/pii/S1568494623001229"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Foundations and representations",
+    "week": 6,
+    "method": "Attributed graph augmentation",
+    "why": "Integrating graph attributes with topological representations for graph classification.",
+    "exercise": "Compare topology-only, attributes-only and augmented representations under fixed splits to test when node attributes add useful information.",
+    "difficulty": "Intermediate",
+    "display_note": "",
+    "id": "P10"
+  },
+  {
+    "title": "MSDGSD: A Scalable Graph Descriptor for Processing Large Graphs",
+    "authors": "Muhammad Ali, Anwar Said, Iqra Safder, Saeed Ul Hassan, Naif Radi Aljohani, Mudassir Shabbir",
+    "year": 2024,
+    "venue": "IEEE Transactions on Computational Social Systems 11(3), 3594–3605",
+    "url": "https://doi.org/10.1109/TCSS.2023.3338691",
+    "relevance": "Scalable graph descriptors for downstream machine learning.",
+    "version_note": "2023 early access; 2024 volume year.",
+    "sources": [
+      "https://doi.org/10.1109/TCSS.2023.3338691",
+      "https://orcid.org/0000-0002-6961-0961",
+      "https://anwar-said.github.io/anwarsaid/CV.pdf"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Foundations and representations",
+    "week": 9,
+    "method": "MSDGSD",
+    "why": "Scalable graph descriptors for downstream machine learning.",
+    "exercise": "Implement a tractable multiscale descriptor; compare DGSD and MSDGSD at matched compute and measure accuracy and runtime as graph size grows.",
+    "difficulty": "Intermediate",
+    "display_note": "",
+    "id": "P11"
+  },
+  {
+    "title": "The Graph Neural Network Model",
+    "authors": "Franco Scarselli, Marco Gori, Ah Chung Tsoi, Markus Hagenbuchner, Gabriele Monfardini",
+    "year": 2009,
+    "venue": "IEEE Transactions on Neural Networks 20(1), 61–80",
+    "url": "https://doi.org/10.1109/TNN.2008.2005605",
     "category": "Graph neural networks",
-    "why": "Provides a historical starting point for learned convolution in a graph Fourier basis.",
-    "exercise": "Implement one spectral filtering layer and measure how its parameters depend on the graph basis.",
+    "why": "An early general formulation of neural computation on graphs; provides historical grounding for today’s message-passing architectures.",
+    "exercise": "Implement a small recurrent graph-state update and examine convergence; compare its assumptions with a fixed-depth GCN.",
     "difficulty": "Advanced",
-    "method": "Spectral networks",
+    "method": "Original GNN",
     "sources": [
-      "https://arxiv.org/abs/1312.6203"
-    ]
+      "https://doi.org/10.1109/TNN.2008.2005605",
+      "https://research.monash.edu/en/publications/the-graph-neural-network-model/"
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Foundational formulation of the graph neural network model.",
+    "week": 4,
+    "id": "P12"
   },
   {
-    "id": "P08",
+    "id": "P13",
     "title": "Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering",
     "authors": "Michaël Defferrard et al.",
     "year": 2016,
@@ -127,26 +276,13 @@
     "method": "ChebNet",
     "sources": [
       "https://arxiv.org/abs/1606.09375"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 4
   },
   {
-    "id": "P09",
-    "title": "Semi-Supervised Classification with Graph Convolutional Networks",
-    "authors": "Thomas N. Kipf and Max Welling",
-    "year": 2017,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/1609.02907",
-    "category": "Graph neural networks",
-    "why": "Establishes a compact, reproducible baseline for learning from node features and edges.",
-    "exercise": "Implement a two-layer GCN; ablate self-loops, normalization, and feature-only baselines.",
-    "difficulty": "Foundation",
-    "method": "GCN",
-    "sources": [
-      "https://arxiv.org/abs/1609.02907"
-    ]
-  },
-  {
-    "id": "P10",
+    "id": "P14",
     "title": "Inductive Representation Learning on Large Graphs",
     "authors": "William L. Hamilton et al.",
     "year": 2017,
@@ -159,10 +295,13 @@
     "method": "GraphSAGE",
     "sources": [
       "https://arxiv.org/abs/1706.02216"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 5
   },
   {
-    "id": "P11",
+    "id": "P15",
     "title": "Neural Message Passing for Quantum Chemistry",
     "authors": "Justin Gilmer et al.",
     "year": 2017,
@@ -175,10 +314,32 @@
     "method": "MPNN",
     "sources": [
       "https://proceedings.mlr.press/v70/gilmer17a.html"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 5
   },
   {
-    "id": "P12",
+    "id": "P16",
+    "title": "Semi-Supervised Classification with Graph Convolutional Networks",
+    "authors": "Thomas N. Kipf and Max Welling",
+    "year": 2017,
+    "venue": "ICLR",
+    "url": "https://arxiv.org/abs/1609.02907",
+    "category": "Graph neural networks",
+    "why": "Establishes a compact, reproducible baseline for learning from node features and edges.",
+    "exercise": "Implement a two-layer GCN; ablate self-loops, normalization, and feature-only baselines.",
+    "difficulty": "Foundation",
+    "method": "GCN",
+    "sources": [
+      "https://arxiv.org/abs/1609.02907"
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 4
+  },
+  {
+    "id": "P17",
     "title": "Graph Attention Networks",
     "authors": "Petar Veličković et al.",
     "year": 2018,
@@ -191,27 +352,13 @@
     "method": "GAT",
     "sources": [
       "https://arxiv.org/abs/1710.10903"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 5
   },
   {
-    "id": "P13",
-    "title": "How Powerful are Graph Neural Networks?",
-    "authors": "Keyulu Xu et al.",
-    "year": 2019,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/1810.00826",
-    "category": "Graph neural networks",
-    "why": "Relates aggregation to graph isomorphism and motivates the Graph Isomorphism Network.",
-    "exercise": "Implement GIN and test sum versus mean aggregation on controlled multiset and graph examples.",
-    "difficulty": "Advanced",
-    "method": "GIN",
-    "sources": [
-      "https://arxiv.org/abs/1810.00826",
-      "https://people.csail.mit.edu/stefje/research.html"
-    ]
-  },
-  {
-    "id": "P14",
+    "id": "P18",
     "title": "Hierarchical Graph Representation Learning with Differentiable Pooling",
     "authors": "Rex Ying et al.",
     "year": 2018,
@@ -225,308 +372,436 @@
     "sources": [
       "https://arxiv.org/abs/1806.08804",
       "https://papers.nips.cc/paper_files/paper/2018/hash/e77dbaf6759253c7c6d0efc5690369c7-Abstract.html"
-    ]
-  },
-  {
-    "id": "P15",
-    "title": "Gated Graph Sequence Neural Networks",
-    "authors": "Yujia Li et al.",
-    "year": 2016,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/1511.05493",
-    "category": "Graph neural networks",
-    "why": "Connects recurrent gated updates to reasoning on graph structure.",
-    "exercise": "Implement gated propagation on a synthetic reachability or shortest-path task.",
-    "difficulty": "Intermediate",
-    "method": "GGNN",
-    "sources": [
-      "https://arxiv.org/abs/1511.05493"
-    ]
-  },
-  {
-    "id": "P16",
-    "title": "Simplifying Graph Convolutional Networks",
-    "authors": "Felix Wu et al.",
-    "year": 2019,
-    "venue": "ICML",
-    "url": "https://arxiv.org/abs/1902.07153",
-    "category": "Graph neural networks",
-    "why": "Tests whether nonlinear depth is necessary and supplies a strong inexpensive baseline.",
-    "exercise": "Reproduce SGC and compare propagation depth, training time, and accuracy against GCN.",
-    "difficulty": "Foundation",
-    "method": "SGC",
-    "sources": [
-      "https://arxiv.org/abs/1902.07153"
-    ]
-  },
-  {
-    "id": "P17",
-    "title": "Predict then Propagate: Graph Neural Networks meet Personalized PageRank",
-    "authors": "Johannes Gasteiger et al.",
-    "year": 2019,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/1810.05997",
-    "category": "Graph neural networks",
-    "why": "Connects the opening PageRank material to decoupled neural prediction and diffusion.",
-    "exercise": "Implement APPNP and sweep teleportation probability and propagation steps.",
-    "difficulty": "Intermediate",
-    "method": "APPNP",
-    "sources": [
-      "https://arxiv.org/abs/1810.05997"
-    ]
-  },
-  {
-    "id": "P18",
-    "title": "Geom-GCN: Geometric Graph Convolutional Networks",
-    "authors": "Hongbin Pei et al.",
-    "year": 2020,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/2002.05287",
-    "category": "Expressivity and limitations",
-    "why": "Explores geometric neighborhoods when ordinary local aggregation misses useful structure.",
-    "exercise": "Compare geometric and adjacency neighborhoods using documented public data splits.",
-    "difficulty": "Advanced",
-    "method": "Geom-GCN",
-    "sources": [
-      "https://arxiv.org/abs/2002.05287"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 6
   },
   {
     "id": "P19",
+    "title": "How Powerful are Graph Neural Networks?",
+    "authors": "Keyulu Xu et al.",
+    "year": 2019,
+    "venue": "ICLR",
+    "url": "https://arxiv.org/abs/1810.00826",
+    "category": "Graph neural networks",
+    "why": "Relates aggregation to graph isomorphism and motivates the Graph Isomorphism Network.",
+    "exercise": "Implement GIN and test sum versus mean aggregation on controlled multiset and graph examples.",
+    "difficulty": "Advanced",
+    "method": "GIN",
+    "sources": [
+      "https://arxiv.org/abs/1810.00826",
+      "https://people.csail.mit.edu/stefje/research.html"
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 6
+  },
+  {
+    "title": "Enhanced Graph Neural Networks with Ego-Centric Spectral Subgraph Embeddings Augmentation",
+    "authors": "Anwar Said, Mudassir Shabbir, Tyler Derr, Waseem Abbas, Xenofon Koutsoukos",
+    "year": 2023,
+    "venue": "22nd IEEE International Conference on Machine Learning and Applications (ICMLA)",
+    "url": "https://doi.org/10.1109/ICMLA58977.2023.00341",
+    "relevance": "Spectral ego-subgraph embeddings augment GNN node features.",
+    "version_note": "arXiv:2310.12169 is same work. Coauthor CV uses earlier title Empowering Graph Neural Networks using Subgraph Embeddings; do not double count. Avoid page numbers: DBLP and author PDF differ.",
+    "sources": [
+      "https://doi.org/10.1109/ICMLA58977.2023.00341",
+      "https://arxiv.org/abs/2310.12169",
+      "https://nds-vu.github.io/publications/"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Graph neural networks",
+    "week": 5,
+    "method": "Ego-spectral augmentation",
+    "why": "Spectral ego-subgraph embeddings augment GNN node features.",
+    "exercise": "Augment a GCN with ego-subgraph spectral features; vary neighborhood radius and include feature-only and random-feature controls.",
+    "difficulty": "Intermediate",
+    "display_note": "",
+    "id": "P20"
+  },
+  {
+    "title": "Improving Graph Machine Learning Performance Through Feature Augmentation Based on Network Control Theory",
+    "authors": "Anwar Said, Obaid Ullah Ahmad, Waseem Abbas, Mudassir Shabbir, Xenofon Koutsoukos",
+    "year": 2024,
+    "venue": "32nd Mediterranean Conference on Control and Automation (MED), 322–327",
+    "url": "https://doi.org/10.1109/MED61351.2024.10566241",
+    "relevance": "Network control based node-feature augmentation for GNNs.",
+    "version_note": "arXiv:2405.03706 is same paper. Retain separately from expanded 2025 rank-encoding journal paper.",
+    "sources": [
+      "https://doi.org/10.1109/MED61351.2024.10566241",
+      "https://arxiv.org/abs/2405.03706"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Graph neural networks",
+    "week": 6,
+    "method": "Control feature augmentation",
+    "why": "Network control based node-feature augmentation for GNNs.",
+    "exercise": "Add network-control features to a fixed GNN; compare no features, random features and spectral features while holding the training budget constant.",
+    "difficulty": "Intermediate",
+    "display_note": "Conference study; compare with the expanded 2025 rank-encoding paper.",
+    "id": "P21"
+  },
+  {
+    "title": "Network Controllability Perspectives on Graph Representation",
+    "authors": "Anwar Said, Obaid Ullah Ahmad, Waseem Abbas, Mudassir Shabbir, Xenofon Koutsoukos",
+    "year": 2024,
+    "venue": "IEEE Transactions on Knowledge and Data Engineering 36(8), 4116–4128",
+    "url": "https://doi.org/10.1109/TKDE.2023.3331318",
+    "relevance": "Control-theoretic graph representation for machine learning.",
+    "version_note": "2023 early access; 2024 volume year.",
+    "sources": [
+      "https://doi.org/10.1109/TKDE.2023.3331318",
+      "https://cs.vuse.vanderbilt.edu/koutsoxd/www/Publications/Network_Controllability_Perspectives_on_Graph_Representation.pdf"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Graph neural networks",
+    "week": 6,
+    "method": "Control-based representation",
+    "why": "Control-theoretic graph representation for machine learning.",
+    "exercise": "Construct a control-theoretic graph representation and compare it with spectral and degree features under the same classifier and split.",
+    "difficulty": "Advanced",
+    "display_note": "",
+    "id": "P22"
+  },
+  {
+    "title": "Feature Construction Using Network Control Theory and Rank Encoding for Graph Machine Learning",
+    "authors": "Anwar Said, Yifan Wei, Obaid Ullah Ahmad, Mudassir Shabbir, Waseem Abbas, Xenofon Koutsoukos",
+    "year": 2025,
+    "venue": "IEEE Open Journal of Control Systems",
+    "url": "https://doi.org/10.1109/OJCSYS.2025.3599371",
+    "relevance": "Controllability and rank encoding generate expressive node features for graph classification.",
+    "version_note": "arXiv:2507.15195 same work. Yifan Wei is correct; personal home page says Yingbo in error. Distinct expanded journal paper from MED 2024.",
+    "sources": [
+      "https://doi.org/10.1109/OJCSYS.2025.3599371",
+      "https://arxiv.org/abs/2507.15195",
+      "https://orcid.org/0000-0002-6961-0961"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Graph neural networks",
+    "week": 11,
+    "method": "Control rank encoding",
+    "why": "Controllability and rank encoding generate expressive node features for graph classification.",
+    "exercise": "Reproduce rank-based node features on small benchmarks; compare the 2024 feature construction, rank encoding and standard positional encodings.",
+    "difficulty": "Advanced",
+    "display_note": "Expanded journal study following the 2024 feature-augmentation paper.",
+    "id": "P23"
+  },
+  {
+    "id": "P24",
     "title": "Beyond Homophily in Graph Neural Networks: Current Limitations and Effective Designs",
     "authors": "Jiong Zhu et al.",
     "year": 2020,
     "venue": "NeurIPS",
     "url": "https://arxiv.org/abs/2006.11468",
-    "category": "Expressivity and limitations",
+    "category": "Expressivity and limits",
     "why": "Studies graphs whose connected nodes differ and motivates separating ego and neighbor information.",
     "exercise": "Implement an H2GCN-style baseline and vary homophily on synthetic graphs.",
     "difficulty": "Intermediate",
     "method": "H2GCN",
     "sources": [
       "https://arxiv.org/abs/2006.11468"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 7
   },
   {
-    "id": "P20",
-    "title": "Pitfalls of Graph Neural Network Evaluation",
-    "authors": "Oleksandr Shchur et al.",
-    "year": 2018,
-    "venue": "NeurIPS Relational Representation Learning Workshop",
-    "url": "https://arxiv.org/abs/1811.05868",
-    "category": "Evaluation and trust",
-    "why": "Makes split choice, fair tuning, and uncertainty central to claims about model quality.",
-    "exercise": "Implement a shared evaluation harness for GCN and GAT across several splits and random seeds.",
-    "difficulty": "Foundation",
-    "method": "Evaluation pitfalls",
-    "sources": [
-      "https://arxiv.org/abs/1811.05868",
-      "https://www.cs.cit.tum.de/daml/gnn-benchmark/"
-    ]
-  },
-  {
-    "id": "P21",
-    "title": "Weisfeiler and Leman Go Neural: Higher-order Graph Neural Networks",
-    "authors": "Christopher Morris et al.",
-    "year": 2019,
-    "venue": "AAAI",
-    "url": "https://arxiv.org/abs/1810.02244",
-    "category": "Expressivity and limitations",
-    "why": "Examines the expressivity ceiling of standard message passing and higher-order alternatives.",
-    "exercise": "Construct graph pairs that defeat 1-WL and compare a small higher-order model.",
-    "difficulty": "Advanced",
-    "method": "k-GNN",
-    "sources": [
-      "https://arxiv.org/abs/1810.02244"
-    ]
-  },
-  {
-    "id": "P22",
+    "id": "P25",
     "title": "On the Bottleneck of Graph Neural Networks and its Practical Implications",
     "authors": "Uri Alon and Eran Yahav",
     "year": 2021,
     "venue": "ICLR",
     "url": "https://arxiv.org/abs/2006.05205",
-    "category": "Expressivity and limitations",
+    "category": "Expressivity and limits",
     "why": "Introduces over-squashing as a failure of information transmission across graph bottlenecks.",
     "exercise": "Reproduce a small long-range task and compare added shortcuts with increased hidden dimension.",
     "difficulty": "Advanced",
     "method": "Over-squashing",
     "sources": [
       "https://arxiv.org/abs/2006.05205"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 7
   },
   {
-    "id": "P23",
-    "title": "Understanding over-squashing and bottlenecks on graphs via curvature",
-    "authors": "Jake Topping et al.",
-    "year": 2022,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/2111.14522",
-    "category": "Expressivity and limitations",
-    "why": "Gives a geometric account of bottlenecks and a principled graph-rewiring approach.",
-    "exercise": "Implement or adapt curvature-based rewiring; compare against random edge additions at equal budget.",
+    "title": "Control-based Conditions for Graph Distinguishability",
+    "authors": "Muhammad Raza, Obaid Ullah Ahmad, Mudassir Shabbir, Xenofon Koutsoukos, Waseem Abbas",
+    "year": 2025,
+    "venue": "SIAM Conference on Control and its Applications (CT), 31–38",
+    "url": "https://doi.org/10.1137/1.9781611978742.5",
+    "relevance": "Strong candidate for graph theory/expressivity extension; primary abstract explicitly mentions graph ML implications, though no ML model is evaluated.",
+    "version_note": "Published 14 July 2025. Related oriented-graph journal work below is distinct publication and stronger enumeration result.",
+    "sources": [
+      "https://epubs.siam.org/doi/abs/10.1137/1.9781611978742.5"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Expressivity and limits",
+    "week": 7,
+    "method": "Graph distinguishability",
+    "why": "Uses control-theoretic conditions to study graph distinguishability, connecting spectral structure with the limits of graph representations.",
+    "exercise": "Enumerate small graph pairs and test walk-matrix conditions alongside spectral and 1-WL signatures; report what each criterion can and cannot distinguish.",
     "difficulty": "Advanced",
-    "method": "Curvature rewiring",
-    "sources": [
-      "https://arxiv.org/abs/2111.14522"
-    ]
-  },
-  {
-    "id": "P24",
-    "title": "PairNorm: Tackling Oversmoothing in GNNs",
-    "authors": "Lingxiao Zhao and Leman Akoglu",
-    "year": 2020,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/1909.12223",
-    "category": "Expressivity and limitations",
-    "why": "Separates representation collapse with depth from other GNN limitations.",
-    "exercise": "Implement PairNorm and plot node-embedding distances and accuracy as depth increases.",
-    "difficulty": "Intermediate",
-    "method": "PairNorm",
-    "sources": [
-      "https://arxiv.org/abs/1909.12223"
-    ]
-  },
-  {
-    "id": "P25",
-    "title": "Cluster-GCN: An Efficient Algorithm for Training Deep and Large Graph Convolutional Networks",
-    "authors": "Wei-Lin Chiang et al.",
-    "year": 2019,
-    "venue": "KDD",
-    "url": "https://arxiv.org/abs/1905.07953",
-    "category": "Scalable learning",
-    "why": "Uses graph partitions to make minibatch training memory-efficient.",
-    "exercise": "Train on cluster batches; report peak memory, epoch time, and accuracy against neighbor sampling.",
-    "difficulty": "Intermediate",
-    "method": "Cluster-GCN",
-    "sources": [
-      "https://arxiv.org/abs/1905.07953",
-      "https://www.bengio.abracadoudou.com/cv/publications/pdf/chiang_2019_arxiv.pdf"
-    ]
-  },
-  {
-    "id": "P26",
-    "title": "GraphSAINT: Graph Sampling Based Inductive Learning Method",
-    "authors": "Hanqing Zeng et al.",
-    "year": 2020,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/1907.04931",
-    "category": "Scalable learning",
-    "why": "Studies subgraph sampling with normalization to improve training efficiency.",
-    "exercise": "Implement one subgraph sampler and test the contribution of sampling normalization.",
-    "difficulty": "Intermediate",
-    "method": "GraphSAINT",
-    "sources": [
-      "https://arxiv.org/abs/1907.04931"
-    ]
+    "display_note": "",
+    "id": "P26"
   },
   {
     "id": "P27",
-    "title": "SIGN: Scalable Inception Graph Neural Networks",
-    "authors": "Fabrizio Frasca et al.",
-    "year": 2020,
-    "venue": "ICML Graph Representation Learning and Beyond Workshop",
-    "url": "https://arxiv.org/abs/2004.11198",
-    "category": "Scalable learning",
-    "why": "Shows how precomputed graph filters can trade storage for fast training.",
-    "exercise": "Precompute multiple propagation scales and include preprocessing time in comparisons with GraphSAGE.",
-    "difficulty": "Intermediate",
-    "method": "SIGN",
-    "sources": [
-      "https://arxiv.org/abs/2004.11198",
-      "https://grlplus.github.io/papers/77.pdf"
-    ]
-  },
-  {
-    "id": "P28",
-    "title": "Open Graph Benchmark: Datasets for Machine Learning on Graphs",
-    "authors": "Weihua Hu et al.",
-    "year": 2020,
-    "venue": "NeurIPS",
-    "url": "https://arxiv.org/abs/2005.00687",
-    "category": "Evaluation and trust",
-    "why": "Supplies task-specific datasets, realistic splits, and standardized evaluators.",
-    "exercise": "Implement an OGB baseline and document why its official split and metric match the task.",
-    "difficulty": "Foundation",
-    "method": "OGB",
-    "sources": [
-      "https://arxiv.org/abs/2005.00687",
-      "https://papers.nips.cc/paper/2020/file/fb60d411a5c5b72b2e7d3527cfc84fd0-Paper.pdf"
-    ]
-  },
-  {
-    "id": "P29",
     "title": "Deep Graph Infomax",
     "authors": "Petar Veličković et al.",
     "year": 2019,
     "venue": "ICLR",
     "url": "https://arxiv.org/abs/1809.10341",
-    "category": "Self-supervised learning",
+    "category": "Scaling and self-supervision",
     "why": "Introduces node representation learning through local-global contrast.",
     "exercise": "Implement DGI and test feature corruption with a frozen linear evaluation protocol.",
     "difficulty": "Intermediate",
     "method": "DGI",
     "sources": [
       "https://arxiv.org/abs/1809.10341"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 9
   },
   {
-    "id": "P30",
+    "id": "P28",
     "title": "Graph Contrastive Learning with Augmentations",
     "authors": "Yuning You et al.",
     "year": 2020,
     "venue": "NeurIPS",
     "url": "https://arxiv.org/abs/2010.13902",
-    "category": "Self-supervised learning",
+    "category": "Scaling and self-supervision",
     "why": "Makes graph augmentations a central design choice in contrastive pretraining.",
     "exercise": "Implement two graph augmentations and assess whether they preserve labels on the chosen dataset.",
     "difficulty": "Intermediate",
     "method": "GraphCL",
     "sources": [
       "https://arxiv.org/abs/2010.13902"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 9
   },
   {
-    "id": "P31",
-    "title": "Large-Scale Representation Learning on Graphs via Bootstrapping",
-    "authors": "Shantanu Thakoor et al.",
-    "year": 2022,
+    "id": "P29",
+    "title": "GraphSAINT: Graph Sampling Based Inductive Learning Method",
+    "authors": "Hanqing Zeng et al.",
+    "year": 2020,
     "venue": "ICLR",
-    "url": "https://arxiv.org/abs/2102.06514",
-    "category": "Self-supervised learning",
-    "why": "Explores self-supervision without explicit negative pairs and its memory implications.",
-    "exercise": "Implement a teacher-student moving-average update and ablate stop-gradient or predictor design.",
-    "difficulty": "Advanced",
-    "method": "BGRL",
-    "sources": [
-      "https://arxiv.org/abs/2102.06514"
-    ]
-  },
-  {
-    "id": "P32",
-    "title": "GraphMAE: Self-Supervised Masked Graph Autoencoders",
-    "authors": "Zhenyu Hou et al.",
-    "year": 2022,
-    "venue": "KDD",
-    "url": "https://arxiv.org/abs/2205.10803",
-    "category": "Self-supervised learning",
-    "why": "Uses masked feature reconstruction as an alternative to contrastive objectives.",
-    "exercise": "Implement masked reconstruction and compare masking ratios with a supervised baseline.",
+    "url": "https://arxiv.org/abs/1907.04931",
+    "category": "Scaling and self-supervision",
+    "why": "Studies subgraph sampling with normalization to improve training efficiency.",
+    "exercise": "Implement one subgraph sampler and test the contribution of sampling normalization.",
     "difficulty": "Intermediate",
-    "method": "GraphMAE",
+    "method": "GraphSAINT",
     "sources": [
-      "https://arxiv.org/abs/2205.10803"
-    ]
+      "https://arxiv.org/abs/1907.04931"
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 9
   },
   {
-    "id": "P33",
+    "title": "Control-Based Graph Embeddings with Data Augmentation for Contrastive Learning",
+    "authors": "Obaid Ullah Ahmad, Anwar Said, Mudassir Shabbir, Xenofon Koutsoukos, Waseem Abbas",
+    "year": 2024,
+    "venue": "American Control Conference (ACC), 27–32",
+    "url": "https://doi.org/10.23919/ACC60939.2024.10644876",
+    "relevance": "Unsupervised contrastive graph representation with control-informed augmentation.",
+    "version_note": "arXiv:2403.04923 same work, but last two authors reversed in preprint; publication ordering used.",
+    "sources": [
+      "https://doi.org/10.23919/ACC60939.2024.10644876",
+      "https://arxiv.org/abs/2403.04923",
+      "https://nebula.wsimg.com/a34c32683c1e868a5c2d90aee090e6d3?AccessKeyId=DC23973FEA94075ABCF3&alloworigin=1&disposition=0"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Scaling and self-supervision",
+    "week": 9,
+    "method": "Control-based contrastive learning",
+    "why": "Unsupervised contrastive graph representation with control-informed augmentation.",
+    "exercise": "Compare control-informed graph augmentations with random edge deletion under the same contrastive objective; ablate augmentation strength.",
+    "difficulty": "Advanced",
+    "display_note": "",
+    "id": "P30"
+  },
+  {
+    "title": "Learning Backbones: Sparsifying Graphs Through Zero Forcing for Effective Graph-Based Learning",
+    "authors": "Obaid Ullah Ahmad, Anwar Said, Mudassir Shabbir, Xenofon Koutsoukos, Waseem Abbas",
+    "year": 2025,
+    "venue": "Complex Networks & Their Applications XIII (COMPLEX NETWORKS 2024), 85–100",
+    "url": "https://doi.org/10.1007/978-3-031-82427-2_8",
+    "relevance": "Zero-forcing graph sparsification for downstream GNN classification.",
+    "version_note": "Conference 2024, proceedings published 11 April 2025. arXiv:2502.17713 is same work. 2026 Extracting Learning Backbones journal extension has no Shabbir authorship and must NOT be counted as his paper.",
+    "sources": [
+      "https://doi.org/10.1007/978-3-031-82427-2_8",
+      "https://link.springer.com/chapter/10.1007/978-3-031-82427-2_8",
+      "https://arxiv.org/abs/2502.17713"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Scaling and self-supervision",
+    "week": 9,
+    "method": "Learning backbones",
+    "why": "Zero-forcing graph sparsification for downstream GNN classification.",
+    "exercise": "Extract zero-forcing backbones; compare with random and degree-based edge retention at matched sparsity, reporting accuracy, runtime and connectivity.",
+    "difficulty": "Intermediate",
+    "display_note": "Conference held in 2024; proceedings published in 2025. The arXiv version is the same reading.",
+    "id": "P31"
+  },
+  {
+    "title": "Leveraging Deep Learning and SNA Approaches for Smart City Policing in the Developing World",
+    "authors": "Saeed-Ul Hassan, Mudassir Shabbir, Sehrish Iqbal, Anwar Said, Faisal Kamiran, Raheel Nawaz, Umar Saif",
+    "year": 2021,
+    "venue": "International Journal of Information Management 56, 102045",
+    "url": "https://doi.org/10.1016/j.ijinfomgt.2019.102045",
+    "relevance": "Direct GCN application to binary node classification in communication networks; suitable critical discussion of privacy, bias and evaluation.",
+    "version_note": "2019 online publication, 2021 volume year.",
+    "sources": [
+      "https://www.sciencedirect.com/science/article/pii/S0268401219302129",
+      "https://e-space.mmu.ac.uk/625271/8/Leveraging%20Deep%20Learning%20and%20SNA%20approaches%20for%20Smart%20City%20Policing%20in%20the%20Developing%20World%20e.pdf"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Applications and graph optimization",
+    "week": 10,
+    "method": "GCN network application",
+    "why": "Direct GCN application to binary node classification in communication networks; suitable critical discussion of privacy, bias and evaluation.",
+    "exercise": "Use synthetic communication graphs to study label prediction and structural bias; evaluate leakage and false-positive disparities without profiling real individuals.",
+    "difficulty": "Intermediate",
+    "display_note": "",
+    "id": "P32"
+  },
+  {
+    "title": "Attack-Resilient Multi-Agent Flocking Control Using Graph Neural Networks",
+    "authors": "Chandreyee Bhowmick, Mudassir Shabbir, Xenofon Koutsoukos",
+    "year": 2022,
+    "venue": "30th Mediterranean Conference on Control and Automation (MED), 300–305",
+    "url": "https://cs.vuse.vanderbilt.edu/koutsoxd/www/Publications/Attack-Resilient_Multi-Agent_Flocking_Control_Using_Graph_Neural_Networks.pdf",
+    "relevance": "GCN-based distributed flocking resilient to adversarial communication.",
+    "version_note": "",
+    "sources": [
+      "https://cs.vuse.vanderbilt.edu/koutsoxd/www/Publications/Attack-Resilient_Multi-Agent_Flocking_Control_Using_Graph_Neural_Networks.pdf",
+      "https://ieeecss.org/sites/ieeecss/files/file/event-program/MED-2022-PROGRAM-and-BoA.pdf"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Applications and graph optimization",
+    "week": 10,
+    "method": "Resilient flocking GNN",
+    "why": "GCN-based distributed flocking resilient to adversarial communication.",
+    "exercise": "Simulate a small flock under compromised neighbor messages; compare the GNN controller with a nominal controller using collision and cohesion metrics.",
+    "difficulty": "Intermediate",
+    "display_note": "",
+    "id": "P33"
+  },
+  {
+    "title": "Circuit Design Completion Using Graph Neural Networks",
+    "authors": "Anwar Said, Mudassir Shabbir, Brian Broll, Waseem Abbas, Peter Völgyesi, Xenofon Koutsoukos",
+    "year": 2023,
+    "venue": "Neural Computing and Applications 35, 12145–12157",
+    "url": "https://doi.org/10.1007/s00521-023-08346-x",
+    "relevance": "GNNs for missing circuit components and connections.",
+    "version_note": "",
+    "sources": [
+      "https://doi.org/10.1007/s00521-023-08346-x",
+      "https://cs.vuse.vanderbilt.edu/koutsoxd/www/Publications/s00521-023-08346-x.pdf"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Applications and graph optimization",
+    "week": 10,
+    "method": "Circuit completion",
+    "why": "GNNs for missing circuit components and connections.",
+    "exercise": "Mask a component or connection in small circuit graphs; compare GNN completion with frequency and topology baselines using circuit-level held-out splits.",
+    "difficulty": "Intermediate",
+    "display_note": "",
+    "id": "P34"
+  },
+  {
+    "title": "Learning-Based Heuristic for Combinatorial Optimization of the Minimum Dominating Set Problem using Graph Convolutional Networks",
+    "authors": "Abihith Kothapalli, Mudassir Shabbir, Xenofon Koutsoukos",
+    "year": 2023,
+    "venue": "arXiv:2306.03434",
+    "url": "https://arxiv.org/abs/2306.03434",
+    "relevance": "GCNs for NP-hard graph combinatorial optimization.",
+    "version_note": "Preprint; no verified later proceedings/journal found.",
+    "sources": [
+      "https://arxiv.org/abs/2306.03434"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Applications and graph optimization",
+    "week": 10,
+    "method": "GCN minimum dominating set",
+    "why": "GCNs for NP-hard graph combinatorial optimization.",
+    "exercise": "Train on small synthetic graphs; compare feasible dominating sets against greedy and exact solutions, then test size and graph-family generalization.",
+    "difficulty": "Intermediate",
+    "display_note": "Preprint.",
+    "id": "P35"
+  },
+  {
+    "title": "Sequential Graph Neural Networks for Source Code Vulnerability Identification",
+    "authors": "Ammar Ahmed, Anwar Said, Mudassir Shabbir, Xenofon Koutsoukos",
+    "year": 2023,
+    "venue": "HotSoS 2023 work in progress; arXiv:2306.05375",
+    "url": "https://arxiv.org/abs/2306.05375",
+    "relevance": "Sequential/GNN code representation, vulnerability classification and CVEFGE dataset.",
+    "version_note": "Personal homepage incorrectly labels Neural Computing and Applications; official HotSoS program says works in progress. Treat as preprint/work-in-progress, not verified journal publication.",
+    "sources": [
+      "https://arxiv.org/abs/2306.05375",
+      "https://sos-vo.org/system/files/sos_files/Sequential_Graph_Neural_Networks_for_Source_Code_Vulnerability_Identification.pdf",
+      "https://anwar-said.github.io/anwarsaid/CV.pdf"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Applications and graph optimization",
+    "week": 10,
+    "method": "SEGNN",
+    "why": "Sequential/GNN code representation, vulnerability classification and CVEFGE dataset.",
+    "exercise": "Build a small code-graph pipeline and compare GNN versus sequence-only features; split by project and remove near-duplicate functions before evaluation.",
+    "difficulty": "Intermediate",
+    "display_note": "Work-in-progress/preprint version; no journal publication is claimed.",
+    "id": "P36"
+  },
+  {
+    "title": "A Graph Machine Learning Framework to Compute Zero Forcing Sets in Graphs",
+    "authors": "Obaid Ullah Ahmad, Mudassir Shabbir, Waseem Abbas, Xenofon Koutsoukos",
+    "year": 2024,
+    "venue": "IEEE Transactions on Network Science and Engineering 11(2), 2110–2123",
+    "url": "https://doi.org/10.1109/TNSE.2023.3337750",
+    "relevance": "Graph ML solution to zero-forcing set computation.",
+    "version_note": "2023 early access; 2024 issue. Distinct from control-only On Zero Forcing Sets and Network Controllability.",
+    "sources": [
+      "https://doi.org/10.1109/TNSE.2023.3337750",
+      "https://cs.vuse.vanderbilt.edu/koutsoxd/www/Publications/A_Graph_Machine_Learning_Framework_to_Compute_Zero_Forcing_Sets_in_Graphs.pdf"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Applications and graph optimization",
+    "week": 10,
+    "method": "GNN zero forcing",
+    "why": "Graph ML solution to zero-forcing set computation.",
+    "exercise": "Train a graph learner to propose zero-forcing sets; verify feasibility by simulation and compare set size and runtime with greedy and exact small-graph solvers.",
+    "difficulty": "Advanced",
+    "display_note": "",
+    "id": "P37"
+  },
+  {
+    "id": "P38",
     "title": "Modeling Relational Data with Graph Convolutional Networks",
     "authors": "Michael Schlichtkrull et al.",
     "year": 2018,
     "venue": "ESWC",
     "url": "https://arxiv.org/abs/1703.06103",
-    "category": "Heterogeneous and temporal graphs",
+    "category": "Relational and temporal learning",
     "why": "Extends message passing to typed relations and knowledge-graph completion.",
     "exercise": "Implement basis-decomposed R-GCN on a small relational dataset with leakage-aware edge splits.",
     "difficulty": "Intermediate",
@@ -534,91 +809,32 @@
     "sources": [
       "https://arxiv.org/abs/1703.06103",
       "https://research.vu.nl/en/publications/modeling-relational-data-with-graph-convolutional-networks/"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 10
   },
   {
-    "id": "P34",
-    "title": "Heterogeneous Graph Attention Network",
-    "authors": "Xiao Wang et al.",
-    "year": 2019,
-    "venue": "WWW",
-    "url": "https://arxiv.org/abs/1903.07293",
-    "category": "Heterogeneous and temporal graphs",
-    "why": "Separates attention over neighbors from attention over semantic meta-paths.",
-    "exercise": "Implement two meta-path channels and compare learned semantic attention with uniform weighting.",
-    "difficulty": "Intermediate",
-    "method": "HAN",
-    "sources": [
-      "https://arxiv.org/abs/1903.07293"
-    ]
-  },
-  {
-    "id": "P35",
-    "title": "Heterogeneous Graph Transformer",
-    "authors": "Ziniu Hu et al.",
-    "year": 2020,
-    "venue": "WWW",
-    "url": "https://arxiv.org/abs/2003.01332",
-    "category": "Heterogeneous and temporal graphs",
-    "why": "Combines type-dependent attention, temporal encodings, and heterogeneous sampling.",
-    "exercise": "Implement type-specific projections and ablate node and relation types on a manageable graph.",
-    "difficulty": "Advanced",
-    "method": "HGT",
-    "sources": [
-      "https://arxiv.org/abs/2003.01332"
-    ]
-  },
-  {
-    "id": "P36",
+    "id": "P39",
     "title": "Inductive Representation Learning on Temporal Graphs",
     "authors": "Da Xu et al.",
     "year": 2020,
     "venue": "ICLR",
     "url": "https://arxiv.org/abs/2002.07962",
-    "category": "Heterogeneous and temporal graphs",
+    "category": "Relational and temporal learning",
     "why": "Introduces temporal attention with continuous-time encodings.",
     "exercise": "Implement TGAT-style temporal neighbors and verify every prediction uses only past events.",
     "difficulty": "Advanced",
     "method": "TGAT",
     "sources": [
       "https://arxiv.org/abs/2002.07962"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 10
   },
   {
-    "id": "P37",
-    "title": "Temporal Graph Networks for Deep Learning on Dynamic Graphs",
-    "authors": "Emanuele Rossi et al.",
-    "year": 2020,
-    "venue": "ICML Graph Representation Learning and Beyond Workshop",
-    "url": "https://arxiv.org/abs/2006.10637",
-    "category": "Heterogeneous and temporal graphs",
-    "why": "Introduces event-driven memory for learning on changing graphs.",
-    "exercise": "Implement a reduced TGN pipeline and compare memory updates with a memory-free temporal model.",
-    "difficulty": "Advanced",
-    "method": "TGN",
-    "sources": [
-      "https://arxiv.org/abs/2006.10637",
-      "https://emanuelerossi.co.uk/assets/pdf/emanuele_rossi_cv.pdf"
-    ]
-  },
-  {
-    "id": "P38",
-    "title": "A Generalization of Transformer Networks to Graphs",
-    "authors": "Vijay Prakash Dwivedi and Xavier Bresson",
-    "year": 2021,
-    "venue": "AAAI Workshop on Deep Learning on Graphs",
-    "url": "https://arxiv.org/abs/2012.09699",
-    "category": "Graph transformers",
-    "why": "Introduces a clear graph-transformer baseline with Laplacian positional information.",
-    "exercise": "Implement sparse graph attention with Laplacian encodings and test the effect of removing positions.",
-    "difficulty": "Intermediate",
-    "method": "Graph Transformer",
-    "sources": [
-      "https://arxiv.org/abs/2012.09699"
-    ]
-  },
-  {
-    "id": "P39",
+    "id": "P40",
     "title": "Do Transformers Really Perform Bad for Graph Representation?",
     "authors": "Chengxuan Ying et al.",
     "year": 2021,
@@ -631,23 +847,10 @@
     "method": "Graphormer",
     "sources": [
       "https://arxiv.org/abs/2106.05234"
-    ]
-  },
-  {
-    "id": "P40",
-    "title": "Rethinking Graph Transformers with Spectral Attention",
-    "authors": "Devin Kreuzer et al.",
-    "year": 2021,
-    "venue": "NeurIPS",
-    "url": "https://arxiv.org/abs/2106.03893",
-    "category": "Graph transformers",
-    "why": "Studies learned spectral position encodings and fully connected attention.",
-    "exercise": "Implement a small spectral encoder and examine eigenvector-sign perturbations and graph-size cost.",
-    "difficulty": "Advanced",
-    "method": "SAN",
-    "sources": [
-      "https://arxiv.org/abs/2106.03893"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 11
   },
   {
     "id": "P41",
@@ -664,26 +867,13 @@
     "sources": [
       "https://arxiv.org/abs/2205.12454",
       "https://proceedings.neurips.cc/paper_files/paper/2022/file/5d4834a159f1547b267a05a4e2b7cf5e-Paper-Conference.pdf"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 11
   },
   {
     "id": "P42",
-    "title": "Exphormer: Sparse Transformers for Graphs",
-    "authors": "Hamed Shirzad et al.",
-    "year": 2023,
-    "venue": "ICML",
-    "url": "https://proceedings.mlr.press/v202/shirzad23a.html",
-    "category": "Graph transformers",
-    "why": "Uses sparse attention patterns to make graph transformers practical on larger graphs.",
-    "exercise": "Implement expander-style sparse attention and compare memory and accuracy with dense attention.",
-    "difficulty": "Advanced",
-    "method": "Exphormer",
-    "sources": [
-      "https://proceedings.mlr.press/v202/shirzad23a.html"
-    ]
-  },
-  {
-    "id": "P43",
     "title": "Generative Adversarial Nets",
     "authors": "Ian J. Goodfellow et al.",
     "year": 2014,
@@ -696,10 +886,13 @@
     "method": "GAN",
     "sources": [
       "https://papers.nips.cc/paper/2014/hash/f033ed80deb0234979a61f95710dbe25-Abstract.html"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 12
   },
   {
-    "id": "P44",
+    "id": "P43",
     "title": "GraphGAN: Graph Representation Learning with Generative Adversarial Nets",
     "authors": "Hongwei Wang et al.",
     "year": 2018,
@@ -713,7 +906,29 @@
     "sources": [
       "https://arxiv.org/abs/1711.08267",
       "https://ojs.aaai.org/index.php/AAAI/article/download/11872/11731"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 12
+  },
+  {
+    "id": "P44",
+    "title": "GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models",
+    "authors": "Jiaxuan You et al.",
+    "year": 2018,
+    "venue": "ICML",
+    "url": "https://arxiv.org/abs/1802.08773",
+    "category": "Generative graph learning",
+    "why": "Provides an autoregressive alternative to adversarial graph generation.",
+    "exercise": "Implement a small sequential graph generator and compare degree and clustering distributions.",
+    "difficulty": "Advanced",
+    "method": "GraphRNN",
+    "sources": [
+      "https://arxiv.org/abs/1802.08773"
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 12
   },
   {
     "id": "P45",
@@ -729,58 +944,13 @@
     "method": "MolGAN",
     "sources": [
       "https://arxiv.org/abs/1805.11973"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 12
   },
   {
     "id": "P46",
-    "title": "GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models",
-    "authors": "Jiaxuan You et al.",
-    "year": 2018,
-    "venue": "ICML",
-    "url": "https://arxiv.org/abs/1802.08773",
-    "category": "Generative graph learning",
-    "why": "Provides an autoregressive alternative to adversarial graph generation.",
-    "exercise": "Implement a small sequential graph generator and compare degree and clustering distributions.",
-    "difficulty": "Advanced",
-    "method": "GraphRNN",
-    "sources": [
-      "https://arxiv.org/abs/1802.08773"
-    ]
-  },
-  {
-    "id": "P47",
-    "title": "DiGress: Discrete Denoising Diffusion for Graph Generation",
-    "authors": "Clément Vignac et al.",
-    "year": 2023,
-    "venue": "ICLR",
-    "url": "https://arxiv.org/abs/2209.14734",
-    "category": "Generative graph learning",
-    "why": "Introduces categorical diffusion for graph structure and attributes.",
-    "exercise": "Implement a reduced discrete diffusion model on small synthetic graphs and evaluate structural validity.",
-    "difficulty": "Advanced",
-    "method": "DiGress",
-    "sources": [
-      "https://arxiv.org/abs/2209.14734"
-    ]
-  },
-  {
-    "id": "P48",
-    "title": "GNNExplainer: Generating Explanations for Graph Neural Networks",
-    "authors": "Rex Ying et al.",
-    "year": 2019,
-    "venue": "NeurIPS",
-    "url": "https://arxiv.org/abs/1903.03894",
-    "category": "Evaluation and trust",
-    "why": "Explores which subgraphs and features support a GNN prediction.",
-    "exercise": "Implement explanation masks on a motif dataset; measure fidelity, sparsity, and stability.",
-    "difficulty": "Intermediate",
-    "method": "GNNExplainer",
-    "sources": [
-      "https://arxiv.org/abs/1903.03894"
-    ]
-  },
-  {
-    "id": "P49",
     "title": "Adversarial Attacks on Graph Neural Networks via Meta Learning",
     "authors": "Daniel Zügner and Stephan Günnemann",
     "year": 2019,
@@ -793,23 +963,94 @@
     "method": "Metattack",
     "sources": [
       "https://arxiv.org/abs/1902.08412"
-    ]
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 13
   },
   {
-    "id": "P50",
-    "title": "Temporal Graph Benchmark for Machine Learning on Temporal Graphs",
-    "authors": "Shenyang Huang et al.",
-    "year": 2023,
-    "venue": "NeurIPS Datasets and Benchmarks Track",
-    "url": "https://arxiv.org/abs/2307.01026",
+    "id": "P47",
+    "title": "GNNExplainer: Generating Explanations for Graph Neural Networks",
+    "authors": "Rex Ying et al.",
+    "year": 2019,
+    "venue": "NeurIPS",
+    "url": "https://arxiv.org/abs/1903.03894",
     "category": "Evaluation and trust",
-    "why": "Makes temporal splits, realistic negative candidates, and simple baselines part of credible research.",
-    "exercise": "Implement an official temporal baseline and compare it with a recent-history heuristic.",
+    "why": "Explores which subgraphs and features support a GNN prediction.",
+    "exercise": "Implement explanation masks on a motif dataset; measure fidelity, sparsity, and stability.",
     "difficulty": "Intermediate",
-    "method": "TGB",
+    "method": "GNNExplainer",
     "sources": [
-      "https://arxiv.org/abs/2307.01026",
-      "https://proceedings.neurips.cc/paper_files/paper/2023/hash/066b98e63313162f6562b35962671288-Abstract.html"
-    ]
+      "https://arxiv.org/abs/1903.03894"
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 13
+  },
+  {
+    "id": "P48",
+    "title": "Open Graph Benchmark: Datasets for Machine Learning on Graphs",
+    "authors": "Weihua Hu et al.",
+    "year": 2020,
+    "venue": "NeurIPS",
+    "url": "https://arxiv.org/abs/2005.00687",
+    "category": "Evaluation and trust",
+    "why": "Supplies task-specific datasets, realistic splits, and standardized evaluators.",
+    "exercise": "Implement an OGB baseline and document why its official split and metric match the task.",
+    "difficulty": "Foundation",
+    "method": "OGB",
+    "sources": [
+      "https://arxiv.org/abs/2005.00687",
+      "https://papers.nips.cc/paper/2020/file/fb60d411a5c5b72b2e7d3527cfc84fd0-Paper.pdf"
+    ],
+    "instructor_paper": false,
+    "selection_basis": "Field influence: foundational idea, influential architecture, or established research/evaluation baseline.",
+    "week": 7
+  },
+  {
+    "title": "A Survey of Graph Unlearning",
+    "authors": "Anwar Said, Ngoc N. Tran, Yuying Zhao, Tyler Derr, Mudassir Shabbir, Waseem Abbas, Xenofon Koutsoukos",
+    "year": 2023,
+    "venue": "arXiv:2310.02164; revised October 2025",
+    "url": "https://arxiv.org/abs/2310.02164",
+    "relevance": "Survey of graph machine unlearning, privacy, evaluation and applications.",
+    "version_note": "Latest v4 (14 Oct 2025) has seven authors; old five-author metadata and title Graph Unlearning: A Review refer to same work, not extra papers.",
+    "sources": [
+      "https://arxiv.org/abs/2310.02164"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Evaluation and trust",
+    "week": 13,
+    "method": "Graph unlearning survey",
+    "why": "Survey of graph machine unlearning, privacy, evaluation and applications.",
+    "exercise": "Select one surveyed unlearning method; compare deletion utility, retained-task performance and compute against full retraining using a clearly stated threat model.",
+    "difficulty": "Intermediate",
+    "display_note": "First posted in 2023; this reading uses the October 2025 revision.",
+    "id": "P49"
+  },
+  {
+    "title": "NeuroGraph: Benchmarks for Graph Machine Learning in Brain Connectomics",
+    "authors": "Anwar Said, Roza G. Bayrak, Tyler Derr, Mudassir Shabbir, Daniel Moyer, Catie Chang, Xenofon Koutsoukos",
+    "year": 2023,
+    "venue": "NeurIPS 2023 Datasets and Benchmarks",
+    "url": "https://arxiv.org/abs/2306.06202",
+    "relevance": "Graph ML benchmark for brain connectomics.",
+    "version_note": "Count once with NeurIPS paper, not an extra preprint.",
+    "sources": [
+      "https://arxiv.org/abs/2306.06202",
+      "https://openreview.net/pdf/2a71fa730a5386406f32de1af770bc56ddf64693.pdf",
+      "https://nds-vu.github.io/publications/"
+    ],
+    "instructor_paper": true,
+    "selection_basis": "Author coverage: graph machine learning and its representation foundations.",
+    "category": "Evaluation and trust",
+    "week": 13,
+    "method": "NeuroGraph",
+    "why": "Graph ML benchmark for brain connectomics.",
+    "exercise": "Reproduce a small benchmark with authorized data, subject-disjoint splits and a non-graph baseline; test graph-construction sensitivity without making clinical claims.",
+    "difficulty": "Intermediate",
+    "display_note": "",
+    "id": "P50"
   }
 ]

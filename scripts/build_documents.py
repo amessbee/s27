@@ -88,7 +88,7 @@ def build_docx(template):
                 old=mar.find('w:'+side,NS)
                 if old is not None:mar.remove(old)
                 mar.append(el(side,w=70,type='dxa'))
-    setcell(cells(ts[10],1)[0],['The primary reading set is CS4308_Papers.pdf (50 papers, P01-P50), with editable LaTeX in CS4308_Papers.tex. The weekly table uses these stable paper identifiers.']+[f"{r['author']}. {r['title']}. {r['url']} {r['use']}" for r in C['resources']])
+    setcell(cells(ts[10],1)[0],['The primary reading set is CS4308_Papers.pdf (50 papers, P01-P50), with editable LaTeX in CS4308_Papers.tex. The weekly table uses these stable paper identifiers.',C['reading_selection']['summary']]+[f"{r['author']}. {r['title']}. {r['url']} {r['use']}" for r in C['resources']])
     # Remove template minimum blank heights, and keep schedule rows together.
     for ti,t in enumerate(ts):
         if ti==8:continue
@@ -158,24 +158,31 @@ def build_tex():
 {\Large\bfseries CS4308 Graph Machine Learning}\par
 {\huge\bfseries Fifty papers to read and build}\par
 \vspace{5pt}
-A curated path from graph structure and random walks to neural message passing, transformers, generation, and reliable evaluation. This is a foundational research syllabus, not an exhaustive survey of the newest literature. Bibliographic sources were checked in November 2026. The year shown is the cited publication year; an arXiv preprint may be earlier. Workshop papers are identified explicitly.
+A curated path from graph structure and random walks to neural message passing, transformers, generation, and reliable evaluation. The selection combines the instructor's graph-learning research with influential methods and evaluation frameworks from the wider field. Bibliographic sources were checked in November 2026. The year shown is the cited publication year; an arXiv preprint may be earlier. Workshop papers are identified explicitly.
 \section*{How to use this list}
 The class collectively discusses all 50 papers. Each group, normally a pair, must understand, implement, evaluate, and present at least five distinct papers. Register a balanced selection: one random-walk or spectral method, one message-passing or attention method, one advanced method, one evaluation or reliability paper, and one project-aligned paper. For theory and benchmark papers, implement a central diagnostic or evaluation protocol.
 
 Submit a critical brief, reproducible code, a central result, one ablation or stress test, and a presentation for each study. Small-scale reproductions are acceptable when explicitly scoped. Both partners must contribute and defend the work. Suggested checkpoints are weeks 4, 6, 9, 11, and 13. This reading companion uses the same P01--P50 identifiers as the course outline and website.
 
-GAN means generative adversarial network; GAT means graph attention network. P43 supplies the general GAN prerequisite, while P44 and P45 apply adversarial objectives to graph representation or generation.
+GAN means generative adversarial network; GAT means graph attention network. The original GAN paper supplies the general prerequisite, followed by GraphGAN and MolGAN for graph-based adversarial learning.
 \section*{Weekly reading map}
 ''']
     for w in C['weeks']:
         if w['papers']:out.append(r'\textbf{Week '+str(w['week'])+r': '+tex(w['topic'])+r'.} '+', '.join(w['papers'])+r'\par')
+    out.append(r'\clearpage\section*{Selection and coverage}')
+    out.append(tex(C['reading_selection']['summary'])+r'\par')
+    for note in C['reading_selection']['policy']:out.append(tex(note)+r'\par')
+    out.append(r'Coverage sources: \href{https://orcid.org/0000-0002-6961-0961}{author ORCID}; \href{https://anwar-said.github.io/anwarsaid/CV.pdf}{coauthor publication list}; \href{https://amessbee.github.io/s27/reading_selection.json}{coverage and version audit}. Each entry links its primary publication or manuscript.\par')
     categories=list(dict.fromkeys(p['category'] for p in P))
+    out.append(r'\clearpage')
     for cat in categories:
-        out.append(r'\clearpage\section*{'+tex(cat)+'}')
+        out.append(r'\Needspace{16\baselineskip}\section*{'+tex(cat)+'}')
         for p in [x for x in P if x['category']==cat]:
             out.append(r'\begin{minipage}{\linewidth}')
             out.append(r'{\large\bfseries '+p['id']+' '+tex(p['title'])+r'}\par')
             out.append(tex(p['authors'].rstrip('.'))+'. '+tex(p['venue'])+', '+str(p['year'])+r'.\par')
+            out.append(r'\textcolor{ink}{\small '+('MUDASSIR SHABBIR / RESEARCH' if p.get('instructor_paper') else 'FIELD LANDMARK')+r'}\par')
+            if p.get('display_note'):out.append(r'{\small '+tex(p['display_note'])+r'}\par')
             out.append(r'\textbf{Why read it.} '+tex(p['why'])+r'\par')
             out.append(r'\textbf{Build or investigate.} '+tex(p['exercise'])+r'\par')
             out.append(r'\textbf{Level.} '+tex(p['difficulty'])+r'\quad\href{'+p['url']+r'}{Primary source $\nearrow$}\par')
