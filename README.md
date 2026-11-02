@@ -57,3 +57,9 @@ The builder patches only `word/document.xml` and field-update settings, preservi
 GitHub Pages serves the root of the `main` branch. `.nojekyll` keeps this a plain static site. Commit and push updated HTML, assets, and document outputs together after rebuilding and checking them.
 
 Paper and dataset links point to their original providers; no third-party paper PDFs or datasets are redistributed in this repository. Follow the providers' access and license conditions when running projects.
+
+## Visual identity
+
+The header and document panel use unmodified logo artwork from the [official LUMS website](https://lums.edu.pk/): [blue logo](https://lums.edu.pk/sites/default/files/inline-images/LUMS%20Logo.png) and [white logo](https://lums.edu.pk/sites/default/files/inline-images/LUMS%20Logo-white.png). Local copies retain their original proportions and colors. The palette uses the university website’s blue `#002581` and cyan `#00CEFF`, as observed in its [official stylesheet](https://lums.edu.pk/themes/contrib/lums/css/style.css) on 2 November 2026, alongside neutral backgrounds and text colors. These are website palette values, not a claim of a complete institutional brand standard. Logo rights remain with LUMS.
+
+Main body text and controls use 16–17 px type; supporting text generally uses 14 px. Small decorative labels use 12–13 px. Narrow layouts reflow navigation and content rather than reducing text size.
