@@ -3,17 +3,17 @@
   "title": "Graph Machine Learning",
   "tagline": "Read the paper. Build the model. Ask the next question.",
   "description": "A research and practice course on learning from connected data. Begin with graph theory, random walks, and PageRank; move through DeepWalk, node2vec, graph convolution, attention, adversarial learning, and graph transformers. Read critically, reproduce results, and develop an original, carefully evaluated research project.",
-  "status": "Proposed course plan. Semester, timetable, credits, eligibility, and assessment details are subject to departmental confirmation.",
+  "status": "Proposed research and practice course plan. Semester, timetable, credits, and assessment weights require confirmation.",
   "semester": "To be announced",
   "instructor": "Dr. Mudassir Shabbir",
   "credits": "3 credit hours proposed",
   "duration": "16 weeks proposed, including examinations",
-  "meetings": "Two 75-minute meetings per week proposed; research discussions and practical studios integrated. Optional TA clinic, subject to staffing.",
+  "meetings": "Two 75-minute lectures per week, with integrated research discussions and practical studios. Optional TA clinic; timing to be announced.",
   "workload": "Plan for approximately 8–10 hours outside class each week; implementation and project deadlines may require more. The instructor will calibrate scope to available compute.",
   "prerequisites": [
     "Data structures and algorithms; basic discrete mathematics and graph terminology.",
     "Linear algebra, probability, calculus, and an introductory machine learning course or equivalent experience.",
-    "Comfortable Python programming; basic PyTorch experience is strongly recommended. Formal course equivalencies are to be confirmed."
+    "Comfortable Python programming; basic PyTorch experience is recommended."
   ],
   "objectives": [
     "Connect graph structure, random walks, spectral ideas, and representation learning.",
@@ -22,17 +22,15 @@
   ],
   "outcomes": [
     "Analyze graph representations, connectivity, centrality, random walks, and Laplacians, and relate them to learning tasks.",
-    "Derive and implement representative random-walk, convolutional, attention, adversarial, and transformer methods.",
     "Critique assumptions, expressivity, scalability, robustness, and evaluation protocols in research papers.",
-    "Design reproducible node, link, or graph prediction experiments with valid splits, baselines, ablations, and uncertainty reporting.",
     "Communicate at least five paper reproductions in a group portfolio and defend individual contributions.",
     "Formulate a research question, execute a phased project, and individually write and submit a research paper on the project."
   ],
   "assessment": [
     {
-      "name": "Five-paper portfolio",
+      "name": "Paper portfolio",
       "weight": 25,
-      "detail": "Five paper studies per group, 5% each. For each: understanding and critique 20%, implementation and reproducibility 40%, evaluation 20%, presentation and individual defense 20%."
+      "detail": "Paper studies per group. For each: understanding and critique 20%, implementation and reproducibility 40%, evaluation 20%, presentation and individual defense 20%."
     },
     {
       "name": "Surprise quizzes",
@@ -47,7 +45,7 @@
     {
       "name": "Midterm examination",
       "weight": 15,
-      "detail": "Individual examination on weeks 1–7; proposed week 8, 90 minutes. Concepts, derivations, graph problems, and interpretation of experiments."
+      "detail": "Individual examination on weeks 1–7; preferred timing is week 8, with the exact date to be announced. Duration: 90 minutes (tentative). Concepts, derivations, graph problems, and interpretation of experiments."
     },
     {
       "name": "Phased research project",
@@ -57,7 +55,7 @@
     {
       "name": "Final examination",
       "weight": 20,
-      "detail": "Individual cumulative examination with emphasis on post-midterm material; proposed final examination period, 120 minutes."
+      "detail": "Individual cumulative examination with emphasis on post-midterm material, during the official final examination period. Duration: 120 minutes (tentative)."
     }
   ],
   "paper_protocol": [
@@ -104,8 +102,8 @@
   "paper_structure": "Abstract; introduction and question; related work; method; experimental setup; results and ablations; limitations and ethical considerations; conclusion; references; reproducibility and individual contributions.",
   "project_rubric": "Across the project milestones, assess clarity of question, technical correctness, strength of baselines and evaluation, reproducibility, and quality of argument. The individual paper is assessed for synthesis and writing as well as the student's documented contribution; novelty alone does not determine the grade.",
   "policies": [
-    "All assessment weights, examination timings, contact hours, and checkpoint weeks are proposed. The instructor will confirm them before teaching begins. Examination aids, exact dates, late-work rules, and quiz make-up arrangements will be announced under university policy.",
-    "No separate graded homework or attendance component is proposed. Practical exercises support the paper portfolio and project. Any reuse between the two must be declared and must add a distinct contribution to receive credit.",
+    "Examination aids, exact dates, late-work rules, and quiz make-up arrangements will be announced as per university policy.",
+    "No separate graded homework or attendance component. Practical exercises support the paper portfolio and project. Any reuse between the two must be declared and must add a distinct contribution to receive credit.",
     "Use fixed train/validation/test splits; select models on validation data and reserve the test set for final evaluation. Document preprocessing, negative sampling, random seeds, hardware, and runtime. Report all attempted conditions relevant to the research claim.",
     "Cite papers, datasets, code, and any AI assistance. Students remain responsible for correctness and must be able to explain and reproduce submitted work. Do not fabricate results or submit generated prose as an individually authored research argument without disclosure and instructor guidance.",
     "Follow dataset licenses and access conditions. Avoid collecting personal data for class projects; use public benchmark or synthetic data with an appropriate research purpose. Do not upload restricted data or credentials to public repositories.",
@@ -343,7 +341,8 @@
       "A preprint and its published version count as one reading. Distinct conference and extended journal papers are retained where they make separate contributions; their relationship is noted. Preprints and works in progress are labeled. General geometry and control papers without a direct graph-learning contribution are outside this reading set.",
       "All nine recent additions have verified official conference proceedings records. Years follow the published venue, not the first arXiv posting: for example, GraphAny is an ICLR 2025 paper. Combined with the instructor’s papers, the list contains eight publications from 2024, six from 2025 and three from 2026.",
       "All 50 receive class coverage through lectures, concise paper spotlights and discussions. The assigned week identifies the main discussion; groups may choose papers across weeks for their five-paper portfolio."
-    ]
+    ],
+    "scope_note": "The current primary reading set contains 50 papers, with more to be added later. The weekly schedule uses the stable paper identifiers below."
   },
   "reading_categories": [
     "Foundations and representations",
@@ -357,5 +356,9 @@
     "Generative graph learning",
     "Evaluation and trust"
   ],
-  "office": "47A-9G"
+  "office": "47A-9G",
+  "office_hours": "Tuesday and Thursday, 1–2 pm",
+  "email": "Mudassir.shabbir@lums.edu.pk",
+  "eligibility": "Junior and senior undergraduates; graduate students.",
+  "eligibility_condition": "Students without prerequisite preparation require instructor permission."
 }
