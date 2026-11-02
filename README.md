@@ -25,14 +25,14 @@ The [selection audit](reading_selection.json) records coverage sources, version 
 
 ## Preview and edit the website
 
-The website uses static HTML, CSS, and JavaScript, with no framework or external asset dependencies. All course content is present in HTML; JavaScript adds paper filtering.
+The website uses static HTML, CSS, and JavaScript, with no framework or external asset dependencies. A compact editorial layout separates the overview, semester plan, reading room, and research studio. All content is present in HTML; JavaScript adds section navigation and combinable search, topic, author, and year filters. Without JavaScript, all sections remain available in a continuous page. Native disclosures expose paper exercises, weekly activities, and project briefs. Existing paper links (such as `#P39`) open the appropriate view and reading automatically.
 
 ```sh
 python3 scripts/build_site.py
 python3 -m http.server 8430 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8430`. Edit the JSON files and rebuild to update content. Styles live in `assets/style.css`; filtering behavior lives in `assets/course.js`.
+Open `http://127.0.0.1:8430`. Edit the JSON files and rebuild to update content. Styles live in `assets/style.css`; navigation and filtering behavior live in `assets/course.js`. Rebuild after asset edits as well: the generated page versions its CSS, JavaScript, and favicon links to avoid stale cached assets after deployment.
 
 ## Rebuild the documents
 
