@@ -1,11 +1,13 @@
 """Generate an accessible, buildless course website from the shared course data."""
 import html
+import hashlib
 import json
 import math
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 C=json.loads((ROOT/'course.json').read_text());P=json.loads((ROOT/'course_papers.json').read_text());R=json.loads((ROOT/'projects.json').read_text())
 P = sorted(P, key=lambda p: (C['reading_categories'].index(p['category']), p['year'], p['id']))
+def asset(path): return path+'?v='+hashlib.sha256((ROOT/path).read_bytes()).hexdigest()[:12]
 def e(v):return html.escape(str(v),quote=True)
 def paras(items):return ''.join('<p>'+e(x)+'</p>' for x in items)
 def lis(items):return '<ul>'+''.join('<li>'+e(x)+'</li>' for x in items)+'</ul>'
@@ -26,7 +28,7 @@ phases=''.join(f'<li><span class="mono">WEEK {ph["week"]}</span><h3>{e(ph["name"
 categories=''.join(f'<option>{e(cat)}</option>' for cat in dict.fromkeys(p['category'] for p in P))
 resources=''.join(f'<li><a href="{e(r["url"])}" target="_blank" rel="noopener noreferrer">{e(r["title"])} ↗</a><span>{e(r["author"])} · {e(r["use"])}</span></li>' for r in C['resources'])
 page=f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="CS4308 Graph Machine Learning: a research and practice course with 50 curated papers, five-paper reproductions, and a phased research project."><title>CS4308 · Graph Machine Learning</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css"><script src="assets/course.js" defer></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="CS4308 Graph Machine Learning: a research and practice course with 50 curated papers, five-paper reproductions, and a phased research project."><title>CS4308 · Graph Machine Learning</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{asset('assets/style.css')}"><script src="{asset('assets/course.js')}" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><a class="wordmark" href="#" aria-label="CS4308 home">CS<span>4308</span><i aria-hidden="true"></i></a><nav aria-label="Main navigation"><a href="#course">The course</a><a href="#schedule">Schedule</a><a href="#papers">50 papers</a><a href="#projects">Projects</a><a href="#downloads" class="nav-download">Downloads <span aria-hidden="true">↗</span></a></nav></header>
 <main id="main">
