@@ -13,7 +13,7 @@ A research and practice course moving from graph theory and PageRank through gra
 
 The course proposes a 16-week schedule. Groups, normally pairs, understand, implement, evaluate, and present at least five papers. Assessment includes surprise quizzes, a midterm, a final examination, and a phased research project. Every student individually writes and submits a research paper on the project. Publication acceptance is not required.
 
-The plan labels unspecified instructor, semester, contact information, credits, eligibility, meeting times, and grading details as proposed or to be announced. The completed form preserves the supplied university support and policy text; current official university guidance remains authoritative.
+The instructor is Dr. Mudassir Shabbir, office 47A-9G. The plan labels unspecified semester, other contact information, credits, eligibility, meeting times, and grading details as proposed or to be announced. The completed form preserves the supplied university support and policy text; current official university guidance remains authoritative.
 
 ## Source files
 

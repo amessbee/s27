@@ -3,9 +3,9 @@
   "title": "Graph Machine Learning",
   "tagline": "Read the paper. Build the model. Ask the next question.",
   "description": "A research and practice course on learning from connected data. Begin with graph theory, random walks, and PageRank; move through DeepWalk, node2vec, graph convolution, attention, adversarial learning, and graph transformers. Read critically, reproduce results, and develop an original, carefully evaluated research project.",
-  "status": "Proposed course plan. Semester, instructor, timetable, credits, eligibility, and assessment details are subject to departmental confirmation.",
+  "status": "Proposed course plan. Semester, timetable, credits, eligibility, and assessment details are subject to departmental confirmation.",
   "semester": "To be announced",
-  "instructor": "To be announced",
+  "instructor": "Dr. Mudassir Shabbir",
   "credits": "3 credit hours proposed",
   "duration": "16 weeks proposed, including examinations",
   "meetings": "Two 75-minute meetings per week proposed; research discussions and practical studios integrated. Optional TA clinic, subject to staffing.",
@@ -356,5 +356,6 @@
     "Graph transformers",
     "Generative graph learning",
     "Evaluation and trust"
-  ]
+  ],
+  "office": "47A-9G"
 }
